@@ -1,0 +1,19 @@
+default: &default
+  adapter: postgresql
+  pool: 5
+  timeout: 5000
+
+development:
+  <<: *default
+  database: autobook_development
+
+test: &test
+  <<: *default
+  database: autobook_test
+
+production:
+  <<: *default
+  database: autobook_production
+
+cucumber:
+  <<: *test
