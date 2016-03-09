@@ -13,4 +13,12 @@ class User < ActiveRecord::Base
       user.last_name = auth["info"]["last_name"]
     end
   end
+
+  def full_name
+    "#{first_name} #{last_name}"
+  end
+
+  def handle
+    full_name.present? ? full_name : email
+  end
 end
