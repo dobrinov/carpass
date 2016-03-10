@@ -1,5 +1,7 @@
 class User < ActiveRecord::Base
 
+  has_many :cars
+
   def self.from_omniauth(auth)
     where(provider: auth['provider'], uid: auth['uid']).first || create_from_omniauth(auth)
   end

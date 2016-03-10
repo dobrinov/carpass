@@ -1,0 +1,31 @@
+h1 Моите коли
+
+= link_to 'Добави кола', new_car_path, class: 'btn btn-primary'
+
+br
+br
+
+.row
+  .col-xs-12
+    ul.nav.nav-tabs
+      - @cars.each do |car|
+        li role="presentation" class="#{'active' if @car === car}"
+          = link_to car.plate, car_path(car)
+
+br
+
+.row
+  .col-sm-9
+    p Тази кола няма записана история.
+
+  .col-sm-3
+    h5 Регистрационен номер
+    p = @car.plate
+
+    - if @car.vin.present?
+      h5 VIN
+      p = @car.vin
+
+    - if @car.engine_number.present?
+      h5 Номер на двигател
+      p = @car.engine_number

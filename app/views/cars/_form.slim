@@ -1,0 +1,13 @@
+= form_for car do |car_form|
+  .form-group
+    = car_form.text_field :plate, class: 'form-control', placeholder: 'Регистрационен номер'
+  .form-group
+    = car_form.text_field :vin, class: 'form-control', placeholder: 'VIN номер'
+  .form-group
+    = car_form.text_field :engine_number, class: 'form-control', placeholder: 'Номер на двигател'
+  .form-group
+    = text_field_tag :date_of_purchase, nil, class: 'form-control', :'data-provide' => 'datepicker', :'data-date-format' => 'dd-mm-yyyy', :'data-date-language' => 'bg', placeholder: 'Дата на покупка'
+  .form-group
+    = text_field_tag :mileage, nil, class: 'form-control', placeholder: 'Километри в момент на покупка'
+  .form-group
+    = car_form.submit 'Добави кола', class: 'btn btn-primary'
