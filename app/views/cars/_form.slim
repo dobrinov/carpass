@@ -6,8 +6,10 @@
   .form-group
     = car_form.text_field :engine_number, class: 'form-control', placeholder: 'Номер на двигател'
   .form-group
-    = text_field_tag :date_of_purchase, nil, class: 'form-control', :'data-provide' => 'datepicker', :'data-date-format' => 'dd-mm-yyyy', :'data-date-language' => 'bg', placeholder: 'Дата на покупка'
+    = text_field_tag 'car[produced_at]', nil, class: 'form-control', :'data-provide' => 'datepicker', :'data-date-week-start' => 1, :'data-date-format' => 'dd-mm-yyyy', :'data-date-language' => 'bg', placeholder: 'Дата на производство'
   .form-group
-    = text_field_tag :mileage, nil, class: 'form-control', placeholder: 'Километри в момент на покупка'
+    = text_field_tag 'car[purchased_at]', nil, class: 'form-control', :'data-provide' => 'datepicker', :'data-date-week-start' => 1, :'data-date-format' => 'dd-mm-yyyy', :'data-date-language' => 'bg', placeholder: 'Дата на покупка'
+  .form-group
+    = number_field_tag 'car[mileage_at_purchase]', nil, class: 'form-control', placeholder: 'Пробег в момента на покупката (км.)'
   .form-group
     = car_form.submit 'Добави кола', class: 'btn btn-primary'

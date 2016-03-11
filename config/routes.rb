@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 
-  resources :cars
+  resources :cars do
+    resources :histories, only: [:new, :create, :edit, :update, :destroy]
+  end
 
   # Omniauth
   get    '/auth/:provider/callback', to: 'sessions#create'

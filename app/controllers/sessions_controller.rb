@@ -19,7 +19,7 @@ class SessionsController < ApplicationController
   protected
 
   def default_path
-    root_path
+    cars_path
   end
 
   private

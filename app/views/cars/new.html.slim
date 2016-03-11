@@ -1,3 +1,16 @@
-h1 Добавяне на кола
+h1 Моите коли
+
+br
+
+.row
+  .col-xs-12
+    ul.nav.nav-tabs
+      - @cars.each do |car|
+        li role="presentation" class="#{'active' if @car === car}"
+          = link_to car.plate, car_path(car)
+      li role="presentation" class="active"
+        = link_to fa_icon('plus'), new_car_path
+
+br
 
 = render partial: 'form', locals: { car: @car }

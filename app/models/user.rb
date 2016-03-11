@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
 
-  has_many :cars
+  has_many :cars, dependent: :destroy
 
   def self.from_omniauth(auth)
     where(provider: auth['provider'], uid: auth['uid']).first || create_from_omniauth(auth)

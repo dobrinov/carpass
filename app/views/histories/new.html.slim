@@ -16,8 +16,16 @@ br
 .row
   .col-sm-9
     .row
-      .col-xs-4.col-sm-offset-4.text-center
-        = link_to 'Добави история', new_car_history_path(@car, referrer_param => current_path), class: 'btn btn-primary'
+      .col-xs-12
+        = form_for [@car, @history] do |f|
+          .form-group
+            = f.number_field :mileage, class: 'form-control', placeholder: 'Пробег (км.)'
+          .form-group
+            = f.text_area :details, class: 'form-control', rows: 5, placeholder: 'Детайли'
+          .form-group
+            = f.submit 'Добави история', class: 'btn btn-primary'
+            | &nbsp;
+            = link_to 'Отказ', back_or_default, class: 'btn btn-default'
 
     br
 
