@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+ruby '2.3.0'
+
 gem 'rails', '4.2.6'
 gem 'pg'
 gem 'unicorn'
@@ -20,15 +22,15 @@ gem 'bootstrap-sass', '~> 3.3.6'
 gem 'omniauth-facebook'
 gem 'pry-rails'
 
-# Use Capistrano for deployment
-# gem 'capistrano-rails', group: :development
-
 group :development, :test do
   gem 'byebug'
   gem 'rspec-rails', '~> 3.0'
 end
 
 group :development do
+  gem 'capistrano-rails', '~> 1.1'
+  gem 'capistrano-rbenv', '~> 2.0'
+  gem 'capistrano-bundler', '~> 1.1.2'
   gem 'quiet_assets'
   gem 'web-console', '~> 2.0'
   gem 'spring'
