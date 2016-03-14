@@ -5,7 +5,7 @@ set :repo_url, 'git@github.com:dobrinov/autobook.git'
 
 # Deployment configuration
 set :deploy_user, 'deploy'
-set :deploy_to, "/home/#{fetch(:deploy_user)}"
+set :deploy_to, "/home/#{fetch(:deploy_user)}/#{fetch(:application)}"
 set :keep_releases, 5
 
 # Rbenv configuration
