@@ -16,7 +16,7 @@ production:
   <<: *default
   database: autobook_production
   username: autobook
-  password: <%= ENV['APPNAME_DATABASE_PASSWORD'] %>
+  password: '#BgpRVLotb]ngnGvUxy4xXD7'
 
 cucumber:
   <<: *test
