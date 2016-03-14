@@ -1,15 +1,21 @@
-= form_for car do |car_form|
+= form_for car do |f|
   .form-group
-    = car_form.text_field :plate, class: 'form-control', placeholder: 'Регистрационен номер'
+    = f.label :plate, 'Регистрационен номер'
+    = f.text_field :plate, class: 'form-control', placeholder: 'CA1234XX'
   .form-group
-    = car_form.text_field :vin, class: 'form-control', placeholder: 'VIN номер'
+    = f.label :vin, 'Номер на шаси (VIN)'
+    = f.text_field :vin, class: 'form-control', placeholder: 'XXXXXXXXXXXXXXXXX'
   .form-group
-    = car_form.text_field :engine_number, class: 'form-control', placeholder: 'Номер на двигател'
+    = f.label :engine_number, 'Номер на двигател'
+    = f.text_field :engine_number, class: 'form-control', placeholder: '12345678'
   .form-group
-    = text_field_tag 'car[produced_at]', nil, class: 'form-control', :'data-provide' => 'datepicker', :'data-date-week-start' => 1, :'data-date-format' => 'dd-mm-yyyy', :'data-date-language' => 'bg', placeholder: 'Дата на производство'
+    = label_tag 'car[produced_at]', 'Дата на производство', class: 'control-label'
+    = date_select('car[produced_at]', nil, { order: [:day, :month, :year] }, { class: 'form-control date-select' })
   .form-group
-    = text_field_tag 'car[purchased_at]', nil, class: 'form-control', :'data-provide' => 'datepicker', :'data-date-week-start' => 1, :'data-date-format' => 'dd-mm-yyyy', :'data-date-language' => 'bg', placeholder: 'Дата на покупка'
+    = label_tag 'car[purchased_at]', 'Дата на покупка', class: 'control-label'
+    = date_select('car[purchased_at]', nil, { order: [:day, :month, :year] }, { class: 'form-control date-select' })
   .form-group
-    = number_field_tag 'car[mileage_at_purchase]', nil, class: 'form-control', placeholder: 'Пробег в момента на покупката (км.)'
+    = label_tag 'car[mileage_at_purchase]', 'Пробег в момента на покупката (км.)', class: 'control-label'
+    = number_field_tag 'car[mileage_at_purchase]', nil, class: 'form-control', placeholder: '50000'
   .form-group
-    = car_form.submit 'Добави кола', class: 'btn btn-primary'
+    = f.submit 'Добави кола', class: 'btn btn-primary'

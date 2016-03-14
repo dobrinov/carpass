@@ -1,1 +1,10 @@
 body { padding-top: 70px; }
+
+.control-label {
+  display: block;
+}
+
+.form-control.date-select {
+  display: inline-block;
+  width: auto;
+}
