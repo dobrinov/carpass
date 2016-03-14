@@ -1,5 +1,6 @@
 default: &default
   adapter: postgresql
+  host: localhost
   pool: 5
   timeout: 5000
 
@@ -14,6 +15,8 @@ test: &test
 production:
   <<: *default
   database: autobook_production
+  username: autobook
+  password: <%= ENV['APPNAME_DATABASE_PASSWORD'] %>
 
 cucumber:
   <<: *test
