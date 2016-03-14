@@ -23,7 +23,6 @@ gem 'omniauth-facebook'
 gem 'pry-rails'
 
 group :development, :test do
-  gem 'byebug'
   gem 'rspec-rails', '~> 3.0'
 end
 
@@ -32,6 +31,4 @@ group :development do
   gem 'capistrano-rbenv', '~> 2.0'
   gem 'capistrano-bundler', '~> 1.1.4'
   gem 'quiet_assets'
-  gem 'web-console', '~> 2.0'
-  gem 'spring'
 end
