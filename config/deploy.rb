@@ -24,5 +24,27 @@ set :format, :pretty
 set :log_level, :debug
 set :pty, true
 
-namespace :deploy do
+namespace :unicorn do
+  %w{start stop restart}.each do |command|
+    desc "#{command} Unicorn"
+    task command do
+      on roles(:app) do
+        execute "sudo service unicorn_autobook #{command}"
+      end
+    end
+  end
 end
+
+namespace :nginx do
+  %w{start stop restart status}.each do |command|
+    desc "#{command} Unicorn"
+    task command do
+      on roles(:app) do
+        execute "sudo service nginx #{command}"
+      end
+    end
+  end
+end
+
+desc 'Restat after deployment'
+after 'deploy:publishing', 'unicorn:restart'
