@@ -3,7 +3,6 @@ class CarsController < ApplicationController
 
   def index
     @cars = current_user.cars
-
     redirect_to car_path(@cars.first) if @cars.any?
   end
 
