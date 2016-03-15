@@ -18,6 +18,9 @@ br
     .row
       .col-xs-4.col-sm-offset-4.text-center
         = link_to 'Добави история', new_car_history_path(@car, referrer_param => current_path), class: 'btn btn-primary'
+      .col-xs-4.text-right
+        = link_to car_path(@car), class: 'btn btn-danger', title: 'Изтрий кола', data: {:confirm => "Сигурни ли сте че искате да изтриете колата с регистрация #{@car.plate}?"}, :method => :delete do
+          = fa_icon 'trash-o'
 
     br
 
