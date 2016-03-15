@@ -9,4 +9,4 @@ br
         li role="presentation" class="#{'active' if active_tab == car.id}"
           = link_to car.plate, car_path(car)
       li role="presentation" class="#{'active' if active_tab == 'new_car'}"
-        = link_to fa_icon('plus'), new_car_path
+        = link_to fa_icon('plus'), new_car_path(referrer_param => current_path)
