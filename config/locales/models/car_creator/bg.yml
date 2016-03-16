@@ -1,0 +1,22 @@
+bg:
+  activemodel:
+    attributes:
+      car_creator:
+        plate: 'Регистрационен номер'
+        vin: 'Номер на шаси'
+        engine_number: 'Номер на двигател'
+        produced_at: 'Произведена на'
+        purchased_at: 'Закупена на'
+        mileage_at_purchase: 'Пробег в момента на покупката'
+
+    errors:
+      models:
+        car_creator:
+          attributes:
+            plate:
+              invalid_format: 'Невалиден формат на регистрационен номер.'
+            produced_at:
+              in_the_future: 'Датата на производство не може да бъде в бъдещето.'
+            purchased_at:
+              in_the_future: 'Датата на покупка не може да бъде в бъдещето.'
+              before_production: 'Датата на покупка не може да е преди датата на производство.'

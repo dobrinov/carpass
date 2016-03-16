@@ -24,7 +24,6 @@ class CarsController < ApplicationController
     if @car_creator.save
       redirect_to car_path(@car_creator.car)
     else
-      raise @car_creator.errors.messages.inspect
       render :new
     end
   end
