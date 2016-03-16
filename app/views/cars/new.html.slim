@@ -2,7 +2,7 @@
 
 br
 
-= form_for @car do |f|
+= form_for @car_creator, url: cars_path do |f|
   .form-group
     = f.label :plate, 'Регистрационен номер'
     = f.text_field :plate, class: 'form-control', placeholder: 'CA1234XX'
@@ -13,14 +13,14 @@ br
     = f.label :engine_number, 'Номер на двигател'
     = f.text_field :engine_number, class: 'form-control', placeholder: '12345678'
   .form-group
-    = label_tag 'car[produced_at]', 'Дата на производство', class: 'control-label'
-    = date_select('car[produced_at]', nil, { order: [:day, :month, :year] }, { class: 'form-control date-select' })
+    = f.label :produced_at, 'Дата на производство', class: 'control-label'
+    = f.date_select :produced_at, { order: [:day, :month, :year] }, { class: 'form-control date-select' }
   .form-group
-    = label_tag 'car[purchased_at]', 'Дата на покупка', class: 'control-label'
-    = date_select('car[purchased_at]', nil, { order: [:day, :month, :year] }, { class: 'form-control date-select' })
+    = f.label :purchased_at, 'Дата на покупка', class: 'control-label'
+    = f.date_select :purchased_at, { order: [:day, :month, :year] }, { class: 'form-control date-select' }
   .form-group
-    = label_tag 'car[mileage_at_purchase]', 'Пробег в момента на покупката (км.)', class: 'control-label'
-    = number_field_tag 'car[mileage_at_purchase]', nil, class: 'form-control', placeholder: '50000'
+    = f.label :mileage_at_purchase, 'Пробег в момента на покупката (км.)', class: 'control-label'
+    = f.number_field :mileage_at_purchase, class: 'form-control', min: 0, placeholder: '50000'
   .form-group
     = f.submit 'Добави кола', class: 'btn btn-primary'
     | &nbsp;

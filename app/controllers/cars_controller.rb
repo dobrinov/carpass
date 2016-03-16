@@ -14,18 +14,17 @@ class CarsController < ApplicationController
 
   def new
     @cars = current_user.cars
-    @car = Car.new
+    @car_creator = CarCreator.new(car_creator_params)
   end
 
   def create
-    @car = current_user.cars.build(car_params)
+    @cars = current_user.cars
+    @car_creator = CarCreator.new(car_creator_params)
 
-    @car.histories.build(created_at: car_produced_at, type: 'DateOfProduction')
-    @car.histories.build(mileage: params[:car][:mileage_at_purchase], created_at: car_purchased_at, type: 'DateOfPurchase')
-
-    if @car.save
-      redirect_to car_path(@car)
+    if @car_creator.save
+      redirect_to car_path(@car_creator.car)
     else
+      raise @car_creator.errors.messages.inspect
       render :new
     end
   end
@@ -46,19 +45,13 @@ class CarsController < ApplicationController
 
   private
 
-  def car_produced_at
-    time_string = "#{params[:car][:produced_at]['(1i)']}-#{params[:car][:produced_at]['(2i)']}-#{params[:car][:produced_at]['(3i)']}"
-    Time.parse(time_string)
-  end
-
-  def car_purchased_at
-    time_string = "#{params[:car][:purchased_at]['(1i)']}-#{params[:car][:purchased_at]['(2i)']}-#{params[:car][:purchased_at]['(3i)']}"
-    Time.parse(time_string) + 1.second
-  end
-
-  def car_params
-    if params[:car].present?
-      params[:car].permit(:plate, :vin, :engine_number)
+  def car_creator_params
+    if params[:car_creator].present?
+      params[:car_creator].permit(:plate, :vin, :engine_number, :mileage_at_purchase).merge!({
+        user:         current_user,
+        produced_at:  parse_multi_parameter_datetime(params[:car_creator], :produced_at),
+        purchased_at: parse_multi_parameter_datetime(params[:car_creator], :purchased_at)
+      })
     else
       {}
     end

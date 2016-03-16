@@ -19,4 +19,8 @@ class ApplicationController < ActionController::Base
   def current_user
     @_current_user ||= User.find(session[:user_id]) if session[:user_id]
   end
+
+  def parse_multi_parameter_datetime(params, name)
+    DateTime.new(*(1..6).map { |i| params["#{name}(#{i}i)"].to_i })
+  end
 end
