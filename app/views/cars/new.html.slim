@@ -6,8 +6,8 @@ br
     = f.text_field :plate, class: 'form-control', placeholder: 'CA1234XX'
     = f.text_field :vin, class: 'form-control', placeholder: 'XXXXXXXXXXXXXXXXX'
     = f.text_field :engine_number, class: 'form-control', placeholder: '12345678'
-    = f.date_select :produced_at, { order: [:day, :month, :year] }, { class: 'form-control date-select' }
-    = f.date_select :purchased_at, { order: [:day, :month, :year] }, { class: 'form-control date-select' }
+    = f.date_select :produced_at, { order: [:day, :month, :year], start_year: 1900, end_year: Date.today.year }, { class: 'form-control date-select' }
+    = f.date_select :purchased_at, { order: [:day, :month, :year], start_year: 1900, end_year: Date.today.year }, { class: 'form-control date-select' }
     = f.number_field :mileage_at_purchase, class: 'form-control', min: 0, placeholder: '50000'
     = f.submit 'Добави кола', class: 'btn btn-primary'
     | &nbsp;
