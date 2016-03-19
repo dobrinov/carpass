@@ -10,7 +10,7 @@ class User < ActiveRecord::Base
             :format     => {
               :with => /\A[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]+\z/
             }
-  validates :password, length: { minimum: 6 }
+  # validates :password, length: { minimum: 6 }
 
   def self.from_omniauth(auth)
     where(provider: auth['provider'], uid: auth['uid']).first || create_from_omniauth(auth)
