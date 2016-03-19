@@ -1,0 +1,34 @@
+.row
+  .col-sm-4.col-sm-offset-4.text-center
+    h1 Регистрация
+
+br
+
+.row
+  .col-sm-4.col-sm-offset-2
+    .panel.panel-default
+      .panel-heading
+        strong Регистрация със социален профил
+      .panel-body
+        = link_to "/auth/facebook?referrer=#{referrer_path}", class: 'btn btn-b btn-social btn-facebook' do
+          i.fa.fa-facebook
+          | Влез с Facebook
+
+  .col-sm-4
+    .panel.panel-default
+      .panel-heading
+        strong Регистрация с имейл
+      .panel-body
+        = bootstrap_form_for @user, url: signup_path do |f|
+          = f.email_field :email, placeholder: 'Вашият имейл'
+          = f.password_field :password, placeholder: 'Вашата парола'
+          = f.password_field :password_confirmation, placeholder: 'Повторете вашата парола'
+          = f.submit 'Регистрация'
+
+br
+br
+
+.row
+  .col-sm-4.col-sm-offset-4.text-center
+    h4 Вече имате регистрация?
+    = link_to 'Вход', signin_path, class: 'btn btn-default'

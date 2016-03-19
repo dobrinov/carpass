@@ -1,6 +1,16 @@
 class User < ActiveRecord::Base
+  has_secure_password
 
   has_many :cars, dependent: :destroy
+
+  # Validations
+  validates :email,
+            :presence   => true,
+            :uniqueness => true,
+            :format     => {
+              :with => /\A[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]+\z/
+            }
+  validates :password, length: { minimum: 6 }
 
   def self.from_omniauth(auth)
     where(provider: auth['provider'], uid: auth['uid']).first || create_from_omniauth(auth)

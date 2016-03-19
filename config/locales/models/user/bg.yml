@@ -1,0 +1,19 @@
+bg:
+  activerecord:
+    attributes:
+      user:
+        email: 'Имейл'
+        password: 'Парола'
+        password_confirmation: 'Проверка парола'
+
+    errors:
+      models:
+        user:
+          attributes:
+            email:
+              invalid: 'Невалиден имейл'
+              taken: 'Този имейл е вече зает'
+            password:
+              too_short: 'Паролата е трябва да е минимум %{count} символа'
+            password_confirmation:
+              confirmation: 'Паролата не съвпада'

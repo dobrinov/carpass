@@ -5,15 +5,28 @@ class SessionsController < ApplicationController
   end
 
   def create
-    user = User.from_omniauth(env["omniauth.auth"])
-    user.update_attribute(:last_login_at, Time.now)
-    session[:user_id] = user.id
-    redirect_to back_or_default, notice: 'Signed in'
+    if omniauth_session?
+      user = User.from_omniauth(env["omniauth.auth"])
+      user.update_attribute(:last_login_at, Time.now)
+      session[:user_id] = user.id
+      redirect_to back_or_default
+    else
+      user = User.where(email: params[:email]).first
+
+      if UserAuthenticator.new(user).authenticate(params[:password])
+        user.update_attribute(:last_login_at, Time.now)
+        session[:user_id] = user.id
+        redirect_to back_or_default
+      else
+        @invalid_credentials = true
+        render :new
+      end
+    end
   end
 
   def destroy
     session[:user_id] = nil
-    redirect_to back_or_default, notice: "Signed out!"
+    redirect_to back_or_default
   end
 
   protected
@@ -23,6 +36,10 @@ class SessionsController < ApplicationController
   end
 
   private
+
+  def omniauth_session?
+    env["omniauth.auth"].present?
+  end
 
   def set_referrer
     if env["omniauth.params"].present? && env["omniauth.params"]["referrer"].present?

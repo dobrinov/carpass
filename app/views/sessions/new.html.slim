@@ -1,3 +1,36 @@
-= link_to "/auth/facebook?referrer=#{referrer_path}", class: 'btn btn-social btn-facebook' do
-  i.fa.fa-facebook
-  | Влез чрез Facebook
+.row
+  .col-sm-8.col-sm-offset-2.text-center
+    h1 Вход
+
+br
+
+.row
+  .col-sm-4.col-sm-offset-2
+    .panel.panel-default
+      .panel-heading
+        strong Вход със социален профил
+      .panel-body
+        = link_to "/auth/facebook?referrer=#{referrer_path}", class: 'btn btn-b btn-social btn-facebook' do
+          i.fa.fa-facebook
+          | Влез с Facebook
+
+  .col-sm-4
+    .panel.panel-default
+      .panel-heading
+        strong Вход с имейл
+      .panel-body
+        - if @invalid_credentials
+          .alert.alert-danger Грешен потребител или парола.
+
+        = bootstrap_form_tag url: signin_path do |f|
+          = f.email_field :email, value: params[:email], label: 'Имейл', placeholder: 'Вашият имейл'
+          = f.password_field :password, label: 'Парола', placeholder: 'Вашата парола'
+          = f.submit 'Вход'
+
+br
+br
+
+.row
+  .col-sm-8.col-sm-offset-2.text-center
+    h4 Все още нямате регистрация?
+    = link_to 'Регистрирайте се', signup_path, class: 'btn btn-default'

@@ -38,13 +38,13 @@ ActiveRecord::Schema.define(version: 20160310154359) do
     t.string   "provider"
     t.string   "uid"
     t.string   "email"
-    t.string   "password"
+    t.string   "password_digest"
     t.string   "first_name"
     t.string   "last_name"
     t.boolean  "admin"
     t.datetime "last_login_at"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
   end
 
 end

@@ -8,6 +8,8 @@ Rails.application.routes.draw do
   get    '/auth/:provider/callback', to: 'sessions#create'
   get    '/auth/failure',            to: 'static_pages#landingpage'
   get    'signin',                   to: 'sessions#new'
+  get    'signup',                   to: 'users#new'
+  post   'signup',                   to: 'users#create'
   post   'signin',                   to: 'sessions#create'
   delete 'signout',                  to: 'sessions#destroy'
 
