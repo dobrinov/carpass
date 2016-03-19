@@ -8,3 +8,19 @@ body { padding-top: 70px; }
   display: inline-block;
   width: auto;
 }
+
+.navbar-brand {
+  padding: 7px 15px 4px 15px;
+  // img {
+  //   height: 50px;
+  // }
+}
+
+.navbar-nav > li > a {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.navbar-toggle {
+  padding: 14px;
+}
