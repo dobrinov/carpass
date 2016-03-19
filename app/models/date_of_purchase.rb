@@ -1,5 +1,5 @@
 class DateOfPurchase < History
   def details
-    'Покупка.'
+    'Покупка'
   end
 end

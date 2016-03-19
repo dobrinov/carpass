@@ -4,6 +4,6 @@ class DateOfProduction < History
   end
 
   def details
-    'Производство.'
+    'Производство'
   end
 end
