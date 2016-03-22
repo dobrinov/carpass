@@ -4,4 +4,10 @@ class FacebookSessionsController < ApplicationController
     log_in(user)
     redirect_to back_or_default
   end
+
+  protected
+
+  def default_path
+    cars_path
+  end
 end
