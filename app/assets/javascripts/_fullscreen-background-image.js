@@ -44,13 +44,12 @@
 
     var image = self.node.attr('data-image');
 
-    console.log(image);
     self.node.css('background-image', 'url(' + image + ')');
   };
 
   FullscreenBackgroundImage.prototype.resize = function(){
     var self = this;
-    self.node.height(self.getVisibleHeight());
+    self.node.css('min-height', self.getVisibleHeight() + 'px');
   };
 
   FullscreenBackgroundImage.prototype.getVisibleWidth = function(){
