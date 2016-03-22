@@ -2,10 +2,14 @@
 @import "bootstrap";
 @import "font-awesome";
 @import "bootstrap_overwrites";
+@import "responsive";
 
 // Vendor
 @import "bootstrap-social/bootstrap-social";
 
 
 // Modules
-@import "modules/footer/*"
+@import "modules/footer/*";
+@import "modules/fullscreen-background-image/*";
+@import "modules/logo/*";
+@import "modules/presentation/*";

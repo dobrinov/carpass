@@ -1,4 +1,9 @@
-h1 Заглавна страница
-p Тя трябва много добре да комуникира идеята на сайта и да мотивира потребителите да се регистрират
-
-= link_to 'Създай своята сервизна книжка', signup_path, class: 'btn btn-primary btn-lg'
+= content_for(:presentation) do
+  .container-fluid.presentation.presentation_landingpage.fullscreen-background-image data-image=asset_path('blue_car.jpg')
+    .container
+      .row
+        .col-xs-12
+          = image_tag 'logo_500x500.png', class: 'logo'
+          h1.presentation_brand Autobook
+          h3.presentation_slogan Моята сервизна книжка
+          = link_to 'Създай своята сервизна книжка', signup_path, class: 'btn btn-primary btn-lg'

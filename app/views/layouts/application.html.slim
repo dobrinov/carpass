@@ -7,10 +7,11 @@ html class="no-js"
     meta http-equiv="X-UA-Compatible" content="IE=edge"
     meta name="viewport" content="width=device-width, initial-scale=1"
 
-    = stylesheet_link_tag 'application', 'data-turbolinks-track' => true, media: 'all'
-    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    = stylesheet_link_tag 'application', media: 'all'
+    = javascript_include_tag 'application'
     = csrf_meta_tags
 
+  body data-background-image="false"
     header.header
       .navbar.navbar-inverse.navbar-fixed-top
         .container
@@ -21,7 +22,7 @@ html class="no-js"
               span.icon-bar
               span.icon-bar
             = link_to root_path, class: 'navbar-brand' do
-              = image_tag 'logo_small.png'
+              = image_tag 'logo_56x46.png'
 
           #navbar.collapse.navbar-collapse
             ul.nav.navbar-nav.navbar-left
@@ -41,6 +42,8 @@ html class="no-js"
               - else
                 li = link_to 'Вход', signin_path
 
+    - if content_for?(:presentation)
+      = yield(:presentation)
 
     .container
       = yield
