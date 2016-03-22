@@ -5,27 +5,19 @@ class SessionsController < ApplicationController
   end
 
   def create
-    if omniauth_session?
-      user = User.from_omniauth(env["omniauth.auth"])
-      user.update_attribute(:last_login_at, Time.now)
-      session[:user_id] = user.id
+    user = User.where(email: params[:email]).first
+
+    if UserAuthenticator.new(user).authenticate(params[:password])
+      log_in(user)
       redirect_to back_or_default
     else
-      user = User.where(email: params[:email]).first
-
-      if UserAuthenticator.new(user).authenticate(params[:password])
-        user.update_attribute(:last_login_at, Time.now)
-        session[:user_id] = user.id
-        redirect_to back_or_default
-      else
-        @invalid_credentials = true
-        render :new
-      end
+      @invalid_credentials = true
+      render :new
     end
   end
 
   def destroy
-    session[:user_id] = nil
+    log_out
     redirect_to back_or_default
   end
 

@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   end
 
   # Omniauth
-  get    '/auth/:provider/callback', to: 'sessions#create'
+  get    '/auth/facebook/callback',  to: 'facebook_sessions#create'
   get    '/auth/failure',            to: 'static_pages#landingpage'
   get    'signin',                   to: 'sessions#new'
   get    'signup',                   to: 'users#new'

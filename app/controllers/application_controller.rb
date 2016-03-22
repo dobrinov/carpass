@@ -8,6 +8,15 @@ class ApplicationController < ActionController::Base
 
   private
 
+  def log_in(user)
+    user.update_attribute(:last_login_at, Time.current)
+    session[:user_id] = user.id
+  end
+
+  def log_out
+    session[:user_id] = nil
+  end
+
   def logged_in?
     current_user.present?
   end

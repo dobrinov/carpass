@@ -7,8 +7,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
 
     if @user.save
-      @user.update_attribute(:last_login_at, Time.now)
-      session[:user_id] = @user.id
+      log_in(@user)
       redirect_to back_or_default
     else
       render :new
