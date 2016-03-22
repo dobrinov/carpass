@@ -1,0 +1,10 @@
+.landingpage__branding__brand {
+  font-size: 60px;
+  padding: 0;
+  margin: 0;
+  font-weight: bold;
+
+  @media (max-width: $breakpoint_sm) {
+    font-size: 34px;
+  }
+}

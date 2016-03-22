@@ -1,0 +1,9 @@
+.landingpage__branding__logo {
+  width: 200px;
+  height: 200px;
+
+  @media (max-width: $breakpoint_sm) {
+    width: 120px;
+    height: 120px;
+  }
+}
