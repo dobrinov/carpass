@@ -1,5 +1,9 @@
 bg:
-  activemodel:
+  activerecord:
+    attributes:
+      history:
+        mileage: 'Пробег'
+        details: 'Детайли'
     errors:
       models:
         history:
