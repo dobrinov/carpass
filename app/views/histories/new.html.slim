@@ -8,36 +8,26 @@ br
       .col-xs-12
         .panel.panel-default
           .panel-heading
-            strong Добавяне на история
+            strong История на кола
           .panel-body
-            = bootstrap_form_for [@car, @history] do |f|
-              = f.number_field :mileage, class: 'form-control', placeholder: 'Пробег (км.)'
-              = f.text_area :details, class: 'form-control', rows: 5, placeholder: 'Детайли'
-              .form-group
-                = f.submit 'Добави история', class: 'btn btn-primary'
-                | &nbsp;
-                = link_to 'Отказ', back_or_default, class: 'btn btn-default'
+            - if params[:type].present?
+              = render partial: "#{params[:type]}_form", locals: { car: @car, history: @history }
 
-    br
+            - else
+              ul
+                li = link_to 'Ремонт',                     new_car_history_path(type: 'repairment')
+                li = link_to 'Обслужване',                 new_car_history_path(type: 'maintenance')
+                li = link_to 'Годишен технически преглед (ГТП)', new_car_history_path(type: 'annual_inspection')
+                li = link_to 'Гражданска отговорност (ГО)',     new_car_history_path(type: 'compulsory_insurance')
+                li = link_to 'Каско',                      new_car_history_path(type: 'full_insurance')
+                li = link_to 'Винетка',                    new_car_history_path(type: 'vignette')
+                li = link_to 'Данък',                      new_car_history_path(type: 'tax')
+                li = link_to 'Тунинг',                     new_car_history_path(type: 'tuning')
 
-    .row
-      .col-xs-12
-        - if @histories.any?
-          table.table.stripped
-            thead
-              tr
-                th Дата
-                th Пробег
-                th Детайли
-            tbody
-              - @histories.each do |history|
-                tr
-                  td = history.created_at.strftime(" %d.%m.%Y")
-                  td = number_with_delimiter(history.mileage, delimiter: ',') + " км."
-                  td = history.details
+              = link_to 'Отказ', back_or_default, class: 'btn btn-default'
 
-        - else
-          | Няма записана история за тази кола.
+          = render partial: 'table', locals: { histories: @histories }
+
 
   .col-sm-3
     = render partial: 'cars/side_panel', locals: { car: @car }

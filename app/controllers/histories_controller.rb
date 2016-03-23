@@ -33,6 +33,12 @@ class HistoriesController < ApplicationController
     # To do
   end
 
+  protected
+
+  def default_path
+    cars_path
+  end
+
   private
 
   def history_params

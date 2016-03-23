@@ -4,33 +4,15 @@ br
 
 .row
   .col-sm-9
-    .row
-      .col-xs-4.col-sm-offset-4.text-center
-        = link_to 'Добави история', new_car_history_path(@car, referrer_param => current_path), class: 'btn btn-primary'
-      .col-xs-4.text-right
-        = link_to car_path(@car), class: 'btn btn-danger', title: 'Изтрий кола', data: {:confirm => "Сигурни ли сте че искате да изтриете колата с регистрация #{@car.plate}?"}, :method => :delete do
-          = fa_icon 'trash-o'
-
-    br
 
     .row
       .col-xs-12
-        - if @histories.any?
-          table.table.stripped
-            thead
-              tr
-                th Дата
-                th Пробег
-                th Детайли
-            tbody
-              - @histories.each do |history|
-                tr
-                  td = history.created_at.strftime(" %d.%m.%Y")
-                  td = number_with_delimiter(history.mileage, delimiter: ',') + " км."
-                  td = history.details
-
-        - else
-          | Няма записана история за тази кола.
+        .panel.panel-default
+          .panel-heading
+            strong История на кола
+          .panel-body
+            = link_to 'Добави история', new_car_history_path(@car), class: 'btn btn-primary'
+          = render partial: 'histories/table', locals: { histories: @histories }
 
   .col-sm-3
     = render partial: 'side_panel', locals: { car: @car }

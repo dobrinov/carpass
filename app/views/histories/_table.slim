@@ -1,0 +1,16 @@
+- if histories.any?
+  table.table.table-hover
+    thead
+      tr
+        th Дата
+        th Пробег
+        th Детайли
+    tbody
+      - histories.each do |history|
+        tr
+          td = history.created_at.strftime("%d.%m.%Y")
+          td = number_with_delimiter(history.mileage, delimiter: ',') + " км."
+          td = history.details
+
+- else
+  p Няма записана история за тази кола.

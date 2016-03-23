@@ -1,10 +1,22 @@
-strong Регистрационен номер
-p = car.plate
+.panel.panel-default
+  .panel-heading
+    strong Данни на кола
 
-- if @car.vin.present?
-  strong Номер на шаси
-  p = car.vin
+  .panel-body
+    strong Регистрационен номер
+    p = car.plate
 
-- if @car.engine_number.present?
-  strong Номер на двигател
-  p = car.engine_number
+    - if @car.vin.present?
+      strong Номер на шаси
+      p = car.vin
+
+    - if @car.engine_number.present?
+      strong Номер на двигател
+      p = car.engine_number
+
+.panel.panel-default
+  .panel-heading
+    strong Действия
+
+  .panel-body
+    = link_to 'Изтрий кола', car_path(@car), class: 'btn btn-block btn-danger', data: {:confirm => "Сигурни ли сте че искате да изтриете колата с регистрация #{@car.plate}?"}, :method => :delete
