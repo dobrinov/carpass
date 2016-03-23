@@ -6,13 +6,17 @@ br
   .col-sm-9
     .row
       .col-xs-12
-        = bootstrap_form_for [@car, @history] do |f|
-          = f.number_field :mileage, class: 'form-control', placeholder: 'Пробег (км.)'
-          = f.text_area :details, class: 'form-control', rows: 5, placeholder: 'Детайли'
-          .form-group
-            = f.submit 'Добави история', class: 'btn btn-primary'
-            | &nbsp;
-            = link_to 'Отказ', back_or_default, class: 'btn btn-default'
+        .panel.panel-default
+          .panel-heading
+            strong Добавяне на история
+          .panel-body
+            = bootstrap_form_for [@car, @history] do |f|
+              = f.number_field :mileage, class: 'form-control', placeholder: 'Пробег (км.)'
+              = f.text_area :details, class: 'form-control', rows: 5, placeholder: 'Детайли'
+              .form-group
+                = f.submit 'Добави история', class: 'btn btn-primary'
+                | &nbsp;
+                = link_to 'Отказ', back_or_default, class: 'btn btn-default'
 
     br
 
