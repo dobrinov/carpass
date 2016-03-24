@@ -1,0 +1,2 @@
+class VignetteHistory < History
+end

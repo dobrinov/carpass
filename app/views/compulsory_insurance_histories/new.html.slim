@@ -1,0 +1,28 @@
+= render partial: 'cars/header', locals: { cars: @cars, active_tab: @car.id }
+
+br
+
+.row
+  .col-sm-9
+    .row
+      .col-xs-12
+        .panel.panel-default
+          .panel-heading
+            strong Добавяне на исторя за ГО
+          .panel-body
+            = bootstrap_form_for [@car, @history] do |f|
+              = f.number_field :mileage, class: 'form-control', placeholder: 'Пробег (км.)'
+              = f.text_area :details, class: 'form-control', rows: 5, placeholder: 'Детайли'
+              = f.hidden_field :type, value: params[:type]
+              .form-group
+                = f.submit 'Добави история', class: 'btn btn-primary'
+                | &nbsp;
+                = link_to 'Назад', new_car_history_path, class: 'btn btn-default'
+                | &nbsp;
+                = link_to 'Отказ', back_or_default, class: 'btn btn-default'
+
+          = render partial: 'histories/table', locals: { histories: @histories }
+
+
+  .col-sm-3
+    = render partial: 'cars/side_panel', locals: { car: @car }

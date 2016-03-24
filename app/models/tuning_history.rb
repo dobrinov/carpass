@@ -1,0 +1,2 @@
+class TuningHistory < History
+end

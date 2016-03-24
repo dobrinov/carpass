@@ -3,7 +3,6 @@ class History < ActiveRecord::Base
 
   validates :mileage, presence: true,
                       numericality: { only_integer: true, greater_than_or_equal_to: 0 }
-  validates :details, presence: true
 
   validate :validate_mileage_value
 

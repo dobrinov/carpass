@@ -1,0 +1,2 @@
+class RepairmentHistory < History
+end

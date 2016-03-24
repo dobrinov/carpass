@@ -1,16 +1,21 @@
-- if histories.any?
+.table-responsive
   table.table.table-hover
     thead
       tr
         th Дата
         th Пробег
         th Детайли
+        th Стойност
     tbody
-      - histories.each do |history|
-        tr
-          td = history.created_at.strftime("%d.%m.%Y")
-          td = number_with_delimiter(history.mileage, delimiter: ',') + " км."
-          td = history.details
-
-- else
-  p Няма записана история за тази кола.
+      - if histories.any?
+        - histories.each do |history|
+          tr
+            td = history.created_at.strftime("%d.%m.%Y")
+            td = number_with_delimiter(history.mileage, delimiter: ',') + " км."
+            td
+              u = t("activerecord.attributes.history.types.#{history.type}")
+              p = history.details
+            td 0лв.
+      - else
+        tr.text-center
+          td colspan="5" Няма записана история за тази кола.

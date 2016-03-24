@@ -1,0 +1,2 @@
+class CompulsoryInsuranceHistory < History
+end

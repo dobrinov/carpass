@@ -1,0 +1,2 @@
+class FullInsuranceHistory < History
+end

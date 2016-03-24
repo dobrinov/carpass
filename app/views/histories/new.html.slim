@@ -10,21 +10,18 @@ br
           .panel-heading
             strong История на кола
           .panel-body
-            - if params[:type].present?
-              = render partial: "#{params[:type]}_form", locals: { car: @car, history: @history }
+            ul
+              li = link_to 'Ремонт',                           new_car_repairment_history_path
+              li = link_to 'Обслужване',                       new_car_maintenance_history_path
+              li = link_to 'Годишен технически преглед (ГТП)', new_car_annual_inspection_history_path
+              li = link_to 'Гражданска отговорност (ГО)',      new_car_compulsory_insurance_history_path
+              li = link_to 'Каско',                            new_car_full_insurance_history_path
+              li = link_to 'Гуми',                             new_car_tyre_history_path
+              li = link_to 'Винетка',                          new_car_vignette_history_path
+              li = link_to 'Данък',                            new_car_tax_history_path
+              li = link_to 'Тунинг',                           new_car_tuning_history_path
 
-            - else
-              ul
-                li = link_to 'Ремонт',                     new_car_history_path(type: 'repairment')
-                li = link_to 'Обслужване',                 new_car_history_path(type: 'maintenance')
-                li = link_to 'Годишен технически преглед (ГТП)', new_car_history_path(type: 'annual_inspection')
-                li = link_to 'Гражданска отговорност (ГО)',     new_car_history_path(type: 'compulsory_insurance')
-                li = link_to 'Каско',                      new_car_history_path(type: 'full_insurance')
-                li = link_to 'Винетка',                    new_car_history_path(type: 'vignette')
-                li = link_to 'Данък',                      new_car_history_path(type: 'tax')
-                li = link_to 'Тунинг',                     new_car_history_path(type: 'tuning')
-
-              = link_to 'Отказ', back_or_default, class: 'btn btn-default'
+            = link_to 'Отказ', back_or_default, class: 'btn btn-default'
 
           = render partial: 'table', locals: { histories: @histories }
 

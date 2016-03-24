@@ -1,0 +1,2 @@
+class AnnualInspectionHistory < History
+end

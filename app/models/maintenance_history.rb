@@ -1,0 +1,2 @@
+class MaintenanceHistory < History
+end

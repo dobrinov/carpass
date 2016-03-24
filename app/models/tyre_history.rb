@@ -1,0 +1,2 @@
+class TyreHistory < History
+end

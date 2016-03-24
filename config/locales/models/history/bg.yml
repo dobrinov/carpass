@@ -4,6 +4,19 @@ bg:
       history:
         mileage: 'Пробег'
         details: 'Детайли'
+        types:
+          AnnualInspectionHistory: 'Годишен технически преглед'
+          DateOfPurchase: 'Покупка'
+          DateOfProduction: 'Производство'
+          CompulsoryInsuranceHistory: 'Гражданска отговорност'
+          FullInsuranceHistory: 'Каско'
+          MaintenanceHistory: 'Обслужване'
+          RepairmentHistory: 'Ремонт'
+          TaxHistory: 'Данък'
+          TuningHistory: 'Тунинг'
+          VignetteHistory: 'Винетка'
+          TyreHistory: 'Гуми'
+
     errors:
       models:
         history:
