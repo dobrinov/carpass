@@ -17,7 +17,7 @@ class CompulsoryInsuranceHistoriesController < HistoriesController
 
   def history_params
     if params[:compulsory_insurance_history].present?
-      params[:compulsory_insurance_history].permit(:mileage, :details)
+      params[:compulsory_insurance_history].permit(:mileage, :cost, :details)
     else
       {}
     end

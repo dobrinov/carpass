@@ -15,7 +15,7 @@
             td
               u = t("activerecord.attributes.history.types.#{history.type}")
               p = history.details
-            td 0лв.
+            td = number_to_currency(history.cost, locale: I18n.locale)
       - else
         tr.text-center
           td colspan="5" Няма записана история за тази кола.

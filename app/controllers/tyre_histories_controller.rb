@@ -17,7 +17,7 @@ class TyreHistoriesController < HistoriesController
 
   def history_params
     if params[:tyre_history].present?
-      params[:tyre_history].permit(:mileage, :details)
+      params[:tyre_history].permit(:mileage, :cost, :details)
     else
       {}
     end

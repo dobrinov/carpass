@@ -11,9 +11,10 @@ br
             strong Добавяне на исторя за ГО
           .panel-body
             = bootstrap_form_for [@car, @history] do |f|
-              = f.number_field :mileage, class: 'form-control', placeholder: 'Пробег (км.)'
-              = f.text_area :details, class: 'form-control', rows: 5, placeholder: 'Детайли'
-              = f.hidden_field :type, value: params[:type]
+              = f.number_field :mileage, class: 'form-control', placeholder: 'Пробег в момента на сключване (км.)'
+              = f.text_field :cost, class: 'form-control', rows: 5, placeholder: 'Стойност (лв.)'
+              = f.text_area :details, class: 'form-control', rows: 5, placeholder: 'Детайли за ГО'
+
               .form-group
                 = f.submit 'Добави история', class: 'btn btn-primary'
                 | &nbsp;

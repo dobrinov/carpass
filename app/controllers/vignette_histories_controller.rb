@@ -17,7 +17,7 @@ class VignetteHistoriesController < HistoriesController
 
   def history_params
     if params[:vignette_history].present?
-      params[:vignette_history].permit(:mileage, :details)
+      params[:vignette_history].permit(:mileage, :cost, :details)
     else
       {}
     end
