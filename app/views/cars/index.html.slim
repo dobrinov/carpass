@@ -1,3 +1,11 @@
 h1 Моите коли
-p Нямате регистрирани коли.
-= link_to 'Добави кола', new_car_path, class: 'btn btn-primary'
+
+br
+
+.row
+  .col-sm-12.text-center
+    .alert.alert-info Нямате регистрирани коли.
+
+.row
+  .col-sm-3
+    = link_to 'Добави кола', new_car_path, class: 'btn btn-primary btn-block'
