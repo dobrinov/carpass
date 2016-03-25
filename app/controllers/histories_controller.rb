@@ -11,8 +11,7 @@ class HistoriesController < ApplicationController
   private
 
   def set_instance_variables
-    @cars      = current_user.cars
-    @car       = @cars.find(params[:car_id])
-    @histories = @car.histories.order(created_at: :desc)
+    @cars = current_user.cars
+    @car  = @cars.find(params[:car_id])
   end
 end

@@ -4,16 +4,19 @@ br
 
 .row
   .col-sm-9
+    .row
+      .col-sm-4.col-sm-offset-4
+        = link_to 'Добави история', new_car_history_path(@car), class: 'btn btn-primary btn-block'
 
+br
+
+.row
+  .col-sm-9
     .row
       .col-xs-12
         .panel.panel-default
           .panel-heading
             strong История на кола
-          .panel-body.text-center
-            .row
-              .col-sm-4.col-sm-offset-4
-                = link_to 'Добави история', new_car_history_path(@car), class: 'btn btn-primary btn-block'
           = render partial: 'histories/table', locals: { histories: @histories }
 
   .col-sm-3

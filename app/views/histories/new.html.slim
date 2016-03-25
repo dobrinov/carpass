@@ -3,6 +3,15 @@
 br
 
 .row
+  .col-sm-12
+    = link_to back_or_default, class: 'btn btn-default' do
+      = fa_icon 'chevron-left'
+      | &nbsp; &nbsp;
+      | Назад
+
+br
+
+.row
   .col-sm-9
     .row
       .col-xs-12
@@ -21,10 +30,5 @@ br
               li = link_to 'Данък',                            new_car_tax_history_path
               li = link_to 'Тунинг',                           new_car_tuning_history_path
 
-            = link_to 'Отказ', back_or_default, class: 'btn btn-default'
-
-          = render partial: 'table', locals: { histories: @histories }
-
-
   .col-sm-3
-    = render partial: 'cars/side_panel', locals: { car: @car }
+    = render partial: 'side_panel'

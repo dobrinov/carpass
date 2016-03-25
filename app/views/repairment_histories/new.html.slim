@@ -3,6 +3,15 @@
 br
 
 .row
+  .col-sm-12
+    = link_to new_car_history_path, class: 'btn btn-default' do
+      = fa_icon 'chevron-left'
+      | &nbsp; &nbsp;
+      | Назад
+
+br
+
+.row
   .col-sm-9
     .row
       .col-xs-12
@@ -18,12 +27,8 @@ br
               .form-group
                 = f.submit 'Добави история', class: 'btn btn-primary'
                 | &nbsp;
-                = link_to 'Назад', new_car_history_path, class: 'btn btn-default'
-                | &nbsp;
                 = link_to 'Отказ', back_or_default, class: 'btn btn-default'
-
-          = render partial: 'histories/table', locals: { histories: @histories }
 
 
   .col-sm-3
-    = render partial: 'cars/side_panel', locals: { car: @car }
+    = render partial: 'side_panel'
