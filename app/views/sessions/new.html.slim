@@ -25,7 +25,7 @@ br
         = bootstrap_form_tag url: signin_path do |f|
           = f.email_field :email, value: params[:email], label: 'Имейл', placeholder: 'Вашият имейл'
           = f.password_field :password, label: 'Парола', placeholder: 'Вашата парола'
-          = f.submit 'Вход'
+          = f.submit 'Вход', class: 'btn btn-default btn-block'
 
 br
 br
