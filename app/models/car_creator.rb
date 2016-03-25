@@ -20,6 +20,11 @@ class CarCreator
   attribute :purchased_at,        DateTime
   attribute :mileage_at_purchase, Integer
 
+  # Avoid matching purchase and production by adding 1 hour.
+  def purchased_at=(purchased_at)
+    @purchased_at = purchased_at + 1.hour
+  end
+
   # Validations
   validates :plate, presence: true,
                     format: {
