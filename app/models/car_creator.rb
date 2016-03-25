@@ -65,13 +65,13 @@ class CarCreator
   end
 
   def validate_production_date_cannot_be_in_the_future
-    if produced_at.present? && produced_at > Date.today
+    if produced_at.present? && produced_at > Date.tomorrow - 1.second
       errors.add(:produced_at, I18n.t('activemodel.errors.models.car_creator.attributes.produced_at.in_the_future'))
     end
   end
 
   def validate_purchase_date_cannot_be_in_the_future
-    if purchased_at.present? && purchased_at > Date.today
+    if purchased_at.present? && purchased_at > Date.tomorrow - 1.second
       errors.add(:purchased_at, I18n.t('activemodel.errors.models.car_creator.attributes.purchased_at.in_the_future'))
     end
   end
