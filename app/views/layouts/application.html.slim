@@ -51,7 +51,11 @@ html class="no-js"
     footer.footer
       .container
         .row
-          .col-xs-12.text-center
+          .col-xs-6.footer-links.text-right
+            = link_to 'Контакти', contacts_path
+            = link_to 'Общи условия', terms_of_use_path
+
+          .col-xs-6.text-left
             p Autobook.bg - 2016
 
 / Tracking

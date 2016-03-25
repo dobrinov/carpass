@@ -23,5 +23,8 @@ Rails.application.routes.draw do
   post   'signin',                   to: 'sessions#create'
   delete 'signout',                  to: 'sessions#destroy'
 
+  get 'contacts',     to: 'static_pages#contacts'
+  get 'terms_of_use', to: 'static_pages#terms_of_use'
+
   root to: "static_pages#landingpage"
 end
