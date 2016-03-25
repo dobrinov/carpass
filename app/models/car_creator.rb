@@ -36,7 +36,7 @@ class CarCreator
   validates :mileage_at_purchase, presence: true,
                                   numericality: {
                                     only_integer: true,
-                                    greater_than: 0
+                                    greater_than_or_equal_to: 0
                                   }
 
   validate :validate_production_date_cannot_be_in_the_future,
