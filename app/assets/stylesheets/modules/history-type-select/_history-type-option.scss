@@ -1,0 +1,20 @@
+.history-type-option {
+  display: block;
+  margin: 0;
+  padding: 10px;
+  text-align: center;
+  overflow: hidden;
+  min-height: 154px;
+  text-decoration: none;
+  background-color: #efefef;
+  color: #333333;
+
+  &:hover {
+    color: #333333;
+    background-color: #dfdfdf;
+    text-decoration: none;
+  }
+
+  img { width: 40%; }
+  p   { margin: 15px 0 0 0; padding: 0; }
+}

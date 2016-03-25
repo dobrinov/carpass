@@ -1,0 +1,16 @@
+.history-type-select {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+
+  li {
+    width: 33.333%;
+    float: left;
+    padding: 2px;
+
+    @media (max-width: $breakpoint_sm) {
+      width: 100%;
+      padding: 0 0 2px 0;
+    }
+  }
+}

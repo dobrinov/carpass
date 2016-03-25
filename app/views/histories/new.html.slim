@@ -17,18 +17,53 @@ br
       .col-xs-12
         .panel.panel-default
           .panel-heading
-            strong История на кола
+            strong Избери вид история
           .panel-body
-            ul
-              li = link_to 'Ремонт',                           new_car_repairment_history_path
-              li = link_to 'Обслужване',                       new_car_maintenance_history_path
-              li = link_to 'Годишен технически преглед (ГТП)', new_car_annual_inspection_history_path
-              li = link_to 'Гражданска отговорност (ГО)',      new_car_compulsory_insurance_history_path
-              li = link_to 'Каско',                            new_car_full_insurance_history_path
-              li = link_to 'Гуми',                             new_car_tyre_history_path
-              li = link_to 'Винетка',                          new_car_vignette_history_path
-              li = link_to 'Данък',                            new_car_tax_history_path
-              li = link_to 'Тунинг',                           new_car_tuning_history_path
+            ul.history-type-select
+              li
+                = link_to new_car_repairment_history_path, class: 'history-type-option' do
+                  = image_tag 'car/car-secure.png'
+                  p Ремонт
+
+              li
+                = link_to new_car_maintenance_history_path, class: 'history-type-option' do
+                  = image_tag 'car/car-with-oil-sign.png'
+                  p Обслужване
+
+              li
+                = link_to new_car_annual_inspection_history_path, class: 'history-type-option' do
+                  = image_tag 'car/checked-car.png'
+                  p Годишен технически преглед (ГТП)
+
+              li
+                = link_to new_car_compulsory_insurance_history_path, class: 'history-type-option' do
+                  = image_tag 'car/car-accident.png'
+                  p Гражданска отговорност (ГО)
+
+              li
+                = link_to new_car_full_insurance_history_path, class: 'history-type-option' do
+                  = image_tag 'car/umbrella-car.png'
+                  p Каско
+
+              li
+                = link_to new_car_tyre_history_path, class: 'history-type-option' do
+                  = image_tag 'car/car-with-spare-tire.png'
+                  p Гуми
+
+              li
+                = link_to new_car_vignette_history_path, class: 'history-type-option' do
+                  = image_tag 'car/front-car.png'
+                  p Винетка
+
+              li
+                = link_to new_car_tax_history_path, class: 'history-type-option' do
+                  = image_tag 'car/front-car.png'
+                  p Данък
+
+              li
+                = link_to new_car_tuning_history_path, class: 'history-type-option' do
+                  = image_tag 'car/change-gear.png'
+                  p Тунинг
 
   .col-sm-3
     = render partial: 'side_panel'
