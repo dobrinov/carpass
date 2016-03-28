@@ -14,7 +14,8 @@
             td = number_with_delimiter(history.mileage, delimiter: ',') + " км."
             td
               u = t("activerecord.attributes.history.types.#{history.type}")
-              p = history.details
+              - if history.details.present?
+                p = history.details.html_safe
             td = number_to_currency(history.cost, locale: I18n.locale)
       - else
         tr.text-center

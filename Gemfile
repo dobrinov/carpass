@@ -19,6 +19,7 @@ gem 'compass-rails'
 gem "font-awesome-rails"
 gem 'bootstrap-sass', '~> 3.3.6'
 gem 'bootstrap_form'
+gem 'bootstrap-wysihtml5-rails'
 gem 'omniauth-facebook'
 gem 'pry-rails'
 

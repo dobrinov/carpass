@@ -22,7 +22,7 @@ br
             = bootstrap_form_for [@car, @history] do |f|
               = f.number_field :mileage, class: 'form-control', placeholder: 'Пробег в момента на сключване (км.)'
               = f.text_field :cost, class: 'form-control', rows: 5, placeholder: 'Стойност (лв.)'
-              = f.text_area :details, class: 'form-control', rows: 5, placeholder: 'Детайли за ГО'
+              = f.text_area :details, class: 'form-control wysihtml5', rows: 5, placeholder: 'Детайли за ГО'
 
               .form-group
                 = f.submit 'Добави история', class: 'btn btn-primary'
