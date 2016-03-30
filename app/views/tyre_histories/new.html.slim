@@ -20,12 +20,12 @@ br
             strong Добавяне на гуми
           .panel-body
             = bootstrap_form_for [@car, @history] do |f|
-              = f.number_field :mileage, class: 'form-control', placeholder: 'Пробег в момента на покупката (км.)'
+              = f.number_field :mileage, class: 'form-control', placeholder: 'Пробег в момента на покупката на гумите (км.)'
               = f.text_field :cost, class: 'form-control', placeholder: 'Стойност на гумите (лв.)'
               = f.text_area :details, class: 'form-control wysihtml5', rows: 5, placeholder: 'Пример: Предни летни гуми <производител> (205/55/16)'
 
               .form-group
-                = f.submit 'Добави история', class: 'btn btn-primary'
+                = f.submit 'Добави гуми', class: 'btn btn-primary'
                 | &nbsp;
                 = link_to 'Отказ', back_or_default, class: 'btn btn-default'
 
