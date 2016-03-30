@@ -17,16 +17,14 @@ br
       .col-xs-12
         .panel.panel-default
           .panel-heading
-            strong Добавяне на исторя за данък
+            strong Добавяне на данък
           .panel-body
             = bootstrap_form_for [@car, @history] do |f|
-              = f.number_field :mileage, class: 'form-control', placeholder: 'Пробег (км.)'
-              = f.date_select :valid_until, { order: [:day, :month, :year] }, { class: 'form-control date-select' }
-              = f.text_field :cost, class: 'form-control', placeholder: 'Стойност (лв.)'
-              = f.text_area :details, class: 'form-control wysihtml5', rows: 5, placeholder: 'Детайли'
+              = f.number_field :mileage, class: 'form-control', placeholder: 'Пробег в момента на плащането (км.)'
+              = f.text_field :cost, class: 'form-control', placeholder: 'Стойност на данъка (лв.)'
 
               .form-group
-                = f.submit 'Добави история', class: 'btn btn-primary'
+                = f.submit 'Добави данък', class: 'btn btn-primary'
                 | &nbsp;
                 = link_to 'Отказ', back_or_default, class: 'btn btn-default'
 

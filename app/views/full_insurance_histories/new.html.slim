@@ -17,13 +17,13 @@ br
       .col-xs-12
         .panel.panel-default
           .panel-heading
-            strong Добавяне на исторя за Каско
+            strong Добавяне на застраховка "Каско"
           .panel-body
             = bootstrap_form_for [@car, @history] do |f|
-              = f.number_field :mileage, class: 'form-control', placeholder: 'Пробег (км.)'
+              = f.number_field :mileage, class: 'form-control', placeholder: 'Пробег в момента на сключване (км.)'
               = f.date_select :valid_until, { order: [:day, :month, :year] }, { class: 'form-control date-select' }
-              = f.text_field :cost, class: 'form-control', placeholder: 'Стойност (лв.)'
-              = f.text_area :details, class: 'form-control wysihtml5', rows: 5, placeholder: 'Детайли'
+              = f.text_field :cost, class: 'form-control', placeholder: 'Стойност на застраховката/вноската (лв.)'
+              = f.text_area :details, class: 'form-control wysihtml5', rows: 5, placeholder: 'Пример: Платена 1-ва вноска към "Застраховки" АД'
 
               .form-group
                 = f.submit 'Добави история', class: 'btn btn-primary'
