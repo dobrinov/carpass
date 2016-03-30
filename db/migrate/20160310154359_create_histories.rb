@@ -6,6 +6,7 @@ class CreateHistories < ActiveRecord::Migration
       t.string :details
       t.integer :car_id
       t.string :type
+      t.datetime :valid_until
 
       t.timestamps null: false
     end

@@ -5,6 +5,7 @@ bg:
         mileage: 'Пробег'
         details: 'Детайли'
         cost: 'Стойност'
+        valid_until: 'Валидност'
         types:
           AnnualInspectionHistory: 'Годишен технически преглед'
           DateOfPurchase: 'Покупка'

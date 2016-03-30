@@ -27,12 +27,13 @@ ActiveRecord::Schema.define(version: 20160310154359) do
 
   create_table "histories", force: :cascade do |t|
     t.integer  "mileage"
-    t.decimal  "cost",       precision: 8, scale: 2
+    t.decimal  "cost",        precision: 8, scale: 2
     t.string   "details"
     t.integer  "car_id"
     t.string   "type"
-    t.datetime "created_at",                         null: false
-    t.datetime "updated_at",                         null: false
+    t.datetime "valid_until"
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
   end
 
   create_table "users", force: :cascade do |t|

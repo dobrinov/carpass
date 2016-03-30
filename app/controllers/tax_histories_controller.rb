@@ -17,7 +17,7 @@ class TaxHistoriesController < HistoriesController
 
   def history_params
     if params[:tax_history].present?
-      params[:tax_history].permit(:mileage, :cost, :details)
+      params[:tax_history].permit(:mileage, :valid_until, :cost, :details)
     else
       {}
     end

@@ -21,6 +21,7 @@ br
           .panel-body
             = bootstrap_form_for [@car, @history] do |f|
               = f.number_field :mileage, class: 'form-control', placeholder: 'Пробег (км.)'
+              = f.date_select :valid_until, { order: [:day, :month, :year] }, { class: 'form-control date-select' }
               = f.text_field :cost, class: 'form-control', placeholder: 'Стойност (лв.)'
               = f.text_area :details, class: 'form-control wysihtml5', rows: 5, placeholder: 'Детайли'
 
