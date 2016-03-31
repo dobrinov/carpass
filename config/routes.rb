@@ -26,5 +26,17 @@ Rails.application.routes.draw do
   get 'contacts',     to: 'static_pages#contacts'
   get 'terms_of_use', to: 'static_pages#terms_of_use'
 
+  namespace :admin do
+    resources :users, only: [:index] do
+      resources :cars, only: [:index]
+    end
+
+    resources :cars, only: [] do
+      resources :histories, only: [:index]
+    end
+
+    root to: "users#index"
+  end
+
   root to: "static_pages#landingpage"
 end

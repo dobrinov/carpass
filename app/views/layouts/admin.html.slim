@@ -1,0 +1,58 @@
+doctype html
+html class="no-js"
+  head
+    title Autobook.bg
+
+    meta charset="utf-8"
+    meta http-equiv="X-UA-Compatible" content="IE=edge"
+    meta name="viewport" content="width=device-width, initial-scale=1"
+
+    = stylesheet_link_tag 'application', media: 'all'
+    = javascript_include_tag 'application'
+    = csrf_meta_tags
+
+  body data-background-image="false"
+    header.header
+      .navbar.navbar-inverse.navbar-fixed-top
+        .container
+          .navbar-header
+            button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar"
+              span.sr-only Toggle navigation
+              span.icon-bar
+              span.icon-bar
+              span.icon-bar
+            = link_to root_path, class: 'navbar-brand' do
+              = image_tag 'logo_56x46.png'
+
+          #navbar.collapse.navbar-collapse
+            ul.nav.navbar-nav.navbar-left
+
+            ul.nav.navbar-nav.navbar-right
+              - if logged_in?
+                li.dropdown
+                  = link_to '#', class: 'dropdown-toggle', 'data-toggle': 'dropdown' do
+                    = current_user.handle
+                    | &nbsp;
+                    span.caret
+                  ul.dropdown-menu
+                    li = link_to 'Изход', signout_path, :method => :delete
+
+              - else
+                li = link_to 'Вход', signin_path
+
+    - if content_for?(:presentation)
+      = yield(:presentation)
+
+    .container
+      = yield
+
+    footer.footer
+      .container
+        .row
+          .col-xs-6.footer-links.text-right
+            = link_to 'Контакти', contacts_path
+            = link_to 'Общи условия', terms_of_use_path
+
+          .col-xs-6.text-left
+            div Autobook.bg
+            div 2016

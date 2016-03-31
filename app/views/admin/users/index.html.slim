@@ -1,0 +1,20 @@
+h1 Потребители
+
+.table-responsive
+  table.table.table-hover
+    thead
+      tr
+        th Идентификатор
+        th Име
+        th Имейл
+        th Дата на регистрация
+        th Последен логин
+
+    tbody
+      - @users.each do |user|
+        tr
+          td = user.id
+          td = link_to user.full_name, admin_user_cars_path(user)
+          td = user.email
+          td = user.created_at
+          td = user.last_login_at
