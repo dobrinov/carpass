@@ -14,7 +14,7 @@ h1 Потребители
       - @users.each do |user|
         tr
           td = user.id
-          td = link_to user.full_name, admin_user_cars_path(user)
-          td = user.email
+          td = user.full_name
+          td = link_to user.email, admin_user_cars_path(user)
           td = user.created_at
           td = user.last_login_at
