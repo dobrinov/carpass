@@ -22,7 +22,7 @@ ol.breadcrumb
             td = link_to car.plate, admin_car_histories_path(car)
             td = car.vin
             td = car.engine_number
-            td = car.created_at
+            td = car.created_at.strftime("%d.%m.%Y")
 
       - else
         tr.text-center

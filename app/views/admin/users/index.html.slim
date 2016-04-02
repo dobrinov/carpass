@@ -16,5 +16,5 @@ h1 Потребители
           td = user.id
           td = user.full_name
           td = link_to user.email, admin_user_cars_path(user)
-          td = user.created_at
-          td = user.last_login_at
+          td = user.created_at.strftime("%d.%m.%Y")
+          td = user.last_login_at.strftime("%d.%m.%Y")
