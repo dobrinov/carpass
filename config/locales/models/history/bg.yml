@@ -3,6 +3,7 @@ bg:
     attributes:
       history:
         mileage: 'Пробег'
+        happened_at: 'Дата на събитие'
         details: 'Детайли'
         cost: 'Стойност'
         valid_until: 'Валидност'

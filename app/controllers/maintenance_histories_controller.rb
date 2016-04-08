@@ -20,7 +20,7 @@ class MaintenanceHistoriesController < HistoriesController
 
   def history_params
     if params[:maintenance_history].present?
-      params[:maintenance_history].permit(:mileage, :cost, :details)
+      params[:maintenance_history].permit(:happened_at, :mileage, :cost, :details)
     else
       {}
     end

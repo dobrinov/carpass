@@ -60,7 +60,7 @@ class CarCreator
 
   def persist!
     @car                = Car.create!(plate: plate, vin: vin, engine_number: engine_number, user_id: user.id)
-    @production_history = ProductionHistory.create!(happened_at: produced_at, car_id: car.id)
+    @production_history = ProductionHistory.create!(mileage: 0, happened_at: produced_at, car_id: car.id)
     @purchase_history   = PurchaseHistory.create!(mileage: mileage_at_purchase, happened_at: purchased_at, car_id: car.id)
   end
 
