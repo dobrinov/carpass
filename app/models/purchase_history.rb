@@ -1,0 +1,2 @@
+class PurchaseHistory < History
+end

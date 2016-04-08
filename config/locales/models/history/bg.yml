@@ -8,8 +8,8 @@ bg:
         valid_until: 'Валидност'
         types:
           AnnualInspectionHistory: 'Годишен технически преглед'
-          DateOfPurchase: 'Покупка'
-          DateOfProduction: 'Производство'
+          PurchaseHistory: 'Покупка'
+          ProductionHistory: 'Производство'
           CompulsoryInsuranceHistory: 'Гражданска отговорност'
           FullInsuranceHistory: 'Каско'
           MaintenanceHistory: 'Обслужване'

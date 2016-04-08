@@ -1,4 +1,7 @@
 class AnnualInspectionHistoriesController < HistoriesController
+  def show
+  end
+
   def new
     @history = AnnualInspectionHistory.new
   end

@@ -1,4 +1,7 @@
 class TaxHistoriesController < HistoriesController
+  def show
+  end
+
   def new
     @history = TaxHistory.new
   end

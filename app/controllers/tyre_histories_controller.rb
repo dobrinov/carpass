@@ -1,4 +1,7 @@
 class TyreHistoriesController < HistoriesController
+  def show
+  end
+
   def new
     @history = TyreHistory.new
   end

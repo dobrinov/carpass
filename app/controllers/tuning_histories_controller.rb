@@ -1,4 +1,7 @@
 class TuningHistoriesController < HistoriesController
+  def show
+  end
+
   def new
     @history = TuningHistory.new
   end

@@ -1,4 +1,7 @@
 class RepairmentHistoriesController < HistoriesController
+  def show
+  end
+
   def new
     @history = RepairmentHistory.new
   end

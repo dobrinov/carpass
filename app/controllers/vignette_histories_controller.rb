@@ -1,4 +1,7 @@
 class VignetteHistoriesController < HistoriesController
+  def show
+  end
+
   def new
     @history = VignetteHistory.new
   end

@@ -12,6 +12,10 @@ class User < ActiveRecord::Base
             }
   validates :password, length: { minimum: 6 }
 
+  def histories
+    History.where(car_id: cars.pluck(:id))
+  end
+
   def full_name
     "#{first_name} #{last_name}"
   end

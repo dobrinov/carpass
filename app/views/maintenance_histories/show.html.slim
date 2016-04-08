@@ -1,0 +1,10 @@
+= render partial: 'cars/header', locals: { cars: @cars, active_tab: @car.id }
+
+br
+
+.row
+  .col-sm-12
+    = link_to back_or_default, class: 'btn btn-default' do
+      = fa_icon 'chevron-left'
+      | &nbsp; &nbsp;
+      | Назад

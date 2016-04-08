@@ -1,4 +1,7 @@
 class FullInsuranceHistoriesController < HistoriesController
+  def show
+  end
+
   def new
     @history = FullInsuranceHistory.new
   end
