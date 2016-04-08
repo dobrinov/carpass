@@ -8,3 +8,26 @@ br
       = fa_icon 'chevron-left'
       | &nbsp; &nbsp;
       | Назад
+
+.row
+  .col-sm-12
+    h3 Данък
+
+    table.table
+      tr
+        th Дата на събитие
+        td = @history.happened_at.strftime("%d.%m.%Y")
+      tr
+        th Дата на въвеждане
+        td = @history.created_at.strftime("%d.%m.%Y")
+      tr
+        th Стойност
+        td = number_to_currency(@history.cost, locale: I18n.locale)
+      tr
+        th Пробег
+        td = number_with_delimiter(@history.mileage, delimiter: ',') + " км."
+      tr
+        th Детайли
+        td
+          - if @history.details.present?
+            = @history.details.html_safe

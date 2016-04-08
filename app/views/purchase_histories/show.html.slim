@@ -8,3 +8,18 @@ br
       = fa_icon 'chevron-left'
       | &nbsp; &nbsp;
       | Назад
+
+br
+
+.row
+  .col-sm-12
+    table.table
+      tr
+        th Дата на покупка
+        td = @history.happened_at.strftime("%d.%m.%Y")
+      tr
+        th Дата на въвеждане
+        td = @history.created_at.strftime("%d.%m.%Y")
+      tr
+        th Пробег
+        td = number_with_delimiter(@history.mileage, delimiter: ',') + " км."
