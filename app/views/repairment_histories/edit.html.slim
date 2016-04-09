@@ -17,14 +17,16 @@ br
       .col-xs-12
         .panel.panel-default
           .panel-heading
-            strong Редакия на данни за покупка
+            strong Редакия на данни за ремонт
           .panel-body
             = bootstrap_form_for @history do |f|
               = f.date_select :happened_at, { order: [:day, :month, :year], start_year: 1900, end_year: Date.today.year }, { class: 'form-control date-select' }
-              = f.number_field :mileage, class: 'form-control'
+              = f.number_field :mileage, class: 'form-control', placeholder: 'Пробег в монента на ремонта (км.)'
+              = f.text_field :cost, class: 'form-control', placeholder: 'Стойност на ремонта (лв.)'
+              = f.text_area :details, class: 'form-control wysihtml5', rows: 5, placeholder: 'Описание на извършените ремонтни дейности'
 
               .form-group
-                = f.submit 'Редактирай история', class: 'btn btn-primary'
+                = f.submit 'Добави ремонт', class: 'btn btn-primary'
                 | &nbsp;
                 = link_to 'Отказ', back_or_default, class: 'btn btn-default'
 

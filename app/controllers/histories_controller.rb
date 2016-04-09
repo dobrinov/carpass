@@ -35,6 +35,14 @@ class HistoriesController < ApplicationController
   def edit
   end
 
+  def update
+    if @history.update_attributes(history_params)
+      redirect_to back_or_default
+    else
+      render :edit
+    end
+  end
+
   def destroy
     @history.destroy
     redirect_to back_or_default
@@ -47,6 +55,10 @@ class HistoriesController < ApplicationController
   end
 
   private
+
+  def history_params
+    {}
+  end
 
   def set_history_instance_variable
     @history = current_user.histories.find(params[:id])
