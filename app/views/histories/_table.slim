@@ -15,7 +15,9 @@
           tr
             td = link_to fa_icon('search'), history_path(history, referrer_param => current_path), class: 'btn btn-default btn-xs'
             td = history.happened_at.strftime("%d.%m.%Y")
-            td = number_with_delimiter(history.mileage, delimiter: ',') + " км."
+            td
+              - if history.mileage.present?
+                = number_with_delimiter(history.mileage, delimiter: ',') + " км."
             td.histories-table__col_details
               h5.title = t("activerecord.attributes.history.types.#{history.type}")
               - if history.details.present?

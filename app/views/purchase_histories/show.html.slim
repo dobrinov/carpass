@@ -26,7 +26,9 @@ br
           td = @history.created_at.strftime("%d.%m.%Y")
         tr
           th Пробег в момента на покупката
-          td = number_with_delimiter(@history.mileage, delimiter: ',') + " км."
+          td
+            - if @history.mileage.present?
+              = number_with_delimiter(@history.mileage, delimiter: ',') + " км."
 
   .col-sm-3
     .panel.panel-default
