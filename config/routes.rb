@@ -5,8 +5,8 @@ Rails.application.routes.draw do
 
     resources :annual_inspection_histories, shallow: true,    except: [:index]
     resources :compulsory_insurance_histories, shallow: true, except: [:index]
-    resources :production_histories, shallow: true,           except: [:index, :new, :create]
-    resources :purchase_histories, shallow: true,             except: [:index, :new, :create]
+    resources :production_histories, shallow: true,           except: [:index, :new, :create, :destroy]
+    resources :purchase_histories, shallow: true,             except: [:index, :new, :create, :destroy]
     resources :full_insurance_histories, shallow: true,       except: [:index]
     resources :maintenance_histories, shallow: true,          except: [:index]
     resources :repairment_histories, shallow: true,           except: [:index]

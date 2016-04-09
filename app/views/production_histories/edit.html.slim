@@ -1,0 +1,30 @@
+= render partial: 'cars/header', locals: { cars: @cars, active_tab: @car.id }
+
+br
+
+.row
+  .col-sm-12
+    = link_to back_or_default, class: 'btn btn-default' do
+      = fa_icon 'chevron-left'
+      | &nbsp; &nbsp;
+      | Назад
+
+br
+
+.row
+  .col-sm-9
+    .row
+      .col-xs-12
+        .panel.panel-default
+          .panel-heading
+            strong Редакия на данни за производство
+          .panel-body
+            = bootstrap_form_for @history do |f|
+              = f.date_select :happened_at, { order: [:day, :month, :year], start_year: 1900, end_year: Date.today.year }, { class: 'form-control date-select' }
+
+              .form-group
+                = f.submit 'Редактирай история', class: 'btn btn-primary'
+                | &nbsp;
+                = link_to 'Отказ', back_or_default, class: 'btn btn-default'
+
+  .col-sm-3

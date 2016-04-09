@@ -1,7 +1,7 @@
 class HistoriesController < ApplicationController
   before_action :requires_login
   before_action :set_car_instance_variables,    only: [:new, :create]
-  before_action :set_history_instance_variable, only: [:show]
+  before_action :set_history_instance_variable, only: [:show, :edit, :update, :destroy]
 
   def show
     case @history
@@ -30,6 +30,14 @@ class HistoriesController < ApplicationController
     else
       redirect_to back_or_default
     end
+  end
+
+  def edit
+  end
+
+  def destroy
+    @history.destroy
+    redirect_to back_or_default
   end
 
   protected
