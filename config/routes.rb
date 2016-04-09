@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
   resources :cars do
-    resources :histories, shallow: true, only: [:new, :show]
+    resources :histories, shallow: true, only: [:new, :show, :destroy]
 
     resources :annual_inspection_histories, shallow: true,    except: [:index]
     resources :compulsory_insurance_histories, shallow: true, except: [:index]
