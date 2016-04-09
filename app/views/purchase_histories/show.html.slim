@@ -36,5 +36,4 @@ br
         strong Действия
 
       .panel-body
-        = link_to 'Редактирай', '#', class: 'btn btn-block btn-primary'
-        = link_to 'Изтрий', '#', class: 'btn btn-block btn-danger', data: {:confirm => "Сигурни ли сте?"}, :method => :delete
+        = link_to 'Редактирай', edit_production_history_path(@history), class: 'btn btn-block btn-primary'
