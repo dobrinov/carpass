@@ -3,7 +3,7 @@ class CompulsoryInsuranceHistoriesController < HistoriesController
   end
 
   def new
-    @history = CompulsoryInsuranceHistory.new
+    @history = CompulsoryInsuranceHistory.new(mileage: @car.current_mileage)
   end
 
   def create

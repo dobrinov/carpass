@@ -9,7 +9,7 @@ class CarsController < ApplicationController
   def show
     @cars = current_user.cars
     @car = @cars.find(params[:id])
-    @histories = @car.histories.order(mileage: :desc).order(happened_at: :desc)
+    @histories = @car.histories.order(happened_at: :desc)
   end
 
   def new

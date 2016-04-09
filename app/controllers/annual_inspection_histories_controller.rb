@@ -3,7 +3,7 @@ class AnnualInspectionHistoriesController < HistoriesController
   end
 
   def new
-    @history = AnnualInspectionHistory.new
+    @history = AnnualInspectionHistory.new(mileage: @car.current_mileage)
   end
 
   def create

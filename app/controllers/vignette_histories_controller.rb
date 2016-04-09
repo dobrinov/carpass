@@ -3,7 +3,7 @@ class VignetteHistoriesController < HistoriesController
   end
 
   def new
-    @history = VignetteHistory.new
+    @history = VignetteHistory.new(mileage: @car.current_mileage)
   end
 
   def create

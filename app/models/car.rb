@@ -5,4 +5,14 @@ class Car < ActiveRecord::Base
   def total_spent
     histories.sum(:cost)
   end
+
+  def current_mileage
+    history = histories.where('mileage IS NOT NULL').order(mileage: :desc).first
+
+    if history.present?
+      history.mileage
+    else
+      0
+    end
+  end
 end

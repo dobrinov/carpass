@@ -3,7 +3,7 @@ class TaxHistoriesController < HistoriesController
   end
 
   def new
-    @history = TaxHistory.new
+    @history = TaxHistory.new(mileage: @car.current_mileage)
   end
 
   def create
