@@ -9,25 +9,38 @@ br
       | &nbsp; &nbsp;
       | Назад
 
-.row
-  .col-sm-12
-    h3 Гуми
+br
 
-    table.table
-      tr
-        th Дата на събитие
-        td = @history.happened_at.strftime("%d.%m.%Y")
-      tr
-        th Дата на въвеждане
-        td = @history.created_at.strftime("%d.%m.%Y")
-      tr
-        th Стойност
-        td = number_to_currency(@history.cost, locale: I18n.locale)
-      tr
-        th Пробег
-        td = number_with_delimiter(@history.mileage, delimiter: ',') + " км."
-      tr
-        th Детайли
-        td
-          - if @history.details.present?
-            = @history.details.html_safe
+.row
+  .col-sm-9
+    .panel.panel-default
+      .panel-heading
+        strong Гуми
+
+      table.table.table-bordered
+        tr
+          th Дата на събитие
+          td = @history.happened_at.strftime("%d.%m.%Y")
+        tr
+          th Дата на въвеждане
+          td = @history.created_at.strftime("%d.%m.%Y")
+        tr
+          th Стойност
+          td = number_to_currency(@history.cost, locale: I18n.locale)
+        tr
+          th Пробег
+          td = number_with_delimiter(@history.mileage, delimiter: ',') + " км."
+        tr
+          th Детайли
+          td
+            - if @history.details.present?
+              = @history.details.html_safe
+
+  .col-sm-3
+    .panel.panel-default
+      .panel-heading
+        strong Действия
+
+      .panel-body
+        = link_to 'Редактирай', '#', class: 'btn btn-block btn-primary'
+        = link_to 'Изтрий', '#', class: 'btn btn-block btn-danger', data: {:confirm => "Сигурни ли сте?"}, :method => :delete

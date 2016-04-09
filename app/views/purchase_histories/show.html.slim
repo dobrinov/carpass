@@ -12,14 +12,27 @@ br
 br
 
 .row
-  .col-sm-12
-    table.table
-      tr
-        th Дата на покупка
-        td = @history.happened_at.strftime("%d.%m.%Y")
-      tr
-        th Дата на въвеждане
-        td = @history.created_at.strftime("%d.%m.%Y")
-      tr
-        th Пробег
-        td = number_with_delimiter(@history.mileage, delimiter: ',') + " км."
+  .col-sm-9
+    .panel.panel-default
+      .panel-heading
+        strong Покупка
+
+      table.table.table-bordered
+        tr
+          th Дата на покупка
+          td = @history.happened_at.strftime("%d.%m.%Y")
+        tr
+          th Дата на въвеждане
+          td = @history.created_at.strftime("%d.%m.%Y")
+        tr
+          th Пробег в момента на покупката
+          td = number_with_delimiter(@history.mileage, delimiter: ',') + " км."
+
+  .col-sm-3
+    .panel.panel-default
+      .panel-heading
+        strong Действия
+
+      .panel-body
+        = link_to 'Редактирай', '#', class: 'btn btn-block btn-primary'
+        = link_to 'Изтрий', '#', class: 'btn btn-block btn-danger', data: {:confirm => "Сигурни ли сте?"}, :method => :delete
