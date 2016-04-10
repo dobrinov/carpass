@@ -6,11 +6,19 @@
     strong Регистрационен номер
     p = car.plate
 
-    - if @car.vin.present?
+    - if car.make.present?
+      strong Марка
+      p = car.make
+
+    - if car.model.present?
+      strong Марка
+      p = car.model
+
+    - if car.vin.present?
       strong Номер на шаси
       p = car.vin
 
-    - if @car.engine_number.present?
+    - if car.engine_number.present?
       strong Номер на двигател
       p = car.engine_number
 

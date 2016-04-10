@@ -14,6 +14,8 @@ class CarCreator
   # Attributes
   attribute :user,                User
   attribute :plate,               String
+  attribute :make,                String
+  attribute :model,               String
   attribute :vin,                 String
   attribute :engine_number,       String
   attribute :produced_at,         DateTime
@@ -59,7 +61,7 @@ class CarCreator
   private
 
   def persist!
-    @car                = Car.create!(plate: plate, vin: vin, engine_number: engine_number, user_id: user.id)
+    @car                = Car.create!(plate: plate, make: make, model: model, vin: vin, engine_number: engine_number, user_id: user.id)
     @production_history = ProductionHistory.create!(mileage: 0, happened_at: produced_at, car_id: car.id)
     @purchase_history   = PurchaseHistory.create!(mileage: mileage_at_purchase, happened_at: purchased_at, car_id: car.id)
   end

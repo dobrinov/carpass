@@ -3,6 +3,8 @@ bg:
     attributes:
       car_creator:
         plate: 'Регистрационен номер'
+        make: 'Марка'
+        model: 'Модел'
         vin: 'Номер на шаси'
         engine_number: 'Номер на двигател'
         produced_at: 'Произведена на'
