@@ -9,6 +9,8 @@ ol.breadcrumb
     thead
       tr
         th Идентификатор
+        th Марка
+        th Модел
         th Регистрационен номер
         th # Шаси
         th # Двигател
@@ -19,6 +21,8 @@ ol.breadcrumb
         - @cars.each do |car|
           tr
             td = car.id
+            td = car.make
+            td = car.model
             td = link_to car.plate, admin_car_histories_path(car)
             td = car.vin
             td = car.engine_number
