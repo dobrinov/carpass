@@ -27,12 +27,41 @@ class CarCreator
     @purchased_at = purchased_at + 1.hour
   end
 
+  # Make sure that cyrilic chars are translated.
+  def plate=(plate)
+    plate = plate.upcase
+
+    mapping = {
+      'А' => 'A',
+      'В' => 'B',
+      'С' => 'C',
+      'Е' => 'E',
+      'Н' => 'H',
+      'К' => 'K',
+      'М' => 'M',
+      'О' => 'O',
+      'Р' => 'P',
+      'Т' => 'T',
+      'Х' => 'X',
+      'У' => 'Y'
+    }
+
+    plate.each_char do |letter|
+      if mapping[letter].present?
+        plate.sub!(letter, mapping[letter])
+      end
+    end
+
+    super plate
+  end
+
   # Validations
   validates :plate, presence: true,
                     format: {
                       with: /[A-Z]{1,2}[0-9]{4}[A-Z]{2}/,
                       message: I18n.t('activemodel.errors.models.car_creator.attributes.plate.invalid_format')
                     }
+
   validates :produced_at, presence: true
   validates :purchased_at, presence: true
   validates :mileage_at_purchase, presence: true,
