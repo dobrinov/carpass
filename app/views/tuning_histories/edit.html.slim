@@ -17,7 +17,7 @@ br
       .col-xs-12
         .panel.panel-default
           .panel-heading
-            strong Редакия на данни за ремонт
+            strong Редакия на данни за подобрения
           .panel-body
             = bootstrap_form_for @history do |f|
               = f.date_select :happened_at, { order: [:day, :month, :year], start_year: 1900, end_year: Date.today.year }, { class: 'form-control date-select' }
