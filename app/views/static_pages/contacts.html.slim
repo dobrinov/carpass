@@ -1,1 +1,11 @@
 h1 Контакти
+
+br
+
+.row
+  .col-xs-12.text-center
+    = link_to 'https://www.facebook.com/autobook.bg/', target: 'blank', class: 'btn btn-default btn-lg' do
+      = fa_icon 'facebook-official'
+    | &nbsp;
+    = mail_to 'autobook.bg@gmail.com', class: 'btn btn-default btn-lg' do
+      = fa_icon 'envelope-o'
