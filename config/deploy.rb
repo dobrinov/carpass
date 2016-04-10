@@ -48,3 +48,4 @@ end
 
 desc 'Restat after deployment'
 after 'deploy:publishing', 'unicorn:restart'
+after "deploy:updated", "newrelic:notice_deployment"
