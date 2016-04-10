@@ -21,3 +21,8 @@ body { padding-top: 70px; }
 .navbar-toggle {
   padding: 14px;
 }
+
+label.required:after {
+  content:" *";
+  color: #e32;
+}
