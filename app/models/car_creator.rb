@@ -29,7 +29,7 @@ class CarCreator
 
   # Make sure that cyrilic chars are translated.
   def plate=(plate)
-    plate = plate.upcase
+    plate = plate.mb_chars.upcase.to_s
 
     mapping = {
       'А' => 'A',
