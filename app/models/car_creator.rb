@@ -58,7 +58,7 @@ class CarCreator
   # Validations
   validates :plate, presence: true,
                     format: {
-                      with: /[A-Z]{1,2}[0-9]{4}[A-Z]{2}/,
+                      with: /(A|B|BH|BP|BT|E|EB|EH|K|KH|M|H|OB|P|PA|PB|PK|PP|C|CA|CB|CH|CM|CO|CC|CT|T|TX|Y|X){1}[0-9]{4}[0-9ABCEHKMOPTXY]{2}/,
                       message: I18n.t('activemodel.errors.models.car_creator.attributes.plate.invalid_format')
                     }
 
