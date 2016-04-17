@@ -51,7 +51,13 @@ class HistoriesController < ApplicationController
   protected
 
   def default_path
-    cars_path
+    if referrer_path
+      referrer_path
+    elsif @history
+      car_path(@history.car)
+    else
+      cars_path
+    end
   end
 
   private
