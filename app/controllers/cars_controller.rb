@@ -29,11 +29,19 @@ class CarsController < ApplicationController
   end
 
   def edit
-    # To do
+    @cars = current_user.cars
+    @car = @cars.find(params[:id])
   end
 
   def update
-    # To do
+    @cars = current_user.cars
+    @car = @cars.find(params[:id])
+
+    if @car.update_attributes(car_params)
+      redirect_to car_path(@car)
+    else
+      render :edit
+    end
   end
 
   def destroy
@@ -43,6 +51,14 @@ class CarsController < ApplicationController
   end
 
   private
+
+  def car_params
+    if params[:car].present?
+      params[:car].permit(:make, :model, :plate, :vin, :engine_number)
+    else
+      {}
+    end
+  end
 
   def car_creator_params
     if params[:car_creator].present?
