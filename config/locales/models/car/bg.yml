@@ -1,0 +1,12 @@
+bg:
+  activerecord:
+    attributes:
+      car:
+        plate: 'Регистрационен номер'
+        make: 'Марка'
+        model: 'Модел'
+        vin: 'Номер на шаси'
+        engine_number: 'Номер на двигател'
+        produced_at: 'Произведена на'
+        purchased_at: 'Закупена на'
+        mileage_at_purchase: 'Пробег в момента на покупката'
