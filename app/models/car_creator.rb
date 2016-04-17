@@ -6,7 +6,6 @@ class CarCreator
   include ActiveModel::Conversion
   include ActiveModel::Validations
 
-  attr_reader :user
   attr_reader :car
   attr_reader :production_history
   attr_reader :purchase_history
@@ -22,45 +21,18 @@ class CarCreator
   attribute :purchased_at,        DateTime
   attribute :mileage_at_purchase, Integer
 
+  def initialize(*args, &block)
+    super
+
+    build_car
+    build_production_history
+    build_purchase_history
+  end
+
   # Avoid matching purchase and production by adding 1 hour.
   def purchased_at=(purchased_at)
     @purchased_at = purchased_at + 1.hour
   end
-
-  # Make sure that cyrilic chars are translated.
-  def plate=(plate)
-    plate = plate.mb_chars.upcase.to_s
-
-    mapping = {
-      'А' => 'A',
-      'В' => 'B',
-      'С' => 'C',
-      'Е' => 'E',
-      'Н' => 'H',
-      'К' => 'K',
-      'М' => 'M',
-      'О' => 'O',
-      'Р' => 'P',
-      'Т' => 'T',
-      'Х' => 'X',
-      'У' => 'Y'
-    }
-
-    plate.each_char do |letter|
-      if mapping[letter].present?
-        plate.sub!(letter, mapping[letter])
-      end
-    end
-
-    super plate
-  end
-
-  # Validations
-  validates :plate, presence: true,
-                    format: {
-                      with: /\A(A|B|BH|BP|BT|E|EB|EH|K|KH|M|H|OB|P|PA|PB|PK|PP|C|CA|CB|CH|CM|CO|CC|CT|T|TX|Y|X){1}[0-9]{4}[0-9ABCEHKMOPTXY]{2}\z/,
-                      message: I18n.t('activemodel.errors.models.car_creator.attributes.plate.invalid_format')
-                    }
 
   validates :produced_at, presence: true
   validates :purchased_at, presence: true
@@ -70,7 +42,8 @@ class CarCreator
                                     greater_than_or_equal_to: 0
                                   }
 
-  validate :validate_production_date_cannot_be_in_the_future,
+  validate :validate_plate,
+           :validate_production_date_cannot_be_in_the_future,
            :validate_purchase_date_cannot_be_in_the_future,
            :validate_production_date_cannot_after_the_purchase_date
 
@@ -89,10 +62,28 @@ class CarCreator
 
   private
 
+  def build_car
+    @car = Car.new(plate: plate, make: make, model: model, vin: vin, engine_number: engine_number, user: user)
+  end
+
+  def build_production_history
+    @production_history = ProductionHistory.new(mileage: 0, happened_at: produced_at, car: car)
+  end
+
+  def build_purchase_history
+    @purchase_history = PurchaseHistory.new(mileage: mileage_at_purchase, happened_at: purchased_at, car: car)
+  end
+
   def persist!
-    @car                = Car.create!(plate: plate, make: make, model: model, vin: vin, engine_number: engine_number, user_id: user.id)
-    @production_history = ProductionHistory.create!(mileage: 0, happened_at: produced_at, car_id: car.id)
-    @purchase_history   = PurchaseHistory.create!(mileage: mileage_at_purchase, happened_at: purchased_at, car_id: car.id)
+    car.save!
+    production_history.save!
+    purchase_history.save!
+  end
+
+  def validate_plate
+    unless car.valid?
+      errors.add(:plate, car.errors[:plate])
+    end
   end
 
   def validate_production_date_cannot_be_in_the_future
