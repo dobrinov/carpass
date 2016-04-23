@@ -1,5 +1,11 @@
 .landingpage__call-to-action {
   .btn {
     white-space: normal;
+    margin: 3px;
+  }
+
+  .btn-default {
+    background-color: transparent;
+    color: #ffffff;
   }
 }
