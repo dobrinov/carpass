@@ -21,9 +21,9 @@ br
           .panel-body
             = bootstrap_form_for [@car, @history] do |f|
               = f.date_select :happened_at, { order: [:day, :month, :year], start_year: 1900, end_year: Date.today.year }, { class: 'form-control date-select' }
-              = f.number_field :mileage, class: 'form-control', placeholder: 'Пробег в момента на прегледа (км.)'
-              = f.date_select :valid_until, { order: [:day, :month, :year] }, { class: 'form-control date-select' }
               = f.text_field :cost, class: 'form-control', placeholder: 'Стойността на прегледа (лв.)'
+              = f.date_select :valid_until, { order: [:day, :month, :year] }, { class: 'form-control date-select' }
+              = f.number_field :mileage, class: 'form-control', placeholder: 'Пробег в момента на прегледа (км.)'
               = f.text_area :details, class: 'form-control wysihtml5', rows: 5, placeholder: 'Детайли от/за прегледа'
 
               .form-group
