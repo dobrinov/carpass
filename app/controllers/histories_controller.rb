@@ -53,7 +53,7 @@ class HistoriesController < ApplicationController
   def default_path
     if referrer_path
       referrer_path
-    elsif @history
+    elsif @history && @history.car
       car_path(@history.car)
     else
       cars_path
