@@ -40,8 +40,13 @@ Rails.application.routes.draw do
     namespace :statistics do
       get 'users/overview', to: 'users#overview'
       get 'users/signups', to: 'users#signups'
+      get 'users/signins', to: 'users#signins'
 
-      root to: 'users#overview'
+      get 'car/creations', to: 'cars#creations'
+
+      get 'history/creations', to: 'histories#creations'
+
+      root to: 'base#overview'
     end
 
     root to: "users#index"

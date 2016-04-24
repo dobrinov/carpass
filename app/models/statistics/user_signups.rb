@@ -8,7 +8,7 @@ module Statistics
     end
 
     def labels
-      (1.month.ago.to_date..Date.today).map { |date| date }
+      (start_date.to_date..end_date).map { |date| date }
     end
 
     def datasets
