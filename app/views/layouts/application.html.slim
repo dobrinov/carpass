@@ -38,6 +38,8 @@ html class="no-js"
                     | &nbsp;
                     span.caret
                   ul.dropdown-menu
+                    - if current_user.admin?
+                      li = link_to 'Административен панел', admin_root_path
                     li = link_to 'Профил', profile_path
                     li = link_to 'Изход', signout_path, :method => :delete
 
