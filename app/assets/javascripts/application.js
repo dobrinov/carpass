@@ -7,3 +7,4 @@
 
 //= require _fullscreen-background-image
 //= require _wysihtml5
+//= require Chart.js/dist/Chart.min

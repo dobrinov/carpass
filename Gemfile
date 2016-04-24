@@ -23,6 +23,8 @@ gem 'bootstrap-wysihtml5-rails'
 gem 'omniauth-facebook'
 gem 'pry-rails'
 gem 'newrelic_rpm'
+gem "bower-rails", "~> 0.10.0"
+
 
 group :development, :test do
   gem 'rspec-rails', '~> 3.0'

@@ -24,6 +24,18 @@ set :format, :pretty
 set :log_level, :debug
 set :pty, true
 
+namespace :bower do
+  desc 'Install bower'
+  task :install do
+    on roles(:web) do
+      within release_path do
+        execute :rake, 'bower:install CI=true'
+      end
+    end
+  end
+end
+before 'deploy:compile_assets', 'bower:install'
+
 namespace :unicorn do
   %w{start stop restart}.each do |command|
     desc "#{command} Unicorn"

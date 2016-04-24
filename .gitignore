@@ -16,3 +16,6 @@
 /log/*
 !/log/.keep
 /tmp
+
+# Ignore Bower components
+/vendor/assets/bower_components

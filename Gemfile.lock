@@ -50,6 +50,7 @@ GEM
     bootstrap-wysihtml5-rails (0.3.3.8)
       railties (>= 3.0)
     bootstrap_form (2.3.0)
+    bower-rails (0.10.0)
     builder (3.2.2)
     capistrano (3.4.1)
       i18n
@@ -260,6 +261,7 @@ DEPENDENCIES
   bootstrap-sass (~> 3.3.6)
   bootstrap-wysihtml5-rails
   bootstrap_form
+  bower-rails (~> 0.10.0)
   capistrano-bundler (~> 1.1.4)
   capistrano-rails (~> 1.1)
   capistrano-rbenv (~> 2.0)
