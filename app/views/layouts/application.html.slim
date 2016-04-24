@@ -38,6 +38,7 @@ html class="no-js"
                     | &nbsp;
                     span.caret
                   ul.dropdown-menu
+                    li = link_to 'Профил', profile_path
                     li = link_to 'Изход', signout_path, :method => :delete
 
               - else

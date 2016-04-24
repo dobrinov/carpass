@@ -24,6 +24,9 @@ Rails.application.routes.draw do
   post   'signup',                   to: 'users#create'
   post   'signin',                   to: 'sessions#create'
   delete 'signout',                  to: 'sessions#destroy'
+  get    'profile',                  to: 'users#show'
+  get    '/edit/profile',            to: 'users#edit'
+  patch  'profile',                  to: 'users#update'
 
   get 'contacts',     to: 'static_pages#contacts'
   get 'terms_of_use', to: 'static_pages#terms_of_use'

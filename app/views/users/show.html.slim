@@ -1,0 +1,30 @@
+h1 Моят профил
+
+br
+
+.row
+  .col-xs-9
+    .panel.panel-default
+      .panel-heading
+        strong Информация за потребител
+      table.table.table-bordered
+        tr
+          th Имейл
+          td = @user.email
+        tr
+          th Име
+          td = @user.first_name || 'няма'
+        tr
+          th Фамилия
+          td = @user.last_name || 'няма'
+        tr
+          th Последен вход
+          td = @user.last_login_at.strftime("%d.%m.%Y")
+
+  .col-xs-3
+    .panel.panel-default
+      .panel-heading
+        strong Действия
+
+      .panel-body
+        = link_to 'Редактирай', edit_profile_path, class: 'btn btn-block btn-default'

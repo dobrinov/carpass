@@ -10,7 +10,7 @@ class User < ActiveRecord::Base
             :format     => {
               :with => /\A[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]+\z/
             }
-  validates :password, length: { minimum: 6 }
+  validates :password, length: { minimum: 6 }, if: -> { password.present? }
 
   def histories
     History.where(car_id: cars.pluck(:id))

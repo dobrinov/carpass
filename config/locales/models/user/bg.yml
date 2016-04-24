@@ -3,6 +3,8 @@ bg:
     attributes:
       user:
         email: 'Имейл'
+        first_name: 'Име'
+        last_name: 'Фамилия'
         password: 'Парола'
         password_confirmation: 'Проверка парола'
 

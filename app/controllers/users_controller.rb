@@ -1,4 +1,24 @@
 class UsersController < ApplicationController
+  before_action :requires_login, only: [:show, :edit, :update]
+
+  def show
+    @user = current_user
+  end
+
+  def edit
+    @user = current_user
+  end
+
+  def update
+    @user = current_user
+
+    if @user.update_attributes(user_params)
+      redirect_to profile_path
+    else
+      render :edit
+    end
+  end
+
   def new
     @user = User.new
   end
@@ -18,7 +38,7 @@ class UsersController < ApplicationController
 
   def user_params
     if params[:user].present?
-      params[:user].permit(:email, :password, :password_confirmation)
+      params[:user].permit(:email, :password, :password_confirmation, :first_name, :last_name)
     else
       {}
     end
