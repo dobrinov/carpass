@@ -8,6 +8,13 @@ javascript:
 
     var myNewChart = new Chart(ctx , {
         type: "bar",
-        data: data
+        data: data,
+        scales: {
+          yAxes: [{
+              ticks: {
+                beginAtZero: true
+              }
+            }]
+        }
     });
   });
