@@ -1,5 +1,2 @@
-json.labels @signups.map(&:date)
-json.datasets [@signups] do |dataset|
-    json.label "Регистрации"
-    json.data dataset.map(&:signups)
-end
+json.labels @user_signups.labels
+json.datasets @user_signups.datasets

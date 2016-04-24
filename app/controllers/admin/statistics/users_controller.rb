@@ -5,9 +5,7 @@ module Admin
       end
 
       def signups
-        @signups = User.where("created_at >= :registration_date AND created_at <= :today", { registration_date: Date.today - 1.month, today: Date.today })
-                       .select("date(created_at) as date, count(*) as signups")
-                       .group("date(created_at)")
+        @user_signups = ::Statistics::UserSignups.new(Date.today - 1.month, Date.today)
       end
     end
   end
