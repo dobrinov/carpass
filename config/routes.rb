@@ -37,6 +37,13 @@ Rails.application.routes.draw do
       resources :histories, only: [:index]
     end
 
+    namespace :statistics do
+      get 'users/overview', to: 'users#overview'
+      get 'users/signups', to: 'users#signups'
+
+      root to: 'users#overview'
+    end
+
     root to: "users#index"
   end
 
