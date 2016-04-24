@@ -26,6 +26,9 @@ html class="no-js"
 
           #navbar.collapse.navbar-collapse
             ul.nav.navbar-nav.navbar-left
+              - if logged_in?
+                li = link_to 'Статистика', '#'
+                li = link_to 'Потребители', admin_users_path
 
             ul.nav.navbar-nav.navbar-right
               - if logged_in?
