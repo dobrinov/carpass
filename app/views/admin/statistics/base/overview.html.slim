@@ -1,90 +1,134 @@
 h1 Статистика
 
 .row
-  .col-xs-12
-    canvas#user_sign_ups width="400" height="100"
-    javascript:
-      $.get("#{admin_statistics_users_signups_path(format: :json)}").done(function(data){
-        var canvas = document.getElementById("user_sign_ups");
-        var ctx = canvas.getContext("2d");
+  .col-sm-6
+    .panel.panel-default
+      .panel-heading
+        strong Общо потребители
+      .panel-body.text-center
+        h1 = @all_users_count
 
-        var userSignUpsChart = new Chart(ctx , {
-            type: "bar",
-            data: data,
-            options: {
-              scales: {
-                yAxes: [{
-                  ticks: {
-                    beginAtZero:true
-                  }
-                }]
-              }
-            }
-        });
-      });
+  .col-sm-6
+    .panel.panel-default
+      .panel-heading
+        strong Активни потребители
+      .panel-body.text-center
+        h1 = @active_users_count
 
-  .col-xs-12
-    canvas#user_sign_ins width="400" height="100"
-    javascript:
-      $.get("#{admin_statistics_users_signins_path(format: :json)}").done(function(data){
-        var canvas = document.getElementById("user_sign_ins");
-        var ctx = canvas.getContext("2d");
+  .col-sm-6
+    .panel.panel-default
+      .panel-heading
+        strong Коли
+      .panel-body.text-center
+        h1 = @all_cars_count
 
-        var userSignInsChart = new Chart(ctx , {
-            type: "bar",
-            data: data,
-            options: {
-              scales: {
-                yAxes: [{
-                  ticks: {
-                    beginAtZero:true
-                  }
-                }]
-              }
-            }
-        });
-      });
+  .col-sm-6
+    .panel.panel-default
+      .panel-heading
+        strong Истории
+      .panel-body.text-center
+        h1 = @all_histories_count
 
   .col-xs-12
-    canvas#car_creations_chart width="400" height="100"
-    javascript:
-      $.get("#{admin_statistics_car_creations_path(format: :json)}").done(function(data){
-        var canvas = document.getElementById("car_creations_chart");
-        var ctx = canvas.getContext("2d");
+    .panel.panel-default
+      .panel-heading
+        strong Регистрации
+      .panel-body
+        canvas#user_sign_ups width="400" height="100"
+        javascript:
+          $.get("#{admin_statistics_users_signups_path(format: :json)}").done(function(data){
+            var canvas = document.getElementById("user_sign_ups");
+            var ctx = canvas.getContext("2d");
 
-        var car_creations_chart = new Chart(ctx , {
-            type: "bar",
-            data: data,
-            options: {
-              scales: {
-                yAxes: [{
-                  ticks: {
-                    beginAtZero:true
+            var userSignUpsChart = new Chart(ctx , {
+                type: "bar",
+                data: data,
+                options: {
+                  scales: {
+                    yAxes: [{
+                      ticks: {
+                        beginAtZero:true
+                      }
+                    }]
                   }
-                }]
-              }
-            }
-        });
-      });
+                }
+            });
+          });
 
   .col-xs-12
-    canvas#history_creations_chart width="400" height="100"
-    javascript:
-      $.get("#{admin_statistics_history_creations_path(format: :json)}").done(function(data){
-        var canvas = document.getElementById("history_creations_chart");
-        var ctx = canvas.getContext("2d");
+    .panel.panel-default
+      .panel-heading
+        strong Влизания в системата
+      .panel-body
+        canvas#user_sign_ins width="400" height="100"
+        javascript:
+          $.get("#{admin_statistics_users_signins_path(format: :json)}").done(function(data){
+            var canvas = document.getElementById("user_sign_ins");
+            var ctx = canvas.getContext("2d");
 
-        var history_creations_chart = new Chart(ctx , {
-            type: "bar",
-            data: data,
-            options: {
-              scales: {
-                yAxes: [{
-                  ticks: {
-                    beginAtZero:true
+            var userSignInsChart = new Chart(ctx , {
+                type: "bar",
+                data: data,
+                options: {
+                  scales: {
+                    yAxes: [{
+                      ticks: {
+                        beginAtZero:true
+                      }
+                    }]
                   }
-                }]
-              }
-            }
-        });
-      });
+                }
+            });
+          });
+
+  .col-xs-12
+    .panel.panel-default
+      .panel-heading
+        strong Добавени коли
+      .panel-body
+        canvas#car_creations_chart width="400" height="100"
+        javascript:
+          $.get("#{admin_statistics_car_creations_path(format: :json)}").done(function(data){
+            var canvas = document.getElementById("car_creations_chart");
+            var ctx = canvas.getContext("2d");
+
+            var car_creations_chart = new Chart(ctx , {
+                type: "bar",
+                data: data,
+                options: {
+                  scales: {
+                    yAxes: [{
+                      ticks: {
+                        beginAtZero:true
+                      }
+                    }]
+                  }
+                }
+            });
+          });
+
+  .col-xs-12
+    .panel.panel-default
+      .panel-heading
+        strong Добавени истории
+      .panel-body
+        canvas#history_creations_chart width="400" height="100"
+        javascript:
+          $.get("#{admin_statistics_history_creations_path(format: :json)}").done(function(data){
+            var canvas = document.getElementById("history_creations_chart");
+            var ctx = canvas.getContext("2d");
+
+            var history_creations_chart = new Chart(ctx , {
+                type: "bar",
+                data: data,
+                options: {
+                  scales: {
+                    yAxes: [{
+                      ticks: {
+                        beginAtZero:true
+                      }
+                    }]
+                  }
+                }
+            });
+          });
