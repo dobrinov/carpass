@@ -11,8 +11,8 @@ br
             strong Смяна на парола
           .panel-body
             = bootstrap_form_for @user, url: profile_password_path do |f|
-              = f.text_field :password, class: 'form-control'
-              = f.text_field :password_confirmation, class: 'form-control'
+              = f.password_field :password, class: 'form-control'
+              = f.password_field :password_confirmation, class: 'form-control'
 
               .form-group
                 = f.submit 'Редактирай', class: 'btn btn-primary'
