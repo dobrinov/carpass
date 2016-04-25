@@ -17,16 +17,18 @@ Rails.application.routes.draw do
   end
 
   # Omniauth
-  get    '/auth/facebook/callback',  to: 'facebook_sessions#create'
-  get    '/auth/failure',            to: 'static_pages#landingpage'
-  get    'signin',                   to: 'sessions#new'
-  get    'signup',                   to: 'users#new'
-  post   'signup',                   to: 'users#create'
-  post   'signin',                   to: 'sessions#create'
-  delete 'signout',                  to: 'sessions#destroy'
-  get    'profile',                  to: 'users#show'
-  get    '/edit/profile',            to: 'users#edit'
-  patch  'profile',                  to: 'users#update'
+  get    '/auth/facebook/callback',   to: 'facebook_sessions#create'
+  get    '/auth/failure',             to: 'static_pages#landingpage'
+  get    '/signin',                   to: 'sessions#new'
+  get    '/signup',                   to: 'users#new'
+  post   '/signup',                   to: 'users#create'
+  post   '/signin',                   to: 'sessions#create'
+  delete '/signout',                  to: 'sessions#destroy'
+  get    '/profile',                  to: 'users#show'
+  get    '/profile/edit',             to: 'users#edit'
+  patch  '/profile',                  to: 'users#update'
+  get    '/profile/password/edit',    to: 'passwords#edit'
+  patch  '/profile/password',         to: 'passwords#update'
 
   get 'contacts',     to: 'static_pages#contacts'
   get 'terms_of_use', to: 'static_pages#terms_of_use'

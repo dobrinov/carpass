@@ -1,4 +1,5 @@
 class SessionsController < ApplicationController
+  before_action :redirect_if_logged, only: [:new, :create]
   before_action :set_referrer, only: [:create]
 
   def new

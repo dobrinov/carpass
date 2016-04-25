@@ -21,6 +21,10 @@ class ApplicationController < ActionController::Base
     current_user.present?
   end
 
+  def redirect_if_logged
+    redirect_to root_path if logged_in?
+  end
+
   def requires_login
     redirect_to signin_path(referrer_param => current_path) unless logged_in?
   end
