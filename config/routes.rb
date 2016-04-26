@@ -14,6 +14,13 @@ Rails.application.routes.draw do
     resources :tuning_histories, shallow: true,               except: [:index]
     resources :vignette_histories, shallow: true,             except: [:index]
     resources :tyre_histories, shallow: true,                 except: [:index]
+
+    namespace :statistics do
+      get '/last_year', to: 'expenses#last_year'
+      get '/all_time',  to: 'expenses#all_time'
+
+      root to: 'expenses#all_time'
+    end
   end
 
   # Omniauth
@@ -30,8 +37,8 @@ Rails.application.routes.draw do
   get    '/profile/password/edit',    to: 'passwords#edit'
   patch  '/profile/password',         to: 'passwords#update'
 
-  get 'contacts',     to: 'static_pages#contacts'
-  get 'terms_of_use', to: 'static_pages#terms_of_use'
+  get '/contacts',     to: 'static_pages#contacts'
+  get '/terms_of_use', to: 'static_pages#terms_of_use'
 
   namespace :admin do
     resources :users, only: [:index] do
@@ -43,13 +50,13 @@ Rails.application.routes.draw do
     end
 
     namespace :statistics do
-      get 'users/overview', to: 'users#overview'
-      get 'users/signups', to: 'users#signups'
-      get 'users/signins', to: 'users#signins'
+      get '/users/overview', to: 'users#overview'
+      get '/users/signups', to: 'users#signups'
+      get '/users/signins', to: 'users#signins'
 
-      get 'car/creations', to: 'cars#creations'
+      get '/car/creations', to: 'cars#creations'
 
-      get 'history/creations', to: 'histories#creations'
+      get '/history/creations', to: 'histories#creations'
 
       root to: 'base#overview'
     end

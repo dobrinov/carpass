@@ -1,0 +1,60 @@
+= render partial: 'cars/header', locals: { cars: @cars, active_tab: @car.id }
+
+br
+
+.row
+  .col-sm-3
+    = link_to back_or_default, class: 'btn btn-default' do
+      = fa_icon 'chevron-left'
+      | &nbsp; &nbsp;
+      | Назад
+
+  .col-sm-9.text-right
+    .btn-group
+      = link_to 'Последната година', car_statistics_last_year_path(@car), class: 'btn btn-default'
+      = link_to 'Целия период', car_statistics_all_time_path(@car), class: 'btn btn-primary'
+
+br
+
+.row
+  .col-sm-3
+    .panel.panel-default
+      .panel-heading
+        strong Пробег
+      .panel-body.text-center
+        h4 = "#{@car_statistics.mileage} км."
+
+  .col-sm-3
+    .panel.panel-default
+      .panel-heading
+        strong Пробег на месец
+      .panel-body.text-center
+        h4 = "#{@car_statistics.average_mileage_per_month} км."
+
+  .col-sm-3
+    .panel.panel-default
+      .panel-heading
+        strong Разходи
+      .panel-body.text-center
+        h4 = number_to_currency(@car_statistics.expenses, locale: I18n.locale)
+
+  .col-sm-3
+    .panel.panel-default
+      .panel-heading
+        strong Разходи на месец
+      .panel-body.text-center
+        h4 = number_to_currency(@car_statistics.average_expenses_per_month, locale: I18n.locale)
+
+.row
+  .col-sm-12
+    .panel.panel-default
+      .panel-heading
+        strong Графика на разходите
+      .panel-body.text-center очаквайте скоро
+
+.row
+  .col-sm-12
+    .panel.panel-default
+      .panel-heading
+        strong  Разходи по тип
+      .panel-body.text-center очаквайте скоро
