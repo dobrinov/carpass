@@ -45,11 +45,11 @@ module Statistics
     end
 
     def first_history_in_interval
-      histories.first
+      histories.first || NullHistory.new
     end
 
     def last_history_in_interval
-      histories.last
+      histories.last || NullHistory.new
     end
 
     def histories
@@ -68,5 +68,19 @@ module Statistics
 
       @_histories
     end
+  end
+end
+
+class NullHistory
+  def happened_at
+    Time.now
+  end
+
+  def cost
+    0
+  end
+
+  def mileage
+    0
   end
 end
