@@ -16,8 +16,10 @@ Rails.application.routes.draw do
     resources :tyre_histories, shallow: true,                 except: [:index]
 
     namespace :statistics do
-      get '/last_year', to: 'expenses#last_year'
-      get '/all_time',  to: 'expenses#all_time'
+      get '/expences/all_time',      to: 'expenses#all_time'
+      get '/expences/last_year',     to: 'expenses#last_year'
+      get '/expences/cost_by_month', to: 'expenses#cost_by_month'
+      get '/expences/cost_by_type',  to: 'expenses#cost_by_type'
 
       root to: 'expenses#all_time'
     end
