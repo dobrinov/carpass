@@ -45,11 +45,11 @@ module Statistics
     end
 
     def first_history_in_interval
-      histories.first || NullHistory.new
+      histories.select { |h| h.mileage.present? }.first || NullHistory.new
     end
 
     def last_history_in_interval
-      histories.last || NullHistory.new
+      histories.select { |h| h.mileage.present? }.last || NullHistory.new
     end
 
     def histories
@@ -58,7 +58,6 @@ module Statistics
       @_histories = @car.histories
                       .where("happened_at <= :end_date", { end_date: end_date })
                       .where("type <> 'ProductionHistory'")
-                      .where("mileage IS NOT NULL")
                       .order(happened_at: :asc)
                       .order(mileage: :asc)
 

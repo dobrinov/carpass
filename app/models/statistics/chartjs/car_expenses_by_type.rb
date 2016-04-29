@@ -64,8 +64,6 @@ module Statistics
         @_histories = @car.histories
                         .where("happened_at <= :end_date", { end_date: end_date })
                         .where("type <> 'ProductionHistory'")
-                        .where("type <> 'PurchaseHistory'")
-                        .where("mileage IS NOT NULL")
                         .order(happened_at: :asc)
                         .order(mileage: :asc)
 
