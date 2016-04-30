@@ -42,7 +42,7 @@ module Statistics
     private
 
     def first_car_history_date
-      history = @car.histories.order(happened_at: :asc).order(mileage: :asc).first
+      history = @car.histories.where('cost IS NOT NULL').order(happened_at: :asc).order(mileage: :asc).first
 
       if history.present?
         Date.parse(history.happened_at.to_s)
