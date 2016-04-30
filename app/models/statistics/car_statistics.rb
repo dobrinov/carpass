@@ -1,11 +1,24 @@
 module Statistics
   class CarStatistics
-    attr_reader :start_date, :end_date
+    attr_reader :car, :start_date, :end_date
 
     def initialize(car, start_date=nil)
       @car = car
-      @start_date = start_date
+
+      @start_date = start_date || first_car_history_date
       @end_date = Date.today
+    end
+
+    def mileage
+      (last_history_in_interval.mileage - first_history_in_interval.mileage).round(2)
+    end
+
+    def average_mileage_per_month
+      if months_in_time_interval > 0
+        (mileage / months_in_time_interval).round(2)
+      else
+        mileage
+      end
     end
 
     def expenses
@@ -26,22 +39,16 @@ module Statistics
       end
     end
 
-    def mileage
-      (last_history_in_interval.mileage - first_history_in_interval.mileage).round(2)
-    end
-
-    def average_mileage_per_month
-      if months_in_time_interval > 0
-        (mileage / months_in_time_interval).round(2)
-      else
-        mileage
-      end
-    end
-
     private
 
-    def months_in_time_interval
-      (last_history_in_interval.happened_at - first_history_in_interval.happened_at) / 1.month
+    def first_car_history_date
+      history = @car.histories.order(happened_at: :asc).order(mileage: :asc).first
+
+      if history.present?
+        Date.parse(history.happened_at.to_s)
+      else
+        Date.today
+      end
     end
 
     def first_history_in_interval
@@ -67,39 +74,23 @@ module Statistics
 
       @_histories
     end
-  end
-end
 
-class Expence
-  attr_reader :value
-
-  def initialize(value)
-    @value = value
+    def months_in_time_interval
+      (end_date - start_date).to_i / (1.month / 1.day)
+    end
   end
 
-  def by_day
-    []
-  end
+  class NullHistory
+    def happened_at
+      Time.now
+    end
 
-  def by_month
-    []
-  end
+    def cost
+      0
+    end
 
-  def by_year
-    []
-  end
-end
-
-class NullHistory
-  def happened_at
-    Time.now
-  end
-
-  def cost
-    0
-  end
-
-  def mileage
-    0
+    def mileage
+      0
+    end
   end
 end
