@@ -4,9 +4,7 @@ module Statistics
       attr_reader :start_date, :end_date
 
       def initialize(car, start_date=nil)
-        @car = car
-        @end_date = Date.today
-        @start_date = start_date || histories.first.happened_at
+        @car_histories = Query::CarHistories.new(car, start_date)
       end
 
       def labels
@@ -48,7 +46,7 @@ module Statistics
       def histories_structured
         structure = {}
 
-        histories.each do |history|
+        @car_histories.each do |history|
           if history.cost.present?
             structure[history.type] ||= 0.0
             structure[history.type] += history.cost
@@ -56,22 +54,6 @@ module Statistics
         end
 
         structure
-      end
-
-      def histories
-        return @_histories if @_histories.present?
-
-        @_histories = @car.histories
-                        .where("happened_at <= :end_date", { end_date: end_date })
-                        .where("type <> 'ProductionHistory'")
-                        .order(happened_at: :asc)
-                        .order(mileage: :asc)
-
-        if start_date.present?
-          @_histories = @_histories.where("happened_at >= :start_date", { start_date: start_date.beginning_of_month })
-        end
-
-        @_histories
       end
     end
   end
