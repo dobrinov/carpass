@@ -51,7 +51,7 @@ br
       .panel-heading
         strong Графика на разходите
       .panel-body.text-center
-        canvas#cost_by_month
+        canvas#cost_by_month width="400" height="250"
         javascript:
           $.get("#{car_statistics_expences_cost_by_month_path(@car, last_year: true, format: :json)}").done(function(data){
             var canvas = document.getElementById("cost_by_month");
@@ -61,6 +61,7 @@ br
                 type: "bar",
                 data: data,
                 options: {
+                  maintainAspectRatio: false,
                   scales: {
                     yAxes: [{
                       ticks: {
@@ -79,7 +80,7 @@ br
       .panel-heading
         strong  Разходи по тип
       .panel-body.text-center
-        canvas#cost_by_type
+        canvas#cost_by_type width="400" height="250"
         javascript:
           $.get("#{car_statistics_expences_cost_by_type_path(@car, last_year: true, format: :json)}").done(function(data){
             var canvas = document.getElementById("cost_by_type");
@@ -88,6 +89,8 @@ br
             var cost_by_type = new Chart(ctx , {
                 type: "pie",
                 data: data,
-                options: {}
+                options: {
+                  maintainAspectRatio: false
+                }
             });
           });
