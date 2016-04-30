@@ -62,11 +62,31 @@ module Statistics
                       .order(mileage: :asc)
 
       if start_date.present?
-        @_histories = @_histories.where("happened_at >= :start_date", { start_date: start_date })
+        @_histories = @_histories.where("happened_at >= :start_date", { start_date: start_date.beginning_of_month })
       end
 
       @_histories
     end
+  end
+end
+
+class Expence
+  attr_reader :value
+
+  def initialize(value)
+    @value = value
+  end
+
+  def by_day
+    []
+  end
+
+  def by_month
+    []
+  end
+
+  def by_year
+    []
   end
 end
 
