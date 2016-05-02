@@ -24,7 +24,8 @@ gem 'omniauth-facebook'
 gem 'pry-rails'
 gem 'newrelic_rpm'
 gem "bower-rails", "~> 0.10.0"
-
+gem 'premailer-rails'
+gem 'nokogiri'
 
 group :development, :test do
   gem 'rspec-rails', '~> 3.0'

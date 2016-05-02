@@ -1,0 +1,21 @@
+doctype html
+html
+  head
+    meta content='text/html; charset=UTF-8' http-equiv='Content-Type'
+    = stylesheet_link_tag 'mailer', media: 'all'
+
+  body
+    table style="width:100%;" background="#{attachments.inline['background.png'].url}"
+      tr style="background-color:#101010; text-align:center;"
+        td style="padding:15px;" = image_tag attachments.inline['logo.png'].url
+
+      tr style="text-align:center;"
+        td style="padding:15px;"
+          h1 Добре дошли в Autobook.bg
+          div Вие успешно завършихте регистрацията си в Autobook.bg.
+          div Сега вече можете да добавите първата си кола.
+          br
+          = link_to 'Добави кола', new_car_url, class: 'btn'
+
+      tr style="text-align:center;"
+        td  style="padding:15px;" Autbook.bg
