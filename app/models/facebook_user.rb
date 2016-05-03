@@ -8,7 +8,7 @@ class FacebookUser
   end
 
   def self.create_from_omniauth(auth)
-    User.create! do |user|
+    user = User.create! do |user|
       user.provider = auth["provider"]
       user.uid = auth["uid"]
       user.email = auth["info"]["email"]
@@ -16,5 +16,9 @@ class FacebookUser
       user.last_name = auth["info"]["last_name"]
       user.password = (0...8).map { (65 + rand(26)).chr }.join
     end
+
+    UserMailer.welcome_email(user).deliver_now
+
+    user
   end
 end

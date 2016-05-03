@@ -28,6 +28,7 @@ class UsersController < ApplicationController
 
     if @user.save
       log_in(@user)
+      UserMailer.welcome_email(@user).deliver_now
       redirect_to back_or_default
     else
       render :new
