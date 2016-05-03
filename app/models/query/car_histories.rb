@@ -33,11 +33,10 @@ module Query
 
     def first_car_history_date
       history = car.histories
-                 .where('cost IS NOT NULL')
-                 .where('mileage IS NOT NULL')
-                 .order(happened_at: :asc)
-                 .order(mileage: :asc)
-                 .first
+                  .where("type = 'PurchaseHistory'")
+                  .order(happened_at: :asc)
+                  .order(mileage: :asc)
+                  .first
 
       if history.present?
         Date.parse(history.happened_at.to_s)
