@@ -4,6 +4,14 @@
 
 br
 
+- if flash[:notice].present?
+  .row
+    .col-sm-8.col-sm-offset-2
+      .alert.alert-info.text-center
+        = flash[:notice]
+
+  br
+
 .row
   .col-sm-4.col-sm-offset-2
     .panel.panel-default
@@ -15,17 +23,22 @@ br
           | Влез с Facebook
 
   .col-sm-4
-    .panel.panel-default
-      .panel-heading
-        strong Вход с имейл
-      .panel-body
-        - if @invalid_credentials
-          .alert.alert-danger Грешен потребител или парола.
+    .row
+      .col-xs-12
+        .panel.panel-default
+          .panel-heading
+            strong Вход с имейл
+          .panel-body
+            - if @invalid_credentials
+              .alert.alert-danger Грешен потребител или парола.
 
-        = bootstrap_form_tag url: signin_path do |f|
-          = f.email_field :email, value: params[:email], label: 'Имейл', placeholder: 'Вашият имейл'
-          = f.password_field :password, label: 'Парола', placeholder: 'Вашата парола'
-          = f.submit 'Вход', class: 'btn btn-default btn-block'
+            = bootstrap_form_tag url: signin_path do |f|
+              = f.email_field :email, value: params[:email], label: 'Имейл', placeholder: 'Вашият имейл'
+              = f.password_field :password, label: 'Парола', placeholder: 'Вашата парола'
+              = f.submit 'Вход', class: 'btn btn-default btn-block'
+
+      .col-xs-12.text-center
+        = link_to 'Забравена парола?', new_password_reset_path
 
 br
 br

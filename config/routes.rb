@@ -28,6 +28,7 @@ Rails.application.routes.draw do
   # Omniauth
   get    '/auth/facebook/callback',   to: 'facebook_sessions#create'
   get    '/auth/failure',             to: 'static_pages#landingpage'
+
   get    '/signin',                   to: 'sessions#new'
   get    '/signup',                   to: 'users#new'
   post   '/signup',                   to: 'users#create'
@@ -38,6 +39,8 @@ Rails.application.routes.draw do
   patch  '/profile',                  to: 'users#update'
   get    '/profile/password/edit',    to: 'passwords#edit'
   patch  '/profile/password',         to: 'passwords#update'
+
+  resource :password_reset, only: [:new, :create, :edit, :update]
 
   get '/contacts',     to: 'static_pages#contacts'
   get '/terms_of_use', to: 'static_pages#terms_of_use'

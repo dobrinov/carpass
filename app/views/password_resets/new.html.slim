@@ -1,0 +1,15 @@
+.row
+  .col-sm-4.col-sm-offset-4.text-center
+    h1 Забравена парола
+
+br
+
+.row
+  .col-sm-4.col-sm-offset-4
+    .panel.panel-default
+      .panel-heading
+        strong Имейл за възстановяване
+      .panel-body
+        = bootstrap_form_tag url: password_reset_path, :method => :post do |f|
+          = f.email_field :email, value: params[:email], label: 'Имейл', placeholder: 'Вашият имейл'
+          = f.submit 'Изпрати имейл', class: 'btn btn-primary btn-block'
