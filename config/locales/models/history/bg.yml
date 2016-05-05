@@ -10,7 +10,7 @@ bg:
         types:
           AnnualInspectionHistory: 'Годишен технически преглед'
           PurchaseHistory: 'Покупка'
-          ProductionHistory: 'Производство'
+          ProductionHistory: 'Първа регистрация'
           CompulsoryInsuranceHistory: 'Гражданска отговорност'
           FullInsuranceHistory: 'Каско'
           MaintenanceHistory: 'Обслужване'

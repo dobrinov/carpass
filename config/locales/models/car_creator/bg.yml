@@ -7,7 +7,7 @@ bg:
         model: 'Модел'
         vin: 'Номер на шаси'
         engine_number: 'Номер на двигател'
-        produced_at: 'Произведена на'
+        produced_at: 'Дата първа регистрация'
         purchased_at: 'Закупена на'
         mileage_at_purchase: 'Пробег в момента на покупката'
 

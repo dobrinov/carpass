@@ -14,8 +14,6 @@ br
               = f.text_field :make, class: 'form-control', placeholder: 'Toyota'
               = f.text_field :model, class: 'form-control', placeholder: 'Corolla'
               = f.text_field :plate, class: 'form-control', placeholder: 'CA1234XX'
-              = f.text_field :vin, class: 'form-control', placeholder: 'XXXXXXXXXXXXXXXXX'
-              = f.text_field :engine_number, class: 'form-control', placeholder: '12345678'
               = f.date_select :produced_at, { order: [:day, :month, :year], start_year: 1900, end_year: Date.today.year }, { class: 'form-control date-select' }
               = f.date_select :purchased_at, { order: [:day, :month, :year], start_year: 1900, end_year: Date.today.year }, { class: 'form-control date-select' }
               = f.number_field :mileage_at_purchase, class: 'form-control', min: 0, placeholder: 'Пробег при покупката (км.)'
