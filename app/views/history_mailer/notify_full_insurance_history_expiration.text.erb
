@@ -1,0 +1,3 @@
+Изтичаща застраховка "Каско"
+Autobook.bg иска да ти напомни че на <%= @history.valid_until.strftime("%d.%m.%Y") %> изтича застраховка "Каско" за автомобил с регистрационен номер <%= @car.plate %>.
+<%= link_to 'Повече информация', full_insurance_history_url(@history) %>

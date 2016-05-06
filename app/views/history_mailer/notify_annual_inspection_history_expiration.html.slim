@@ -1,0 +1,4 @@
+h1 Изтичащ годишен технически преглед
+div Autobook.bg иска да ти напомни че на #{@history.valid_until.strftime("%d.%m.%Y")} изтича годишният технически преглед за автомобил с регистрационен номер #{@car.plate}.
+br
+= link_to 'Повече информация', annual_inspection_history_url(@history), class: 'btn'

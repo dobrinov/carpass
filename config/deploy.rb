@@ -20,6 +20,9 @@ set :rbenv_roles, :all
 set :linked_dirs, %w{log tmp/pids tmp/cache tmp/sockets vendor/bundle public/uploads}
 set :linked_files, %w{.rbenv-vars}
 
+# Whenever
+set :whenever_identifier, ->{ "#{fetch(:application)}_#{fetch(:stage)}" }
+
 set :format, :pretty
 set :log_level, :debug
 set :pty, true
