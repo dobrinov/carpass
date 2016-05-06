@@ -4,6 +4,14 @@
 
 br
 
+- if flash[:alert].present?
+  .row
+    .col-sm-4.col-sm-offset-4
+      .alert.alert-danger.text-center
+        = flash[:alert]
+
+  br
+
 .row
   .col-sm-4.col-sm-offset-4
     .panel.panel-default

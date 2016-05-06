@@ -1,4 +1,6 @@
 class PasswordResetsController < ApplicationController
+  before_action :redirect_if_token_is_expired, only: [:edit, :update]
+
   def new
   end
 
@@ -9,15 +11,11 @@ class PasswordResetsController < ApplicationController
   end
 
   def edit
-    @user = User.find_by_password_reset_token!(params[:token])
+    @user = user_from_token
   end
 
   def update
-    @user = User.find_by_password_reset_token!(params[:token])
-
-    if @user.password_reset_sent_at < 2.hours.ago
-      redirect_to new_password_reset_path, alert: 'Сесията е изтекла.'
-    end
+    @user = user_from_token
 
     if @user.update_attributes(user_params)
       redirect_to signin_path, notice: 'Паролата бе променена.'
@@ -27,6 +25,18 @@ class PasswordResetsController < ApplicationController
   end
 
   private
+
+  def user_from_token
+    @_user ||= User.find_by_password_reset_token(params[:token])
+  end
+
+  def redirect_if_token_is_expired
+    @user = user_from_token
+
+    if @user.present? && @user.password_reset_sent_at < 2.hours.ago
+      redirect_to new_password_reset_path, alert: 'Кодът за промяна на парола е изтекъл. Изпратете нов като посочите имейл.'
+    end
+  end
 
   def user_params
     if params[:user].present?
