@@ -1,5 +1,5 @@
 class ApplicationMailer < ActionMailer::Base
-  default from: "Autobook.bg <no-reply@autobook.bg>"
+  default from: "Carpass.bg <no-reply@carpass.bg>"
   layout 'mailer'
 
   before_action :attach_logo
