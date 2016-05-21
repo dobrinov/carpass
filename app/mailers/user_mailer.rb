@@ -8,4 +8,9 @@ class UserMailer < ApplicationMailer
     @user = user
     mail(to: user.email, subject: 'Забравена парола')
   end
+
+  def rebranding(user)
+    @user = user
+    mail(to: user.email, subject: 'Autobook.bg става Carpass.bg')
+  end
 end
