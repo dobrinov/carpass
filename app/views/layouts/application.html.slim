@@ -12,9 +12,6 @@ html class="no-js"
     = favicon_link_tag 'favicon.ico'
     = csrf_meta_tags
 
-    / Tracking
-    = render partial: 'partials/facebook_analytics'
-
   body data-background-image="false"
     header.header
       .navbar.navbar-inverse.navbar-fixed-top
@@ -68,3 +65,7 @@ html class="no-js"
 
 / Tracking
 = render partial: 'partials/google_analytics'
+= render partial: 'partials/facebook_analytics'
+
+- if Rails.env.production? && flash[:facebook_tracking].present?
+  = render "partials/facebook/#{flash[:facebook_tracking]}"
