@@ -6,9 +6,8 @@
         th Дата на събитие
         th Пробег
         th Детайли
-        / th Стойност
-        / th Валидност
-        / th Дата на добавяне
+        th Стойност
+
     tbody
       - if histories.any?
         - histories.each do |history|
@@ -22,9 +21,8 @@
               h5.title = t("activerecord.attributes.history.types.#{history.type}")
               - if history.details.present?
                 .description = history.details.html_safe
-            / td = number_to_currency(history.cost, locale: I18n.locale)
-            / td = history.valid_until.strftime("%d.%m.%Y") if history.valid_until
-            / td = history.created_at.strftime("%d.%m.%Y")
+            td = number_to_currency(history.cost, locale: I18n.locale)
+
       - else
         tr.text-center
           td colspan="5" Няма записана история за тази кола.
