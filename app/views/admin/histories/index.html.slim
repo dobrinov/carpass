@@ -9,7 +9,7 @@ ol.breadcrumb
   table.table.table-hover
     thead
       tr
-        th Дата
+        th Дата на събитие
         th Пробег
         th Детайли
         th Стойност
@@ -18,7 +18,7 @@ ol.breadcrumb
       - if @histories.any?
         - @histories.each do |history|
           tr
-            td = history.created_at.strftime("%d.%m.%Y %H:%M:%S")
+            td = history.happened_at.strftime("%d.%m.%Y %H:%M:%S")
             td
               - if history.mileage.present?
                 = number_with_delimiter(history.mileage, delimiter: ',') + " км."
