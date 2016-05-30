@@ -14,7 +14,11 @@ class CarsController < ApplicationController
     respond_to do |format|
       format.html
       format.pdf do
-        render pdf: @car.plate, layout: 'pdf', template: 'cars/show_pdf.html.slim', orientation: 'Landscape'
+        render pdf: @car.plate,
+               layout: 'pdf',
+               template: 'cars/show_pdf.html.slim',
+               orientation: 'Landscape',
+               lowquality: false
       end
     end
   end

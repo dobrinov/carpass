@@ -2,5 +2,8 @@
 @import "bootstrap";
 @import "font-awesome";
 
-// Modules
-@import "modules/logo/*";
+body {
+  table {
+    font-size: 12px;
+  }
+}
