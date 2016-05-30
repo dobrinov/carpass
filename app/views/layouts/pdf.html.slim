@@ -1,0 +1,15 @@
+doctype html
+html class="no-js"
+  head
+    meta charset="utf-8"
+    = wicked_pdf_stylesheet_link_tag 'pdf', media: 'all'
+    = csrf_meta_tags
+
+  body
+    .container.text-center
+      .logo
+        = wicked_pdf_image_tag 'logo_1024x1024.png', size: '50'
+      .text www.carpass.bg
+
+    .container
+      = yield

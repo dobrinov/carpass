@@ -27,6 +27,8 @@ gem "bower-rails", "~> 0.10.0"
 gem 'premailer-rails'
 gem 'nokogiri'
 gem 'whenever', :require => false
+gem 'wicked_pdf'
+gem 'wkhtmltopdf-binary'
 
 group :development, :test do
   gem 'rspec-rails', '~> 3.0'

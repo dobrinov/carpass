@@ -32,4 +32,5 @@
   .panel-body
     = link_to 'Статистика', car_statistics_root_path(car), class: 'btn btn-block btn-default'
     = link_to 'Редактирай кола', edit_car_path(@car), class: 'btn btn-block btn-default'
+    = link_to 'Свали в PDF', car_path(@car, format: 'pdf'), class: 'btn btn-block btn-default'
     = link_to 'Изтрий кола', car_path(@car), class: 'btn btn-block btn-danger', data: {:confirm => "Сигурни ли сте че искате да изтриете колата с регистрация #{@car.plate}?"}, :method => :delete

@@ -10,6 +10,13 @@ class CarsController < ApplicationController
     @cars = current_user.cars
     @car = @cars.find(params[:id])
     @histories = @car.histories.order(happened_at: :desc).order(mileage: :desc)
+
+    respond_to do |format|
+      format.html
+      format.pdf do
+        render pdf: @car.plate, layout: 'pdf', template: 'cars/show_pdf.html.slim', orientation: 'Landscape'
+      end
+    end
   end
 
   def new

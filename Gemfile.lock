@@ -265,6 +265,8 @@ GEM
       equalizer (~> 0.0, >= 0.0.9)
     whenever (0.9.4)
       chronic (>= 0.6.3)
+    wicked_pdf (1.0.6)
+    wkhtmltopdf-binary (0.9.9.3)
 
 PLATFORMS
   ruby
@@ -299,6 +301,8 @@ DEPENDENCIES
   unicorn
   virtus
   whenever
+  wicked_pdf
+  wkhtmltopdf-binary
 
 BUNDLED WITH
    1.11.2
