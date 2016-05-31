@@ -28,7 +28,7 @@ gem 'premailer-rails'
 gem 'nokogiri'
 gem 'whenever', :require => false
 gem 'wicked_pdf'
-gem 'wkhtmltopdf-binary-edge'
+gem 'wkhtmltopdf-binary'
 
 group :development, :test do
   gem 'rspec-rails', '~> 3.0'
