@@ -266,7 +266,7 @@ GEM
     whenever (0.9.4)
       chronic (>= 0.6.3)
     wicked_pdf (1.0.6)
-    wkhtmltopdf-binary (0.9.9.3)
+    wkhtmltopdf-binary-edge (0.12.3.0)
 
 PLATFORMS
   ruby
@@ -302,7 +302,7 @@ DEPENDENCIES
   virtus
   whenever
   wicked_pdf
-  wkhtmltopdf-binary
+  wkhtmltopdf-binary-edge
 
 RUBY VERSION
    ruby 2.3.0p0
