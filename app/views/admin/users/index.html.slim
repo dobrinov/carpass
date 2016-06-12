@@ -18,3 +18,7 @@ h1 Потребители
           td = link_to user.email, admin_user_cars_path(user)
           td = user.created_at.strftime("%d.%m.%Y %H:%M:%S")
           td = user.last_login_at.strftime("%d.%m.%Y %H:%M:%S")
+
+br
+
+= will_paginate @users, renderer: BootstrapPagination::Rails

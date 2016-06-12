@@ -28,6 +28,8 @@ gem 'premailer-rails'
 gem 'nokogiri'
 gem 'whenever', :require => false
 gem 'wicked_pdf'
+gem 'will_paginate', '~> 3.1.0'
+gem 'will_paginate-bootstrap'
 gem 'wkhtmltopdf-binary'
 
 group :development, :test do
