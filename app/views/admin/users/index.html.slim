@@ -23,4 +23,4 @@ br
 
 .row
   .col-xs-12.text-center
-    = will_paginate @users, renderer: BootstrapPagination::Rails
+    = will_paginate @users, renderer: BootstrapPagination::Rails, previous_label: '&laquo;', next_label: '&raquo;'
