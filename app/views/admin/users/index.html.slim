@@ -16,7 +16,7 @@ h1 Потребители
           td = user.id
           td
             - if user.provider == 'facebook'
-              = link_to user.full_name, "https://facebook.com/#{user.uid}"
+              = link_to user.full_name, "https://facebook.com/#{user.uid}", target: '_blank'
             - else
               = user.full_name
           td = link_to user.email, admin_user_cars_path(user)
