@@ -7,6 +7,14 @@ class History < ActiveRecord::Base
 
   validates :cost, numericality: { allow_blank: true, greater_than_or_equal_to: 0 }
 
+  def notify_about_expiration?
+    expiration_notification_class.present?
+  end
+
+  def expiration_notification_class
+    nil
+  end
+
   def notify_expiration
     # Do nothing
   end

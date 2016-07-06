@@ -12,7 +12,16 @@ class HistoryExpirationNotifier
   def call
     logger.debug "Setting up emailing using password #{ENV['SENDGRID_PASSWORD']}"
     logger.info "Sending notifications about #{histories.count} histories."
-    histories.each(&:notify_expiration)
+    histories.each do |history|
+      next unless history.notify_about_expiration?
+
+      notification = history.expiration_notification_class.create!(
+        user: history.car.user,
+        notifiable: history
+      )
+
+      notification.deliver
+    end
   end
 
   private

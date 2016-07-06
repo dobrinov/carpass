@@ -25,6 +25,12 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :notifications, only: [:index] do
+    member do
+      patch 'read'
+    end
+  end
+
   # Omniauth
   get    '/auth/facebook/callback',   to: 'facebook_sessions#create'
   get    '/auth/failure',             to: 'static_pages#landingpage'
