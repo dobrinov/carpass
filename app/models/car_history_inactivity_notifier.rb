@@ -6,21 +6,34 @@ class CarHistoryInactivityNotifier
     @period = period
   end
 
-  def self.call
-    new.call
+  def self.call(period)
+    new(period).call
   end
 
   def call
-    # Implement me
+    cars.each do |car|
+      notification = CarHistoryInactivityNotification.create!(
+        user: car.user,
+        notifiable: car
+      )
+
+      notification.deliver
+    end
   end
 
   private
 
-  def notify(user)
-    UserMailer.notify_inactivity(user).deliver_now
-  end
+  def cars
+    cars = User.includes(:cars).where('last_login_at < ?', Date.today - period).
+             map(&:cars).
+             flatten
 
-  def users
-    # Implement me
+    # Remove cars for which notifications were sent recently (period)
+    cars.reject do |car|
+      car.user.notifications.
+        where(type: CarHistoryInactivityNotification).
+        where('created_at > ?', Date.today - period).
+        any?
+    end
   end
 end

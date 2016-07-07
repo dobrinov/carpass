@@ -7,7 +7,7 @@ every 1.day, at: '12:30pm' do
 end
 
 every 1.day, at: '08:00pm' do
-  rake "cars:notify_history_inactivity"
+  rake "cars:notify_history_inactivity[60]"
 end
 
 every 1.day, at: '08:30pm' do
