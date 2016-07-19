@@ -2,7 +2,7 @@ class CarHistoryInactivityNotifier
   attr_reader :logger, :period
 
   def initialize(period)
-    @logger = Logger.new("#{Rails.root}/log/inactive_users_notifier.log", 'a')
+    @logger = Logger.new("#{Rails.root}/log/car_history_inactivity_notifier.log", File::APPEND)
     @period = period
   end
 
@@ -11,6 +11,8 @@ class CarHistoryInactivityNotifier
   end
 
   def call
+    logger.info("Sending notifications about #{cars.count} cars...")
+
     cars.each do |car|
       notification = CarHistoryInactivityNotification.create!(
         user: car.user,

@@ -30,7 +30,7 @@ class UnfinishedRegistrationsNotifier
     users = User.
       includes(:cars).
       where( cars: { id: nil }).
-        where('last_login_at < ?', Date.today - period)
+      where('last_login_at < ?', Date.today - period)
 
     users.reject do |user|
       user.notifications.
