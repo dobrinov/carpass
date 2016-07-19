@@ -2,7 +2,7 @@ class HistoryExpirationNotifier
   attr_reader :logger
 
   def initialize
-    @logger = Logger.new("#{Rails.root}/log/history_expiration_notifier.log", 'a')
+    @logger = Logger.new("#{Rails.root}/log/history_expiration_notifier.log", File::APPEND)
   end
 
   def self.call
