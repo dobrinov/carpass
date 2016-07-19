@@ -10,7 +10,6 @@ every 1.day, at: '08:00pm' do
   rake "cars:notify_history_inactivity[60]"
 end
 
-every 1.day, at: '08:30pm' do
-  rake "users:notify_unfinished_registrations"
+every :saturday, at: '11:00pm' do
+  rake "users:notify_unfinished_registrations[3]"
 end
-
