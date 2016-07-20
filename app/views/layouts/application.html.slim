@@ -47,6 +47,7 @@ html class="no-js"
                     - if current_user.admin?
                       li = link_to 'Административен панел', admin_root_path
                     li = link_to 'Профил', profile_path
+                    li = link_to 'Настройки', settings_path
                     li = link_to 'Изход', signout_path, method: :delete
 
               - else

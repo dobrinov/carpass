@@ -46,6 +46,9 @@ Rails.application.routes.draw do
   get    '/profile/password/edit',    to: 'passwords#edit'
   patch  '/profile/password',         to: 'passwords#update'
 
+  get    '/settings',                 to: 'settings#edit'
+  patch  '/settings',                 to: 'settings#update'
+
   resource :password_reset, only: [:new, :create, :edit, :update]
 
   get '/contacts',     to: 'static_pages#contacts'

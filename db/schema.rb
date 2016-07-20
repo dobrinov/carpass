@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160701074204) do
+ActiveRecord::Schema.define(version: 20160720215244) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -50,6 +50,14 @@ ActiveRecord::Schema.define(version: 20160701074204) do
   end
 
   add_index "notifications", ["notifiable_id", "notifiable_type"], name: "index_notifications_on_notifiable_id_and_notifiable_type", using: :btree
+
+  create_table "settings", force: :cascade do |t|
+    t.integer "user_id"
+    t.boolean "receives_history_expiration_emails",                 default: true
+    t.boolean "receives_inactivity_emails",                         default: true
+    t.boolean "receives_history_expiration_facebook_notifications", default: true
+    t.boolean "receives_inactivity_facebook_notifications",         default: true
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "provider"

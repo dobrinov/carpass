@@ -15,6 +15,7 @@ class FacebookUser
       user.first_name = auth["info"]["first_name"]
       user.last_name = auth["info"]["last_name"]
       user.password = (0...8).map { (65 + rand(26)).chr }.join
+      user.build_setting
     end
 
     UserMailer.welcome_email(user).deliver_now

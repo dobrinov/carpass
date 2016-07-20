@@ -3,6 +3,7 @@ class User < ActiveRecord::Base
 
   has_many :cars, dependent: :destroy
   has_many :notifications, dependent: :destroy
+  has_one :setting
 
   # Validations
   validates :email,
