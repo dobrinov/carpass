@@ -1,8 +1,10 @@
 class ExpiringAnnualInspectionHistoryNotification < Notification
   def deliver
-    HistoryMailer.
-      notify_annual_inspection_history_expiration(history).
-      deliver_now
+    if user.setting.receives_history_expiration_emails?
+      HistoryMailer.
+        notify_annual_inspection_history_expiration(history).
+        deliver_now
+    end
   end
 
   def history

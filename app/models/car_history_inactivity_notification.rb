@@ -1,8 +1,10 @@
 class CarHistoryInactivityNotification < Notification
   def deliver
-    CarMailer.
-      car_history_inactivity(car).
-      deliver_now
+    if user.setting.receives_inactivity_emails?
+      CarMailer.
+        car_history_inactivity(car).
+        deliver_now
+    end
   end
 
   def car

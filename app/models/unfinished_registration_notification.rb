@@ -1,7 +1,9 @@
 class UnfinishedRegistrationNotification < Notification
   def deliver
-    UserMailer.
-      unfinished_registration(user).
-      deliver_now
+    if user.setting.receives_inactivity_emails?
+      UserMailer.
+        unfinished_registration(user).
+        deliver_now
+    end
   end
 end
