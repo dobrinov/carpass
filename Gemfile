@@ -33,7 +33,7 @@ gem 'will_paginate-bootstrap'
 gem 'wkhtmltopdf-binary'
 
 group :development, :test do
-  gem 'rspec-rails', '~> 3.0'
+  gem 'rspec-rails', '~> 3.5'
 end
 
 group :development do
