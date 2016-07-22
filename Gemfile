@@ -37,6 +37,7 @@ group :development, :test do
 end
 
 group :development do
+  gem 'thin'
   gem 'capistrano-rails', '~> 1.1'
   gem 'capistrano-rbenv', '~> 2.0'
   gem 'capistrano-bundler', '~> 1.1.4'
