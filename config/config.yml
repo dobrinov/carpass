@@ -12,5 +12,5 @@ test:
 production:
   <<: *defaults
   facebook:
-    key: ENV['FACEBOOK_KEY']
-    secret: ENV['FACEBOOK_SECRET']
+    key: <%= ENV['FACEBOOK_KEY'] %>
+    secret: <%= ENV['FACEBOOK_SECRET'] %>
