@@ -1,6 +1,7 @@
 class Car < ActiveRecord::Base
   belongs_to :user
   has_many :histories, dependent: :destroy
+  has_many :notifications, dependent: :destroy
 
   # Validations
   validates :plate, presence: true,
