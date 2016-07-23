@@ -27,9 +27,6 @@ set :format, :pretty
 set :log_level, :debug
 set :pty, true
 
-# Bundle env
-set :bundle_env_variables, { 'NOKOGIRI_USE_SYSTEM_LIBRARIES' => 1 }
-
 namespace :bower do
   desc 'Install bower'
   task :install do
