@@ -1,0 +1,16 @@
+defaults: &defaults
+
+development:
+  <<: *defaults
+  facebook:
+    key: '211397485887858'
+    secret: '86a1175ebf2a7b3ac7a0fc0002a6a091'
+
+test:
+  <<: *defaults
+
+production:
+  <<: *defaults
+  facebook:
+    key: ENV['FACEBOOK_KEY']
+    secret: ENV['FACEBOOK_SECRET']
