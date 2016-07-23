@@ -1,7 +1,6 @@
 class History < ActiveRecord::Base
   belongs_to :car
-  has_many :notifications, dependent: :destroy
-
+  has_many :notifications, as: :notifiable, dependent: :destroy
 
   validates :mileage, numericality: { only_integer: true, greater_than_or_equal_to: 0 }, allow_blank: true
 
