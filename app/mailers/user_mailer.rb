@@ -13,4 +13,9 @@ class UserMailer < ApplicationMailer
     @user = user
     mail(to: user.email, subject: 'Autobook.bg става Carpass.bg')
   end
+
+  def unfinished_registration(user)
+    @user = user
+    mail(to: user.email, subject: 'Не си довършил регистрацията си в Carpass.bg')
+  end
 end

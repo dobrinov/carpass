@@ -14,6 +14,7 @@ gem 'redirectr', '~> 0.1.0'
 gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'bcrypt', '~> 3.1.7'
+gem 'httparty'
 gem 'slim-rails'
 gem 'compass-rails'
 gem "font-awesome-rails"
@@ -33,10 +34,11 @@ gem 'will_paginate-bootstrap'
 gem 'wkhtmltopdf-binary'
 
 group :development, :test do
-  gem 'rspec-rails', '~> 3.0'
+  gem 'rspec-rails', '~> 3.5'
 end
 
 group :development do
+  gem 'thin'
   gem 'capistrano-rails', '~> 1.1'
   gem 'capistrano-rbenv', '~> 2.0'
   gem 'capistrano-bundler', '~> 1.1.4'

@@ -25,6 +25,16 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :notifications, only: [:index] do
+    member do
+      patch 'read'
+    end
+  end
+
+  namespace :facebook do
+    post '/notifications/:id', to: 'notifications#show'
+  end
+
   # Omniauth
   get    '/auth/facebook/callback',   to: 'facebook_sessions#create'
   get    '/auth/failure',             to: 'static_pages#landingpage'
@@ -39,6 +49,9 @@ Rails.application.routes.draw do
   patch  '/profile',                  to: 'users#update'
   get    '/profile/password/edit',    to: 'passwords#edit'
   patch  '/profile/password',         to: 'passwords#update'
+
+  get    '/settings',                 to: 'settings#edit'
+  patch  '/settings',                 to: 'settings#update'
 
   resource :password_reset, only: [:new, :create, :edit, :update]
 

@@ -26,6 +26,8 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
 
+    @user.build_setting
+
     if @user.save
       log_in(@user)
       UserMailer.welcome_email(@user).deliver_now

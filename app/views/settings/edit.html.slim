@@ -1,0 +1,41 @@
+h1 Настройки
+
+br
+
+- if flash[:notice].present?
+  .alert.alert-success
+    = flash[:notice]
+
+.panel.panel-default
+  .panel-heading
+    strong Известия
+  .panel-body
+    = bootstrap_form_for @setting, url: settings_path do |form|
+      h4 Известия за изтичащи истории
+      p От тук можете да посочите по какъв начин да бъдете известяван за изтичащи "Гражданска отговорност", "Технически преглед" и "Каско".
+
+      .row
+        .col-sm-3
+          = form.check_box :receives_history_expiration_emails
+
+        - if current_user.facebook_user?
+          .col-sm-3
+            = form.check_box :receives_history_expiration_facebook_notifications
+
+      hr
+
+      h4 Известия за неактивност
+      p От тук можете да посочите по какъв начин да бъдете подсещан, когато не сте въвеждали информация дълго време.
+
+      .row
+        .col-sm-3
+          = form.check_box :receives_inactivity_emails
+
+        - if current_user.facebook_user?
+          .col-sm-3
+            = form.check_box :receives_inactivity_facebook_notifications
+
+      div.text-center
+        br
+        = form.submit 'Запиши настройки', class: 'btn btn-primary'
+

@@ -14,4 +14,11 @@ html
           = yield
 
       tr style="text-align:center;"
-        td  style="padding:15px;" Carpass.bg
+        td  style="padding:15px; color:#999999;"
+          div
+            | Можете да се откажете от тези имейли от
+            | &nbsp;
+            = link_to('настройките', settings_url)
+            | &nbsp;
+            | на профила си.
+          div Carpass.bg

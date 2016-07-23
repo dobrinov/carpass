@@ -2,6 +2,8 @@ class User < ActiveRecord::Base
   has_secure_password
 
   has_many :cars, dependent: :destroy
+  has_many :notifications, dependent: :destroy
+  has_one :setting
 
   # Validations
   validates :email,
@@ -23,6 +25,10 @@ class User < ActiveRecord::Base
     begin
       self[column] = SecureRandom.urlsafe_base64
     end while User.exists?(column => self[column])
+  end
+
+  def facebook_user?
+    provider == 'facebook'
   end
 
   def histories

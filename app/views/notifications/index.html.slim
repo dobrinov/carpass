@@ -1,0 +1,27 @@
+.row
+  .col-sm-8.col-sm-offset-2
+    h1 Известия
+  .col-sm-8.col-sm-offset-2
+    - if @notifications.any?
+      .panel.panel-default
+        table.table
+          thead
+            tr
+              th &nbsp;
+              th Информация
+              th Получено
+
+          tbody
+            - @notifications.each do |notification|
+              tr class="#{'warning' if notification.read_at.nil?}"
+                td
+                  = button_to read_notification_path(notification), method: :patch, class: 'btn btn-default btn-xs' do
+                    i = fa_icon 'eye'
+
+                td
+                  = render partial: notification.class.to_s.underscore, locals: { notification: notification }
+
+                td = "преди #{distance_of_time_in_words(notification.created_at, Time.now)}"
+
+    - else
+      .alert.alert-info.text-center Няма нови известия.

@@ -1,0 +1,8 @@
+bg:
+  activerecord:
+    attributes:
+      setting:
+        receives_history_expiration_emails: 'Имеили за изтичащи истории'
+        receives_inactivity_emails: 'Имеили за потребителска неактивност'
+        receives_history_expiration_facebook_notifications: 'Facebook известия за изтичащи истории'
+        receives_inactivity_facebook_notifications: 'Facebook известия за потребитеска неактивност'

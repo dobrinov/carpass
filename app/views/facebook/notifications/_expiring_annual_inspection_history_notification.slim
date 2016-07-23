@@ -1,0 +1,6 @@
+h2 Изтичащ "Годишен технически преглед"
+div На #{notification.history.valid_until.strftime("%d.%m.%Y")} изтича "Годишен технически преглед" на автомобил с регистрационен номер #{notification.car.plate}.
+
+br
+
+= button_to 'Повече информация', read_notification_path(notification), method: :patch, class: 'btn btn-primary', form: { target: '_blank' }
