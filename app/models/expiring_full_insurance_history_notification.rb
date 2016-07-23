@@ -5,6 +5,10 @@ class ExpiringFullInsuranceHistoryNotification < Notification
         notify_full_insurance_history_expiration(history).
         deliver_now
     end
+
+    if user.facebook_user? && user.setting.receives_inactivity_facebook_notifications?
+      ExpiringFullInsuranceHistoryFacebookNotification.deliver(self)
+    end
   end
 
   def history

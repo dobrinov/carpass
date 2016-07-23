@@ -31,6 +31,10 @@ Rails.application.routes.draw do
     end
   end
 
+  namespace :facebook do
+    post '/notifications/:id', to: 'notifications#show'
+  end
+
   # Omniauth
   get    '/auth/facebook/callback',   to: 'facebook_sessions#create'
   get    '/auth/failure',             to: 'static_pages#landingpage'

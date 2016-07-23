@@ -27,6 +27,10 @@ class User < ActiveRecord::Base
     end while User.exists?(column => self[column])
   end
 
+  def facebook_user?
+    provider == 'facebook'
+  end
+
   def histories
     History.where(car_id: cars.pluck(:id))
   end

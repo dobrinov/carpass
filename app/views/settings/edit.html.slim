@@ -17,8 +17,10 @@ br
       .row
         .col-sm-3
           = form.check_box :receives_history_expiration_emails
-        .col-sm-3
-          = form.check_box :receives_history_expiration_facebook_notifications
+
+        - if current_user.facebook_user?
+          .col-sm-3
+            = form.check_box :receives_history_expiration_facebook_notifications
 
       hr
 
@@ -28,8 +30,10 @@ br
       .row
         .col-sm-3
           = form.check_box :receives_inactivity_emails
-        .col-sm-3
-          = form.check_box :receives_inactivity_facebook_notifications
+
+        - if current_user.facebook_user?
+          .col-sm-3
+            = form.check_box :receives_inactivity_facebook_notifications
 
       div.text-center
         br
