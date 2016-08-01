@@ -36,6 +36,22 @@ RSpec.describe CarHistoryInactivityNotifier do
 
       CarHistoryInactivityNotifier.call(period)
     end
+
+    context 'when previous notifications' do
+      before do
+        notification = CarHistoryInactivityNotification.create!(
+          user: user_with_cars,
+          notifiable: user_with_cars.cars.first,
+          created_at: Time.now - (period + 1.day)
+        )
+      end
+
+      it 'delivers notifications' do
+        expect_any_instance_of(CarHistoryInactivityNotification).to receive(:deliver)
+
+        CarHistoryInactivityNotifier.call(period)
+      end
+    end
   end
 
   context 'when notification was delivered soon' do
