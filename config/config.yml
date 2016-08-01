@@ -8,6 +8,10 @@ development:
 
 test:
   <<: *defaults
+  facebook:
+    key: 'fake'
+    secret: 'fake'
+
 
 production:
   <<: *defaults
