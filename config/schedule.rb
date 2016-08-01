@@ -1,6 +1,8 @@
 env :PATH, ENV['PATH']
 env :SENDGRID_USERNAME, ENV['SENDGRID_USERNAME']
 env :SENDGRID_PASSWORD, ENV['SENDGRID_PASSWORD']
+env :FACEBOOK_KEY, ENV['FACEBOOK_KEY']
+env :FACEBOOK_SECRET, ENV['FACEBOOK_SECRET']
 
 every 1.day, at: '12:30pm' do
   rake "histories:notify_expiration"
