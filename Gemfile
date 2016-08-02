@@ -26,6 +26,7 @@ gem 'pry-rails'
 gem 'newrelic_rpm'
 gem "bower-rails", "~> 0.10.0"
 gem 'premailer-rails'
+gem 'meta-tags'
 gem 'nokogiri'
 gem 'whenever', :require => false
 gem 'wicked_pdf'

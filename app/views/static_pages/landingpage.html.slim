@@ -1,3 +1,14 @@
+- title 'Онлайн сервизна книжка'
+
+- set_meta_tags description: "Carpass.bg е безплатна онлайн платформа за автомобилни сервизни книжки."
+- set_meta_tags keywords: %w[онлайн сервизна книжка автомобил статистика отчет]
+
+- set_meta_tags(og: { title: 'Онлайн сервизна книжка',
+                      type: 'website',
+                      url: 'https://www.carpass.bg/',
+                      image: asset_url('og_image.png'),
+                      description: 'Carpass.bg е безплатна онлайн платформа за автомобилни сервизни книжки.'})
+
 = content_for(:presentation) do
   .container-fluid.presentation.presentation_landingpage.fullscreen-background-image data-image=asset_path('blue_car.jpg')
     .container.landingpage
@@ -5,7 +16,7 @@
         .col-xs-12.landingpage__branding
           = image_tag 'logo_500x500.png', class: 'landingpage__branding__logo'
           h1.landingpage__branding__brand Carpass
-          h3.landingpage__branding__slogan Моята сервизна книжка
+          h3.landingpage__branding__slogan Онлайн сервизна книжка
 
       .row.landingpage__selling-points
         .col-sm-4
