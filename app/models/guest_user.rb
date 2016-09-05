@@ -3,15 +3,19 @@ class GuestUser
     user = generate_user
     car = generate_car
 
+    compulsory_insurance = generate_compulsory_insurance_history
+
     car.histories << generate_production_history
     car.histories << generate_purchase_history
-    car.histories << generate_compulsory_insurance_history
+    car.histories << compulsory_insurance
     car.histories << generate_maintenance_history
     car.histories << generate_full_insurance_hisotry
     car.histories << generate_annual_inspection_history
     car.histories << generate_tuning_history
     car.histories << generate_tyre_history
     car.histories << generate_repairment_history
+
+    user.notifications << generate_expiring_compulsory_insurance_notification(compulsory_insurance)
 
     user.cars << car
 
@@ -83,7 +87,7 @@ class GuestUser
       valid_until: Date.today - (1.year - 3.months),
       cost: 190,
       details: <<-HTML
-        1/4 вноска в Застраховки ООД
+        Платена наведнъж в Застраховки ООД
       HTML
   end
 
@@ -99,7 +103,7 @@ class GuestUser
   def self.generate_tuning_history
     TuningHistory.new \
       mileage: 99_000,
-      happened_at: Date.today - (1.year - 2.months),
+      happened_at: Date.today - (1.year - 6.weeks),
       cost: 550,
       details: 'Лети джанти 16"'
   end
@@ -107,7 +111,7 @@ class GuestUser
   def self.generate_tyre_history
     TyreHistory.new \
       mileage: 100_000,
-      happened_at: Date.today - (1.year - 6.weeks),
+      happened_at: Date.today - (1.year - 2.months),
       cost: 600,
       details: 'Четири гуми 205/55/16 Yokohama'
   end
@@ -118,6 +122,11 @@ class GuestUser
       happened_at: Date.today - 1.month,
       cost: 200,
       details: 'Смяна на предни дискове'
+  end
+
+  def self.generate_expiring_compulsory_insurance_notification(expiring_compulsory_insurance)
+    ExpiringCompulsoryInsuranceHistoryNotification.new \
+      notifiable: expiring_compulsory_insurance
   end
 
   def self.generate_email
