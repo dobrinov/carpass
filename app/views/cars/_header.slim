@@ -1,5 +1,11 @@
 h1 Моите коли
 
+- if current_user.guest?
+  .alert.alert-warning.text-center
+    p Потребителят който използваш е за демонстрационни цели. Направените промени по него ще бъдат изтрити в рамките на 24 часа.
+    br
+    = link_to 'Създай своята сервизна книжка',  signup_path, class: 'btn btn-primary'
+
 br
 
 .row

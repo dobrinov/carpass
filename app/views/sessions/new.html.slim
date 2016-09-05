@@ -33,8 +33,8 @@ br
               .alert.alert-danger Грешен потребител или парола.
 
             = bootstrap_form_tag url: signin_path do |f|
-              = f.email_field :email, value: params[:email], label: 'Имейл', placeholder: 'Вашият имейл'
-              = f.password_field :password, label: 'Парола', placeholder: 'Вашата парола'
+              = f.email_field :email, value: params[:email], label: 'Имейл', placeholder: 'Твоят имейл'
+              = f.password_field :password, label: 'Парола', placeholder: 'Твоята парола'
               = f.submit 'Вход', class: 'btn btn-default btn-block'
 
       .col-xs-12.text-center
@@ -45,5 +45,5 @@ br
 
 .row
   .col-sm-8.col-sm-offset-2.text-center
-    h4 Все още нямате регистрация?
-    = link_to 'Регистрирайте се', signup_path, class: 'btn btn-default'
+    h4 Все още нямаш регистрация?
+    = link_to 'Регистрирай се', signup_path, class: 'btn btn-default'

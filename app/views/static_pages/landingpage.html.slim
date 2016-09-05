@@ -38,3 +38,9 @@
         .col-sm-12
           = link_to 'Създай своята сервизна книжка', signup_path, class: 'btn btn-primary btn-lg'
           = link_to 'Вход', signin_path, class: 'btn btn-default btn-lg'
+
+        .col-sm-12
+          br
+          br
+          div Искаш да видиш как изглежда?
+          = button_to 'Влез с демо потребител', demo_path, method: :post, class: 'btn btn-default'

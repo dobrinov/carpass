@@ -20,15 +20,19 @@ br
         strong Регистрация с имейл
       .panel-body
         = bootstrap_form_for @user, url: signup_path do |f|
-          = f.email_field :email, placeholder: 'Вашият имейл'
-          = f.password_field :password, placeholder: 'Вашата парола'
-          = f.password_field :password_confirmation, placeholder: 'Повторете вашата парола'
+          = f.email_field :email, placeholder: 'Твоят имейл'
+          = f.password_field :password, placeholder: 'Твоята парола'
+          = f.password_field :password_confirmation, placeholder: 'Повтори парола'
           = f.submit 'Регистрация', class: 'btn btn-default btn-block'
 
 br
 br
 
 .row
-  .col-sm-4.col-sm-offset-4.text-center
-    h4 Вече имате регистрация?
-    = link_to 'Вход', signin_path, class: 'btn btn-default'
+  .col-sm-4.col-sm-offset-2.text-center
+    h4 Вече имаш регистрация?
+    = link_to 'Влез в профила си', signin_path, class: 'btn btn-default'
+
+  .col-sm-4.text-center
+    h4 Искаш да видиш как изглежда?
+    = button_to 'Влез с демо потребител', demo_path, method: :post, class: 'btn btn-default'

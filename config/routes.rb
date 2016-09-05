@@ -53,6 +53,8 @@ Rails.application.routes.draw do
   get    '/settings',                 to: 'settings#edit'
   patch  '/settings',                 to: 'settings#update'
 
+  post   '/demo',                     to: 'guest_users#create'
+
   resource :password_reset, only: [:new, :create, :edit, :update]
 
   get '/contacts',     to: 'static_pages#contacts'
