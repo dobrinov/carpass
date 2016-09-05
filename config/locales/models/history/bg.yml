@@ -16,7 +16,7 @@ bg:
           MaintenanceHistory: 'Обслужване'
           RepairmentHistory: 'Ремонт'
           TaxHistory: 'Данък'
-          TuningHistory: 'Тунинг'
+          TuningHistory: 'Подобрение'
           VignetteHistory: 'Винетка'
           TyreHistory: 'Гуми'
 
