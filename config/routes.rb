@@ -60,6 +60,9 @@ Rails.application.routes.draw do
   get '/contacts',     to: 'static_pages#contacts'
   get '/terms_of_use', to: 'static_pages#terms_of_use'
 
+  get '/locations',                   to: 'locations#index'
+  get '/locations/annual_inspection', to: 'locations#annual_inspection'
+
   namespace :admin do
     resources :users, only: [:index] do
       resources :cars, only: [:index]
@@ -68,6 +71,8 @@ Rails.application.routes.draw do
     resources :cars, only: [] do
       resources :histories, only: [:index]
     end
+
+    resources :locations
 
     namespace :statistics do
       get '/users/overview', to: 'users#overview'
