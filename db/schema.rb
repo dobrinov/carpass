@@ -44,7 +44,7 @@ ActiveRecord::Schema.define(version: 20160906144932) do
     t.string   "city"
     t.string   "address"
     t.string   "details"
-    t.float    "longtitude"
+    t.float    "longitude"
     t.float    "latitude"
     t.integer  "zoom_level"
     t.integer  "category"
