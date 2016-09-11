@@ -19,7 +19,7 @@ table.table.table-striped
         td = location.city
         td = location.name
         td = location.address
-        td = location.details
+        td = location.details.html_safe
         td
           = link_to 'Редакция', edit_admin_location_path(location), class: 'btn btn-default btn-xs'
           | &nbsp;
