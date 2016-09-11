@@ -20,9 +20,17 @@
     = f.text_area :details, class: 'form-control'
 
   .form-group
-    = f.text_field :longtitude, class: 'form-control'
-    = f.text_field :latitude, class: 'form-control'
-    = f.number_field :zoom_level, class: 'form-control'
+    .map.map_fixed-height
+      .map__backsight
+      .map__canvas {
+                      data-lat="#{f.object.latitude}"
+                      data-lng="#{f.object.longitude}"
+                      data-zoom="#{f.object.zoom_level}"
+                    }
+
+    = f.text_field :latitude, class: 'form-control', class: 'map__input map__input_lat'
+    = f.text_field :longitude, class: 'form-control', class: 'map__input map__input_lng'
+    = f.number_field :zoom_level, class: 'form-control', class: 'map__input map__input_zoom-level'
 
   = f.submit class: 'btn btn-primary'
   | &nbsp;

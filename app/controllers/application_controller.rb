@@ -36,4 +36,17 @@ class ApplicationController < ActionController::Base
   def parse_multi_parameter_datetime(params, name)
     DateTime.new(*(1..6).map { |i| params["#{name}(#{i}i)"].to_i })
   end
+
+  def load_additional_javascript(script_attributes)
+    @_additional_javascripts ||= []
+    @_additional_javascripts << script_attributes
+  end
+
+  def load_map_javascript
+    load_additional_javascript(
+      {
+        src: '//maps.googleapis.com/maps/api/js?key=AIzaSyAb89pIihEqO8YjxruvK4WSs3Bt37vuxPc&language=bg'
+      }
+    )
+  end
 end

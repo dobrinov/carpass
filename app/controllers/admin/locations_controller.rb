@@ -1,5 +1,7 @@
 module Admin
   class LocationsController < BaseController
+    before_action :load_map_javascript
+
     def index
       @locations = Location.all
     end
@@ -8,7 +10,7 @@ module Admin
     end
 
     def new
-      @location = Location.new
+      @location = Location.new(latitude: Bulgaria::LATITUDE, longitude: Bulgaria::LONGITUDE, zoom_level: Bulgaria::ZOOM_LEVEL)
     end
 
     def create
@@ -46,7 +48,7 @@ module Admin
     def location_params
       params.
         require(:location).
-        permit(:name, :city, :address, :details, :type, :longitude, :latitude)
+        permit(:name, :city, :address, :details, :type, :longitude, :latitude, :zoom_level)
     end
   end
 end
