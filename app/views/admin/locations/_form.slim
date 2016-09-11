@@ -1,0 +1,32 @@
+= bootstrap_form_for [:admin, location] do |f|
+  .form-group
+    = f.text_field :name, class: 'form-control'
+
+  .form-group
+    = f.text_field :city, class: 'form-control'
+
+  .form-group
+    = f.text_field :address, class: 'form-control'
+
+  .form-group
+    = f.select :category, Location.categories.keys.to_a, {}, class: 'form-control'
+
+  .form-group
+    = f.text_area :details, class: 'form-control wysihtml5', rows: 5
+
+  .form-group
+    .map.map_fixed-height
+      .map__backsight
+      .map__canvas {
+                      data-lat="#{f.object.latitude}"
+                      data-lng="#{f.object.longitude}"
+                      data-zoom="#{f.object.zoom_level}"
+                    }
+
+    = f.text_field :latitude, class: 'form-control', class: 'map__input map__input_lat', hide_label: true
+    = f.text_field :longitude, class: 'form-control', class: 'map__input map__input_lng', hide_label: true
+    = f.number_field :zoom_level, class: 'form-control', class: 'map__input map__input_zoom-level', hide_label: true
+
+  = f.submit class: 'btn btn-primary'
+  | &nbsp;
+  = link_to 'Отказ', admin_locations_path, class: 'btn btn-default'

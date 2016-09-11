@@ -1,0 +1,26 @@
+h1 Справочник
+
+br
+
+= link_to 'Нова локация', new_admin_location_path, class: 'btn btn-primary'
+
+table.table.table-striped
+  thead
+    tr
+      th Град
+      th Име
+      th Адрес
+      th Описание
+      th &nbsp;
+
+  tbody
+    - @locations.each do |location|
+      tr
+        td = location.city
+        td = location.name
+        td = location.address
+        td = location.details.html_safe
+        td
+          = link_to 'Редакция', edit_admin_location_path(location), class: 'btn btn-default btn-xs'
+          | &nbsp;
+          = link_to 'Изтриване', admin_location_path(location), method: :delete, class: 'btn btn-danger btn-xs', data: {confirm: 'Сигурен ли си?'}

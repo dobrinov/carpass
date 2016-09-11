@@ -30,6 +30,8 @@ html class="no-js"
               - if logged_in?
                 li = link_to 'Моите коли', cars_path
 
+              / li = link_to 'Справочник', locations_path
+
             ul.nav.navbar-nav.navbar-right
               - if logged_in?
                 - if current_user.notifications.any?
