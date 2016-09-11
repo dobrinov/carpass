@@ -20,12 +20,9 @@
     = f.text_area :details, class: 'form-control'
 
   .form-group
-    = f.label :latitude, class: 'form-label'
     = f.text_field :longtitude, class: 'form-control'
-
-  .form-group
-    = f.label :longtitude, class: 'form-label'
     = f.text_field :latitude, class: 'form-control'
+    = f.number_field :zoom_level, class: 'form-control'
 
   = f.submit class: 'btn btn-primary'
   | &nbsp;

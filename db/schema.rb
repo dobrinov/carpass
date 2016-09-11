@@ -46,6 +46,7 @@ ActiveRecord::Schema.define(version: 20160906144932) do
     t.string   "details"
     t.float    "longtitude"
     t.float    "latitude"
+    t.integer  "zoom_level"
     t.integer  "category"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
