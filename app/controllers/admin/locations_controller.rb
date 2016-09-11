@@ -48,7 +48,7 @@ module Admin
     def location_params
       params.
         require(:location).
-        permit(:name, :city, :address, :details, :type, :longitude, :latitude, :zoom_level)
+        permit(:name, :city, :address, :category, :details, :type, :longitude, :latitude, :zoom_level)
     end
   end
 end

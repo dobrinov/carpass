@@ -1,22 +1,17 @@
-= form_for [:admin, location] do |f|
+= bootstrap_form_for [:admin, location] do |f|
   .form-group
-    = f.label :name, class: 'form-label'
     = f.text_field :name, class: 'form-control'
 
   .form-group
-    = f.label :city, class: 'form-label'
     = f.text_field :city, class: 'form-control'
 
   .form-group
-    = f.label :address, class: 'form-label'
     = f.text_field :address, class: 'form-control'
 
   .form-group
-    = f.label :category, class: 'form-label'
-    = f.select :category, Location.categories, {}, class: 'form-control'
+    = f.select :category, Location.categories.keys.to_a, {}, class: 'form-control'
 
   .form-group
-    = f.label :details, class: 'form-label'
     = f.text_area :details, class: 'form-control wysihtml5', rows: 5
 
   .form-group
@@ -28,9 +23,9 @@
                       data-zoom="#{f.object.zoom_level}"
                     }
 
-    = f.text_field :latitude, class: 'form-control', class: 'map__input map__input_lat'
-    = f.text_field :longitude, class: 'form-control', class: 'map__input map__input_lng'
-    = f.number_field :zoom_level, class: 'form-control', class: 'map__input map__input_zoom-level'
+    = f.text_field :latitude, class: 'form-control', class: 'map__input map__input_lat', hide_label: true
+    = f.text_field :longitude, class: 'form-control', class: 'map__input map__input_lng', hide_label: true
+    = f.number_field :zoom_level, class: 'form-control', class: 'map__input map__input_zoom-level', hide_label: true
 
   = f.submit class: 'btn btn-primary'
   | &nbsp;
