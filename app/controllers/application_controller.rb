@@ -45,7 +45,7 @@ class ApplicationController < ActionController::Base
   def load_map_javascript
     load_additional_javascript(
       {
-        src: '//maps.googleapis.com/maps/api/js?key=AIzaSyAb89pIihEqO8YjxruvK4WSs3Bt37vuxPc&language=bg'
+        src: '//maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyAb89pIihEqO8YjxruvK4WSs3Bt37vuxPc&language=bg'
       }
     )
   end

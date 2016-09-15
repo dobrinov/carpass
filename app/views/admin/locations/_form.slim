@@ -23,6 +23,8 @@
                       data-zoom="#{f.object.zoom_level}"
                     }
 
+    = text_field_tag :pac_input, nil, id: 'pac-input', class: 'controls', placeholder: 'Търсене ...'
+
     = f.text_field :latitude, class: 'form-control', class: 'map__input map__input_lat', hide_label: true
     = f.text_field :longitude, class: 'form-control', class: 'map__input map__input_lng', hide_label: true
     = f.number_field :zoom_level, class: 'form-control', class: 'map__input map__input_zoom-level', hide_label: true
