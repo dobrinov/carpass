@@ -1,11 +1,15 @@
 class Location < ActiveRecord::Base
-  enum category: [ :annual_inspection ]
+  has_many :vehicle_inspections, dependent: :destroy
 
   validates :name,
             :address,
-            :city,
-            :category,
+            :settlement,
+            :settlement_type,
             :latitude,
-            :longitude,
-            :zoom_level, presence: true
+            :longitude, presence: true
+
+  enum settlement_type: [:unknown, :city, :village]
+
+  scope :with_defined_geolocation, -> { where.not('latitude = ? OR longitude = ?', Bulgaria::LATITUDE, Bulgaria::LONGITUDE) }
+  scope :with_default_geolocation, -> { where('latitude = ? AND longitude = ?', Bulgaria::LATITUDE, Bulgaria::LONGITUDE) }
 end

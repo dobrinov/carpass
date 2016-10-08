@@ -3,16 +3,13 @@
     = f.text_field :name, class: 'form-control'
 
   .form-group
-    = f.text_field :city, class: 'form-control'
+    = f.select :settlement_type, Location.settlement_types.keys.to_a, {}, class: 'form-control'
+
+  .form-group
+    = f.text_field :settlement, class: 'form-control'
 
   .form-group
     = f.text_field :address, class: 'form-control'
-
-  .form-group
-    = f.select :category, Location.categories.keys.to_a, {}, class: 'form-control'
-
-  .form-group
-    = f.text_area :details, class: 'form-control wysihtml5', rows: 5
 
   .form-group
     .map.map_fixed-height
@@ -20,14 +17,13 @@
       .map__canvas {
                       data-lat="#{f.object.latitude}"
                       data-lng="#{f.object.longitude}"
-                      data-zoom="#{f.object.zoom_level}"
+                      data-zoom="18"
                     }
 
     = text_field_tag :pac_input, nil, id: 'pac-input', class: 'controls', placeholder: 'Търсене ...', style: 'margin: 15px 2%; width: 96%; height: 36px; line-height: 36px; font-size: 16px; padding: 5px;'
 
     = f.text_field :latitude, class: 'form-control', class: 'map__input map__input_lat', hide_label: true
     = f.text_field :longitude, class: 'form-control', class: 'map__input map__input_lng', hide_label: true
-    = f.number_field :zoom_level, class: 'form-control', class: 'map__input map__input_zoom-level', hide_label: true
 
   = f.submit class: 'btn btn-primary'
   | &nbsp;

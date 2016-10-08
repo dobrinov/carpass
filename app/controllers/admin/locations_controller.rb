@@ -3,14 +3,23 @@ module Admin
     before_action :load_map_javascript
 
     def index
-      @locations = Location.all
+      @tab = Tab.new params[:tab]
+      @locations_with_geodata = Location.with_defined_geolocation.order(settlement_type: :asc)
+      @locations_without_geodata = Location.with_default_geolocation.order(settlement_type: :asc)
+
+
+      @locations = if @tab.with_geodata?
+                     @locations_with_geodata
+                   else
+                     @locations_without_geodata
+                   end
     end
 
     def show
     end
 
     def new
-      @location = Location.new(latitude: Bulgaria::LATITUDE, longitude: Bulgaria::LONGITUDE, zoom_level: Bulgaria::ZOOM_LEVEL)
+      @location = Location.new(latitude: Bulgaria::LATITUDE, longitude: Bulgaria::LONGITUDE)
     end
 
     def create
@@ -48,7 +57,21 @@ module Admin
     def location_params
       params.
         require(:location).
-        permit(:name, :city, :address, :category, :details, :type, :longitude, :latitude, :zoom_level)
+        permit(:name, :settlement, :settlement_type, :address, :longitude, :latitude)
+    end
+  end
+
+  class Tab
+    def initialize(name)
+      if name == 'without_geodata'
+        @with_geodata = false
+      else
+        @with_geodata = true
+      end
+    end
+
+    def with_geodata?
+      @with_geodata
     end
   end
 end
