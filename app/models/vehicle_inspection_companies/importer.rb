@@ -11,7 +11,8 @@ module VehicleInspectionCompanies
 
         ActiveRecord::Base.transaction do
           location = Location.new name: vehicle_inspection_company[:company],
-                                  city: vehicle_inspection_company[:city],
+                                  settlement: vehicle_inspection_company[:settlement],
+                                  settlement_type: vehicle_inspection_company[:settlement_type],
                                   address: vehicle_inspection_company[:address],
                                   longitude: 0.0,
                                   latitude: 0.0

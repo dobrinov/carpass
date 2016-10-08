@@ -3,7 +3,10 @@ class Location < ActiveRecord::Base
 
   validates :name,
             :address,
-            :city,
+            :settlement,
+            :settlement_type,
             :latitude,
             :longitude, presence: true
+
+  enum settlement_type: [:unknown, :city, :village]
 end
