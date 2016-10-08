@@ -8,5 +8,7 @@ class CreateCarServices < ActiveRecord::Migration
 
       t.timestamps null: false
     end
+
+    add_index(:car_services, :location_id)
   end
 end

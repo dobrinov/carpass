@@ -1,0 +1,2 @@
+class VehicleInspection < CarService
+end

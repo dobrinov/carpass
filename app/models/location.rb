@@ -1,10 +1,9 @@
 class Location < ActiveRecord::Base
-  has_many :car_services
+  has_many :car_services, dependent: :destroy
 
   validates :name,
             :address,
             :city,
             :latitude,
-            :longitude,
-            :zoom_level, presence: true
+            :longitude, presence: true
 end

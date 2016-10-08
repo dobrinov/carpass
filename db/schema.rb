@@ -20,9 +20,12 @@ ActiveRecord::Schema.define(version: 20161008115636) do
     t.string   "license"
     t.string   "details"
     t.string   "type"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer  "location_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
+
+  add_index "car_services", ["location_id"], name: "index_car_services_on_location_id", using: :btree
 
   create_table "cars", force: :cascade do |t|
     t.string   "vin"
@@ -53,7 +56,6 @@ ActiveRecord::Schema.define(version: 20161008115636) do
     t.string   "address"
     t.float    "longitude"
     t.float    "latitude"
-    t.integer  "zoom_level"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

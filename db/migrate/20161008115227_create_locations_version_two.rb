@@ -6,7 +6,6 @@ class CreateLocationsVersionTwo < ActiveRecord::Migration
       t.string :address
       t.float :longitude
       t.float :latitude
-      t.integer :zoom_level
 
       t.timestamps null: false
     end
