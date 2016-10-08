@@ -2,6 +2,21 @@ h1 Справочник
 
 br
 
+.row
+  .col-xs-12
+    ul.nav.nav-tabs
+      li class="#{'active' if @tab.with_geodata? }"
+        = link_to admin_locations_path do
+          'С координати
+          span.badge = @locations_with_geodata.count
+
+      li class="#{'active' unless @tab.with_geodata? }"
+        = link_to admin_locations_path(tab: 'without_geodata') do
+          'Без координати
+          span.badge = @locations_without_geodata.count
+
+br
+
 = link_to 'Нова локация', new_admin_location_path, class: 'btn btn-primary'
 
 .table-responsive
@@ -17,10 +32,9 @@ br
     tbody
       - @locations.each do |location|
         tr
-          td = location.city
+          td = location.settlement
           td = location.name
           td = location.address
-          td = location.details.html_safe
           td
             = link_to 'Редакция', edit_admin_location_path(location), class: 'btn btn-default btn-xs'
             | &nbsp;

@@ -14,8 +14,8 @@ module VehicleInspectionCompanies
                                   settlement: vehicle_inspection_company[:settlement],
                                   settlement_type: vehicle_inspection_company[:settlement_type],
                                   address: vehicle_inspection_company[:address],
-                                  longitude: 0.0,
-                                  latitude: 0.0
+                                  longitude: Bulgaria::LONGITUDE,
+                                  latitude: Bulgaria::LATITUDE
 
           vehicle_inspection = VehicleInspection.new license: vehicle_inspection_company[:license],
                                                      location_id: location.id
