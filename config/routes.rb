@@ -61,7 +61,6 @@ Rails.application.routes.draw do
   get '/terms_of_use', to: 'static_pages#terms_of_use'
 
   get '/locations',                   to: 'locations#index'
-  get '/locations/annual_inspection', to: 'locations#annual_inspection'
 
   namespace :admin do
     resources :users, only: [:index] do

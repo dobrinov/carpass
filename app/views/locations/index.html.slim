@@ -1,0 +1,14 @@
+h1 Справочник
+
+- if @locations.any?
+  .row
+    - @locations.group_by(&:settlement).each do |settlement, locations|
+      .col-xs-12
+        h2 = settlement
+
+      - locations.each do |location|
+        .col-sm-4
+          .location-card
+            h4 = location.name
+            .type Пункт за технически прегледи
+            .address = location.address

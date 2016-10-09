@@ -1,8 +1,5 @@
 class LocationsController < ApplicationController
   def index
-    redirect_to locations_annual_inspection_path
-  end
-
-  def annual_inspection
+    @locations = Location.all.order(settlement: :asc)
   end
 end
