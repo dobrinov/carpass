@@ -19,6 +19,8 @@ br
 
 = link_to 'Нова локация', new_admin_location_path, class: 'btn btn-primary'
 
+br
+
 .table-responsive
   table.table.table-striped
     thead
@@ -26,7 +28,7 @@ br
         th Град
         th Име
         th Адрес
-        th Описание
+        th &nbsp;
         th &nbsp;
 
     tbody
@@ -37,5 +39,5 @@ br
           td = location.address
           td
             = link_to 'Редакция', edit_admin_location_path(location), class: 'btn btn-default btn-xs'
-            | &nbsp;
+          td
             = link_to 'Изтриване', admin_location_path(location), method: :delete, class: 'btn btn-danger btn-xs', data: {confirm: 'Сигурен ли си?'}
