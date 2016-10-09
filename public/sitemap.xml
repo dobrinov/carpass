@@ -7,7 +7,7 @@
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>/locations</loc>
+    <loc>http://www.carpass.bg/locations</loc>
     <lastmod>2016-10-09T00:00:00+01:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
