@@ -4,8 +4,8 @@ module Admin
 
     def index
       @tab = Tab.new params[:tab]
-      @locations_with_geodata = Location.with_defined_geolocation.order(settlement_type: :asc)
-      @locations_without_geodata = Location.with_default_geolocation.order(settlement_type: :asc)
+      @locations_with_geodata = Location.with_defined_geolocation.order(settlement: :asc)
+      @locations_without_geodata = Location.with_default_geolocation.order(settlement: :asc)
 
 
       @locations = if @tab.with_geodata?
