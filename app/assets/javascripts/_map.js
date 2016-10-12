@@ -12,7 +12,8 @@
           canvas:           '.map__canvas',
           input_zoom_level: '.map__input_zoom-level',
           input_lat:        '.map__input_lat',
-          input_lng:        '.map__input_lng'
+          input_lng:        '.map__input_lng',
+          search:           '.map__input_search'
         },
         zoom_level: 2,
         lat: 0,
@@ -48,6 +49,7 @@
     self.input_zoom_level = $(self.options.selectors.input_zoom_level);
     self.input_lat = $(self.options.selectors.input_lat);
     self.input_lng = $(self.options.selectors.input_lng);
+    self.search = $(self.options.selectors.search);
     self.marker_icon = self.map.attr('data-marker-icon');
 
     var initial_zoom_level = parseInt(self.map.data('zoom')) || self.options.zoom_level;
@@ -92,7 +94,7 @@
       self.placeMarkers(markers_url);
     }
 
-    if(true){ // Check for search box setting
+    if(self.search.length > 0){
       self.showSearchBox();
     }
 
@@ -115,6 +117,7 @@
       url: marker_url,
       dataType: 'json'
     }).done(function(markers, textStatus, jqXHR){
+      console.log(markers);
       if(markers.constructor === Array){
         for(var i=0; i<markers.length; i++){
           self.placeMarker(markers[i].latitude, markers[i].longitude, markers[i].url);
@@ -128,7 +131,7 @@
   Map.prototype.showSearchBox = function(){
     var self = this;
 
-    var input = document.getElementById('pac-input');
+    var input = self.search.get(0);
     var searchBox = new google.maps.places.SearchBox(input);
     self.map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
 
@@ -211,10 +214,10 @@
         url: marker.url,
         dataType: 'json'
       }).done(function(data,textStatus,jqXHR){
-        var html =  '<a href="' + data.url + '" class="map__info-window">' +
-                      '<img src="' + data.image.url + '" class="map__info-window__image" />' +
-                      '<h3 class="map__info-window__text">' + data.name + '</h3>' +
-                    '</a>';
+        var html =  '<span class="map__info-window">' +
+                      '<h5>' + data.name + '</h5>' +
+                      '<div>' + data.settlement + ', ' + data.address + '</div>'
+                    '</span>';
 
         infoWindow = new google.maps.InfoWindow({
           content: html

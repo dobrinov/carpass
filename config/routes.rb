@@ -60,7 +60,7 @@ Rails.application.routes.draw do
   get '/contacts',     to: 'static_pages#contacts'
   get '/terms_of_use', to: 'static_pages#terms_of_use'
 
-  get '/locations',                   to: 'locations#index'
+  resources :locations, only: [:index, :show]
 
   namespace :admin do
     resources :users, only: [:index] do

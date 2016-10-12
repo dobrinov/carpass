@@ -8,7 +8,11 @@ html class="no-js"
     meta name="viewport" content="width=device-width, initial-scale=1"
 
     = stylesheet_link_tag 'application', media: 'all'
+
+    / Javascripts
     = javascript_include_tag 'application'
+    = javascript_includes
+
     = favicon_link_tag 'favicon.ico'
     = csrf_meta_tags
 
@@ -30,7 +34,7 @@ html class="no-js"
               - if logged_in?
                 li = link_to 'Моите коли', cars_path
 
-              / li = link_to 'Справочник', locations_path
+              li = link_to 'Справочник', locations_path
 
             ul.nav.navbar-nav.navbar-right
               - if logged_in?

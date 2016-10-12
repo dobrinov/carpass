@@ -1,6 +1,6 @@
 module Admin
   class LocationsController < BaseController
-    before_action :load_map_javascript
+    before_action :load_map_javascript, only: [:new, :edit]
 
     def index
       @tab = Tab.new params[:tab]

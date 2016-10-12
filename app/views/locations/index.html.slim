@@ -2,6 +2,22 @@ h1 Справочник
 
 - if @locations.any?
   .row
+    .col-xs-12
+      .map.map_fixed-height
+        .map__canvas {
+                        data-lat="#{Bulgaria::LATITUDE}"
+                        data-lng="#{Bulgaria::LONGITUDE}"
+                        data-zoom="7"
+                        data-markers-url="#{locations_path(with_coordinates: true, format: :json)}"
+                        data-marker-icon="#{image_path('pin.png')}"
+                        data-show-marker-info="true"
+                      }
+
+      = text_field_tag :latitude, nil, class: 'map__input map__input_lat'
+      = text_field_tag :longitude, nil,  class: 'map__input map__input_lng'
+
+
+  .row
     - @locations.group_by(&:settlement).each do |settlement, locations|
       .col-xs-12
         h2 = settlement
