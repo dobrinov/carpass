@@ -49,4 +49,12 @@ class ApplicationController < ActionController::Base
       }
     )
   end
+
+  def load_map_clustering_javascript
+    load_additional_javascript(
+      {
+        src: '//developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js'
+      }
+    )
+  end
 end

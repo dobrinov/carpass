@@ -116,15 +116,17 @@
     $.ajax({
       url: marker_url,
       dataType: 'json'
-    }).done(function(markers, textStatus, jqXHR){
-      console.log(markers);
-      if(markers.constructor === Array){
-        for(var i=0; i<markers.length; i++){
-          self.placeMarker(markers[i].latitude, markers[i].longitude, markers[i].url);
+    }).done(function(locations, textStatus, jqXHR){
+      var markers = [];
+      if(locations.constructor === Array){
+        for(var i=0; i<locations.length; i++){
+          markers.push(self.placeMarker(locations[i].latitude, locations[i].longitude, locations[i].url));
         }
       } else {
-        self.placeMarker(markers.latitude, markers.longitude, markers.url);
+        markers.push(self.placeMarker(locations.latitude, locations.longitude, locations.url));
       }
+
+      var markerCluster = new MarkerClusterer(self.map, markers, {imagePath: 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m'});
     });
   };
 
@@ -202,6 +204,8 @@
     if(this.show_marker_info){
       this.attachClickEventToMarker(marker, url);
     }
+
+    return marker;
   };
 
   Map.prototype.attachClickEventToMarker = function(marker){

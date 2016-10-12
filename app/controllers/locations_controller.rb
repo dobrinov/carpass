@@ -1,5 +1,6 @@
 class LocationsController < ApplicationController
-  before_action :load_map_javascript
+  before_action :load_map_clustering_javascript, only: [:index]
+  before_action :load_map_javascript, only: [:index]
 
   def index
     @locations = if params[:with_coordinates]
