@@ -28,3 +28,5 @@ bg:
               lower_than_last_recorded: 'Пробегът не може да е по-малък от последният записан'
             cost:
               greater_than_or_equal_to: 'Трябва да е по-голяма или равна на 0'
+            valid_until:
+              in_the_past: 'Датата на валидност не може да бъде в миналото'
