@@ -1,3 +1,14 @@
+- title 'Пунктове за годишни технически прегледи в България'
+
+- set_meta_tags description: "Списък на всички пунктове за Годишен Технически Преглед (ГТП) в България."
+- set_meta_tags keywords: %w[списък годишен технически преглед гтп]
+
+- set_meta_tags(og: { title: 'Пунктове за годишни технически прегледи в България',
+                      type: 'website',
+                      url: 'https://www.carpass.bg/locations',
+                      image: asset_url('og_image.png'),
+                      description: 'Списък на всички пунктове за Годишен Технически Преглед (ГТП) в България.'})
+
 h1 Справочник
 
 - if @locations.any?
