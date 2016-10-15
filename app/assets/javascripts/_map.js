@@ -51,6 +51,7 @@
     self.input_lng = $(self.options.selectors.input_lng);
     self.search = $(self.options.selectors.search);
     self.marker_icon = self.map.attr('data-marker-icon');
+    self.cluster_icon = self.map.attr('data-cluster-icon');
 
     var initial_zoom_level = parseInt(self.map.data('zoom')) || self.options.zoom_level;
     var initial_lat = parseFloat(self.map.data('lat')) || self.options.lat;
@@ -126,7 +127,11 @@
         markers.push(self.placeMarker(locations.latitude, locations.longitude, locations.url));
       }
 
-      var markerCluster = new MarkerClusterer(self.map, markers, {imagePath: 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m'});
+      var styles = [
+        {textColor: '#ffffff', url: self.cluster_icon, height: 53, width: 53}
+      ];
+
+      var markerCluster = new MarkerClusterer(self.map, markers, {styles: styles});
     });
   };
 

@@ -1,7 +1,7 @@
-- title 'Пунктове за годишни технически прегледи в България'
+- title 'Пунктове за годишни технически прегледи (ГТП) в България'
 
 - set_meta_tags description: "Списък на всички пунктове за Годишен Технически Преглед (ГТП) в България."
-- set_meta_tags keywords: %w[списък годишен технически преглед гтп]
+- set_meta_tags keywords: %w[списък годишен технически преглед гтп ктп]
 
 - set_meta_tags(og: { title: 'Пунктове за годишни технически прегледи в България',
                       type: 'website',
@@ -9,9 +9,25 @@
                       image: asset_url('og_image.png'),
                       description: 'Списък на всички пунктове за Годишен Технически Преглед (ГТП) в България.'})
 
-h1 Справочник
+h1 Карта KТП
 
-h4 Пунктове за годишни технически прегледи в България
+- unless logged_in?
+  .alert.alert-info.text-center
+    button.close type="button" data-dismiss="alert" aria-label="Close"
+      span aria-hidden="true" &times;
+
+    h4 Carpass.bg
+
+    .row
+      .col-xs-10.col-xs-offset-1 Българска онлайн безплатна услуга даваща възможност на всеки да създаде и поддържа сервизна книжка на автомобила си, достъпна от всякъде и по всяко време.
+
+    br
+
+    .row
+      .col-xs-12
+        = link_to 'Създай онлайн сервизна книжка', signup_path, class: 'btn btn-primary'
+
+h4 Пунктове за технически прегледи в България
 
 - if @locations.any?
   .row
@@ -22,7 +38,8 @@ h4 Пунктове за годишни технически прегледи в
                         data-lng="#{Bulgaria::LONGITUDE}"
                         data-zoom="7"
                         data-markers-url="#{locations_path(with_coordinates: true, format: :json)}"
-                        data-marker-icon="#{image_path('pin.png')}"
+                        data-marker-icon="#{image_path('map/pin.png')}"
+                        data-cluster-icon="#{image_path('map/cluster.png')}"
                         data-show-marker-info="true"
                       }
 

@@ -34,7 +34,7 @@ html class="no-js"
               - if logged_in?
                 li = link_to 'Моите коли', cars_path
 
-              li = link_to 'Справочник', locations_path
+              li = link_to 'Карта КТП', locations_path
 
             ul.nav.navbar-nav.navbar-right
               - if logged_in?
@@ -57,7 +57,12 @@ html class="no-js"
                     li = link_to 'Изход', signout_path, method: :delete
 
               - else
-                li = link_to 'Вход', signin_path
+                li
+                  = link_to 'Вход', signin_path
+
+                li
+                  .navbar-btn
+                    = link_to 'Създай сервизна книжка', signup_path, class: 'btn btn-primary'
 
     - if content_for?(:presentation)
       = yield(:presentation)
