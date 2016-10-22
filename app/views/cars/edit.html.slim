@@ -20,7 +20,7 @@ br
             strong Редакция на кола
           .panel-body
             = bootstrap_form_for @car, url: car_path(@car) do |f|
-              = f.text_field :make, class: 'form-control', placeholder: 'Toyota'
+              = f.collection_select :brand_id, Brand.order(name: :asc), :id, :name, prompt: true
               = f.text_field :model, class: 'form-control', placeholder: 'Corolla'
               = f.text_field :plate, class: 'form-control', placeholder: 'CA1234XX'
               = f.text_field :vin, class: 'form-control', placeholder: 'XXXXXXXXXXXXXXXXX'

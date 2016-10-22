@@ -6,12 +6,12 @@
     strong Регистрационен номер
     p = car.plate
 
-    - if car.make.present?
+    - if car.brand.present?
       strong Марка
-      p = car.make
+      p = car.brand.name
 
     - if car.model.present?
-      strong Марка
+      strong Модел
       p = car.model
 
     - if car.vin.present?

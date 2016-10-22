@@ -65,7 +65,7 @@ class CarsController < ApplicationController
 
   def car_params
     if params[:car].present?
-      params[:car].permit(:make, :model, :plate, :vin, :engine_number)
+      params[:car].permit(:brand_id, :model, :plate, :vin, :engine_number)
     else
       {}
     end
@@ -73,7 +73,7 @@ class CarsController < ApplicationController
 
   def car_creator_params
     if params[:car_creator].present?
-      params[:car_creator].permit(:plate, :make, :model, :vin, :engine_number, :mileage_at_purchase).merge!({
+      params[:car_creator].permit(:plate, :brand_id, :model, :vin, :engine_number, :mileage_at_purchase).merge!({
         user:         current_user,
         produced_at:  parse_multi_parameter_datetime(params[:car_creator], :produced_at),
         purchased_at: parse_multi_parameter_datetime(params[:car_creator], :purchased_at)

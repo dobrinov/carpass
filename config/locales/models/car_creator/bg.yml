@@ -4,6 +4,7 @@ bg:
       car_creator:
         plate: 'Регистрационен номер'
         make: 'Марка'
+        brand_id: 'Марка'
         model: 'Модел'
         vin: 'Номер на шаси'
         engine_number: 'Номер на двигател'

@@ -129,7 +129,7 @@ bg:
         other: "%{model}: записът е неуспешен заради %{count} грешки"
   helpers:
     select:
-      prompt: Моля отбележете
+      prompt: Моля изберете
     submit:
       create: Създай %{model}
       submit: Запази %{model}
