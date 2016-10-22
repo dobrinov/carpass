@@ -4,14 +4,16 @@ module Admin
 
     def index
       @tab = Tab.new params[:tab]
-      @locations_with_geodata = Location.with_defined_geolocation.order(settlement: :asc)
-      @locations_without_geodata = Location.with_default_geolocation.order(settlement: :asc)
+      @locations_approved_for_map = Location.approved_for_map.order(settlement: :asc)
+      @locations_not_approved_for_map = Location.not_approved_for_map.order(settlement: :asc)
+      @unprocessed_locations = Location.unprocessed.order(settlement: :asc)
 
-
-      @locations = if @tab.with_geodata?
-                     @locations_with_geodata
+      @locations = if @tab.approved_for_map?
+                     @locations_approved_for_map
+                   elsif @tab.not_approved_for_map?
+                     @locations_not_approved_for_map
                    else
-                     @locations_without_geodata
+                     @unprocessed_locations
                    end
     end
 
@@ -57,21 +59,35 @@ module Admin
     def location_params
       params.
         require(:location).
-        permit(:name, :settlement, :settlement_type, :address, :longitude, :latitude)
+        permit(:name, :settlement, :settlement_type, :status, :address, :longitude, :latitude)
     end
   end
 
   class Tab
     def initialize(name)
-      if name == 'without_geodata'
-        @with_geodata = false
+      @approved_for_map = false
+      @not_approved_for_map = false
+      @unprocessed = false
+
+      if name == 'approved_for_map'
+        @approved_for_map = true
+      elsif name == 'not_approved_for_map'
+        @not_approved_for_map = true
       else
-        @with_geodata = true
+        @unprocessed = true
       end
     end
 
-    def with_geodata?
-      @with_geodata
+    def approved_for_map?
+      @approved_for_map
+    end
+
+    def not_approved_for_map?
+      @not_approved_for_map
+    end
+
+    def unprocessed?
+      @unprocessed
     end
   end
 end

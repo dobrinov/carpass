@@ -6,6 +6,9 @@
     = f.select :settlement_type, Location.settlement_types.keys.to_a, {}, class: 'form-control'
 
   .form-group
+    = f.select :status, Location.statuses.keys.to_a, {}, class: 'form-control'
+
+  .form-group
     = f.text_field :settlement, class: 'form-control'
 
   .form-group

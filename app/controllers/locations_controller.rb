@@ -3,8 +3,8 @@ class LocationsController < ApplicationController
   before_action :load_map_javascript, only: [:index]
 
   def index
-    @locations = if params[:with_coordinates]
-                   Location.with_defined_geolocation
+    @locations = if params[:approved_for_map]
+                   Location.approved_for_map
                  else
                    Location.all.order(settlement: :asc)
                  end

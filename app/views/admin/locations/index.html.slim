@@ -5,15 +5,21 @@ br
 .row
   .col-xs-12
     ul.nav.nav-tabs
-      li class="#{'active' if @tab.with_geodata? }"
-        = link_to admin_locations_path do
-          'С координати
-          span.badge = @locations_with_geodata.count
+      li class="#{'active' if @tab.approved_for_map? }"
+        = link_to admin_locations_path(tab: 'approved_for_map') do
+          'Одобрени
+          span.badge = @locations_approved_for_map.count
 
-      li class="#{'active' unless @tab.with_geodata? }"
-        = link_to admin_locations_path(tab: 'without_geodata') do
-          'Без координати
-          span.badge = @locations_without_geodata.count
+      li class="#{'active' if @tab.not_approved_for_map? }"
+        = link_to admin_locations_path(tab: 'not_approved_for_map') do
+          'Неодобрени
+          span.badge = @locations_not_approved_for_map.count
+
+      li class="#{'active' if @tab.unprocessed? }"
+        = link_to admin_locations_path(tab: 'unprocessed') do
+          'Непрегледани
+          span.badge = @unprocessed_locations.count
+
 
 br
 
