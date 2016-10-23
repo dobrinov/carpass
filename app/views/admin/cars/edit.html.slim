@@ -1,0 +1,9 @@
+h1 Коли
+
+ol.breadcrumb
+  li = link_to 'Коли', admin_cars_path
+  li.active = @car.plate
+
+= bootstrap_form_for [:admin, @car] do |f|
+  = f.collection_select :brand_id, Brand.order(name: :asc), :id, :name, prompt: true
+  = f.submit class: 'btn btn-primary'

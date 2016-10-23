@@ -13,7 +13,7 @@ class CarCreator
   # Attributes
   attribute :user,                User
   attribute :plate,               String
-  attribute :make,                String
+  attribute :brand_id,            Integer
   attribute :model,               String
   attribute :produced_at,         DateTime
   attribute :purchased_at,        DateTime
@@ -61,7 +61,7 @@ class CarCreator
   private
 
   def build_car
-    @car = Car.new(plate: plate, make: make, model: model, user: user)
+    @car = Car.new(plate: plate, brand_id: brand_id, model: model, user: user)
   end
 
   def build_production_history

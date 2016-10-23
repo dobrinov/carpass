@@ -1,5 +1,7 @@
 class Car < ActiveRecord::Base
   belongs_to :user
+  belongs_to :brand
+
   has_many :histories, dependent: :destroy
   has_many :notifications, as: :notifiable, dependent: :destroy
 
