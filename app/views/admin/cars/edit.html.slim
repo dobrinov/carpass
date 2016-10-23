@@ -6,4 +6,5 @@ ol.breadcrumb
 
 = bootstrap_form_for [:admin, @car] do |f|
   = f.collection_select :brand_id, Brand.order(name: :asc), :id, :name, prompt: true
+  = f.text_field :model
   = f.submit class: 'btn btn-primary'
