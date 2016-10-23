@@ -1,8 +1,9 @@
 h1 Коли
 
-ol.breadcrumb
-  li = link_to 'Потребители', admin_users_path
-  li.active = @user.full_name
+- if params[:user_id].present?
+  ol.breadcrumb
+    li = link_to 'Потребители', admin_users_path
+    li.active = @user.full_name
 
 .table-responsive
   table.table.table-hover
@@ -10,11 +11,11 @@ ol.breadcrumb
       tr
         th Идентификатор
         th Марка
+        th Марка
         th Модел
         th Регистрационен номер
-        th # Шаси
-        th # Двигател
         th Добавена на
+        th Действия
 
     tbody
       - if @cars.any?
@@ -22,11 +23,11 @@ ol.breadcrumb
           tr
             td = car.id
             td = car.make
+            td = car.brand.try(:name)
             td = car.model
             td = link_to car.plate, admin_car_histories_path(car)
-            td = car.vin
-            td = car.engine_number
             td = car.created_at.strftime("%d.%m.%Y %H:%M:%S")
+            td = link_to 'Редакция', edit_admin_car_path(car), class: 'btn btn-xs btn-default'
 
       - else
         tr.text-center

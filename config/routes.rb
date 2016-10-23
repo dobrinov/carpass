@@ -67,7 +67,7 @@ Rails.application.routes.draw do
       resources :cars, only: [:index]
     end
 
-    resources :cars, only: [] do
+    resources :cars, only: [:index, :edit, :update] do
       resources :histories, only: [:index]
     end
 
