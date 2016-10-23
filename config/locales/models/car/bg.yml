@@ -3,7 +3,6 @@ bg:
     attributes:
       car:
         plate: 'Регистрационен номер'
-        make: 'Марка'
         brand: 'Марка'
         model: 'Модел'
         vin: 'Номер на шаси'

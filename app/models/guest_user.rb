@@ -40,7 +40,7 @@ class GuestUser
   def self.generate_car
     Car.new do |c|
       c.plate = 'CA0001XX'
-      c.make = 'Toyota'
+      c.brand = Brand.where(name: 'Toyota').first
       c.model = 'Corolla'
       c.vin = 'ABCD1234'
       c.engine_number = '123456789'

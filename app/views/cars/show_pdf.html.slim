@@ -12,10 +12,10 @@ br
           th Регистрационен номер
           td = @car.plate
 
-        - if @car.make.present?
+        - if @car.brand.present?
           tr
             th Марка
-            td = @car.make
+            td = @car.brand.name
 
         - if @car.model.present?
           tr

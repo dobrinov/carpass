@@ -11,7 +11,6 @@ h1 Коли
       tr
         th Идентификатор
         th Марка
-        th Марка
         th Модел
         th Регистрационен номер
         th Добавена на
@@ -22,7 +21,6 @@ h1 Коли
         - @cars.each do |car|
           tr
             td = car.id
-            td = car.make
             td = car.brand.try(:name)
             td = car.model
             td = link_to car.plate, admin_car_histories_path(car)
