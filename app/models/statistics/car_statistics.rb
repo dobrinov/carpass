@@ -39,7 +39,7 @@ module Statistics
     private
 
     def months_in_time_interval
-      TimeInterval.new(@car_histories.start_date, @car_histories.end_date).months
+      TimeInterval.new(@car_histories.start_date, @car_histories.end_date).days / 30.0
     end
   end
 end
