@@ -9,7 +9,7 @@ class ApplicationController < ActionController::Base
   private
 
   def log_in(user)
-    user.update_attribute(:last_login_at, Time.current)
+    user.update_attributes(last_login_at: Time.current, login_count: user.login_count + 1)
     session[:user_id] = user.id
   end
 

@@ -9,6 +9,7 @@ h1 Потребители
         th Имейл
         th Дата на регистрация
         th Последен логин
+        th Брой логини
 
     tbody
       - @users.each do |user|
@@ -22,6 +23,7 @@ h1 Потребители
           td = link_to user.email, admin_user_cars_path(user)
           td = user.created_at.strftime("%d.%m.%Y %H:%M:%S")
           td = user.last_login_at.strftime("%d.%m.%Y %H:%M:%S")
+          td = user.login_count
 
 br
 
