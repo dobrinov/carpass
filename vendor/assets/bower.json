@@ -1,6 +1,6 @@
 {
   "name": "dsl-generated dependencies",
   "dependencies": {
-    "Chart.js": "latest"
+    "Chart.js": "2.1.6"
   }
 }

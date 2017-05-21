@@ -8,7 +8,7 @@ class Car < ActiveRecord::Base
   # Validations
   validates :plate, presence: true,
                     format: {
-                      with: /\A(A|B|BH|BP|BT|E|EB|EH|K|KH|M|H|OB|P|PA|PB|PK|PP|C|CA|CB|CH|CM|CO|CC|CT|T|TX|Y|X){1}[0-9]{4}[0-9ABCEHKMOPTXY]{2}\z/,
+                      with: /\A(A|B|BH|BP|BT|E|EB|EH|K|KH|M|H|OB|P|PA|PB|PK|PP|C|CA|CB|CH|CM|CO|CC|CT|T|TX|Y|X){1}[0-9]{4}[0-9ABCEHKMOPTXY]{1,2}\z/,
                       message: I18n.t('activemodel.errors.models.car_creator.attributes.plate.invalid_format')
                     }
 
