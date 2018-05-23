@@ -44,16 +44,15 @@ Rails.application.routes.draw do
   post   '/signup',                   to: 'users#create'
   post   '/signin',                   to: 'sessions#create'
   delete '/signout',                  to: 'sessions#destroy'
-  get    '/profile',                  to: 'users#show'
-  get    '/profile/edit',             to: 'users#edit'
-  patch  '/profile',                  to: 'users#update'
-  get    '/profile/password/edit',    to: 'passwords#edit'
-  patch  '/profile/password',         to: 'passwords#update'
-
   get    '/settings',                 to: 'settings#edit'
   patch  '/settings',                 to: 'settings#update'
 
   post   '/demo',                     to: 'guest_users#create'
+
+  resource :user, only: %i(show edit update destroy) do
+    get    '/password/edit',    to: 'passwords#edit'
+    patch  '/password',         to: 'passwords#update'
+  end
 
   resource :password_reset, only: [:new, :create, :edit, :update]
 

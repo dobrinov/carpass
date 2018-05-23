@@ -37,6 +37,14 @@ class UsersController < ApplicationController
     end
   end
 
+  def destroy
+    user = current_user
+    log_out
+    user.destroy
+
+    redirect_to root_path, notice: 'Вие успешно изтрихте профила си.'
+  end
+
   private
 
   def user_params

@@ -10,13 +10,13 @@ br
           .panel-heading
             strong Смяна на парола
           .panel-body
-            = bootstrap_form_for @user, url: profile_password_path do |f|
+            = bootstrap_form_for @user, url: password_user_path do |f|
               = f.password_field :password, class: 'form-control'
               = f.password_field :password_confirmation, class: 'form-control'
 
               .form-group
                 = f.submit 'Редактирай', class: 'btn btn-primary'
                 | &nbsp;
-                = link_to 'Отказ', profile_path, class: 'btn btn-default'
+                = link_to 'Отказ', user_path, class: 'btn btn-default'
 
   .col-sm-3

@@ -9,7 +9,7 @@ class PasswordsController < ApplicationController
     @user = current_user
 
     if @user.update_attributes(password_params)
-      redirect_to profile_path
+      redirect_to user_path
     else
       render :edit
     end
