@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180523185915) do
+ActiveRecord::Schema.define(version: 20180523203415) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -89,8 +89,8 @@ ActiveRecord::Schema.define(version: 20180523185915) do
 
   create_table "settings", force: :cascade do |t|
     t.integer "user_id"
-    t.boolean "receives_history_expiration_emails",                 default: true
-    t.boolean "receives_inactivity_emails",                         default: true
+    t.boolean "receives_history_expiration_emails",                 default: false
+    t.boolean "receives_inactivity_emails",                         default: false
     t.boolean "receives_history_expiration_facebook_notifications", default: true
     t.boolean "receives_inactivity_facebook_notifications",         default: true
   end
