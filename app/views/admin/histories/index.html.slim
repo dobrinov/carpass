@@ -2,7 +2,7 @@ h1 История
 
 ol.breadcrumb
   li = link_to 'Потребители', admin_users_path
-  li = link_to @car.user.handle, admin_user_cars_path(@car.user)
+  li = link_to @car.user.email, admin_user_cars_path(@car.user)
   li.active = @car.plate
 
 .table-responsive

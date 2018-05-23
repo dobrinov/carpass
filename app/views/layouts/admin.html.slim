@@ -38,7 +38,7 @@ html class="no-js"
             ul.nav.navbar-nav.navbar-right
               li.dropdown
                 = link_to '#', class: 'dropdown-toggle', 'data-toggle': 'dropdown' do
-                  = current_user.handle
+                  = current_user.email
                   | &nbsp;
                   span.caret
                 ul.dropdown-menu

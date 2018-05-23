@@ -41,7 +41,7 @@ class UsersController < ApplicationController
 
   def user_params
     if params[:user].present?
-      params[:user].permit(:email, :password, :password_confirmation, :first_name, :last_name)
+      params[:user].permit(:email, :password, :password_confirmation)
     else
       {}
     end

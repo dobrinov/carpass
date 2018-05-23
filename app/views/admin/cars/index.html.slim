@@ -3,7 +3,7 @@ h1 Коли
 - if params[:user_id].present?
   ol.breadcrumb
     li = link_to 'Потребители', admin_users_path
-    li.active = @user.full_name
+    li.active = @user.email
 
 .table-responsive
   table.table.table-hover

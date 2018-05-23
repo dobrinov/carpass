@@ -34,12 +34,4 @@ class User < ActiveRecord::Base
   def histories
     History.where(car_id: cars.pluck(:id))
   end
-
-  def full_name
-    "#{first_name} #{last_name}"
-  end
-
-  def handle
-    full_name.present? ? full_name : email
-  end
 end

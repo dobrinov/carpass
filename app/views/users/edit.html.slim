@@ -12,8 +12,6 @@ br
           .panel-body
             = bootstrap_form_for @user, url: profile_path do |f|
               = f.text_field :email, class: 'form-control'
-              = f.text_field :first_name, class: 'form-control'
-              = f.text_field :last_name, class: 'form-control'
 
               .form-group
                 = f.submit 'Редактирай', class: 'btn btn-primary'

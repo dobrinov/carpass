@@ -29,8 +29,6 @@ class GuestUser
       u.email = generate_email
       u.password = 'guestuser'
       u.password_confirmation = 'guestuser'
-      u.first_name = 'Демо'
-      u.last_name = 'Потребител'
       u.guest = true
 
       u.build_setting

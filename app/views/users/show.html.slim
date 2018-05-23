@@ -12,12 +12,6 @@ br
           th Имейл
           td = @user.email
         tr
-          th Име
-          td = @user.first_name || 'няма'
-        tr
-          th Фамилия
-          td = @user.last_name || 'няма'
-        tr
           th Последен вход
           td = @user.last_login_at.strftime("%d.%m.%Y")
 

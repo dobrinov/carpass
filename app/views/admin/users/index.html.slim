@@ -5,7 +5,6 @@ h1 Потребители
     thead
       tr
         th Идентификатор
-        th Име
         th Имейл
         th Дата на регистрация
         th Последен логин
@@ -15,11 +14,6 @@ h1 Потребители
       - @users.each do |user|
         tr
           td = user.id
-          td
-            - if user.provider == 'facebook'
-              = link_to user.full_name, "https://facebook.com/#{user.uid}", target: '_blank'
-            - else
-              = user.full_name
           td = link_to user.email, admin_user_cars_path(user)
           td = user.created_at.strftime("%d.%m.%Y %H:%M:%S")
           td = user.last_login_at.strftime("%d.%m.%Y %H:%M:%S")
