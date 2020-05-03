@@ -15,7 +15,6 @@ gem 'jbuilder'
 gem 'bcrypt'
 gem 'httparty'
 gem 'slim-rails'
-gem 'compass-rails'
 gem "font-awesome-rails"
 gem 'bootstrap-sass'
 gem 'bootstrap_form'
