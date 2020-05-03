@@ -1,4 +1,4 @@
-class History < ActiveRecord::Base
+class History < ApplicationRecord
   belongs_to :car
   has_many :notifications, as: :notifiable, dependent: :destroy
 

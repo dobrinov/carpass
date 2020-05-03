@@ -1,4 +1,4 @@
-class Location < ActiveRecord::Base
+class Location < ApplicationRecord
   has_many :vehicle_inspections, dependent: :destroy
 
   validates :name,
