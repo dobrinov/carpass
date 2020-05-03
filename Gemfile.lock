@@ -60,7 +60,6 @@ GEM
     bootstrap_form (4.5.0)
       actionpack (>= 5.2)
       activemodel (>= 5.2)
-    bower-rails (0.10.0)
     builder (3.2.4)
     chronic (0.10.2)
     coderay (1.1.2)
@@ -156,6 +155,8 @@ GEM
     puma (4.3.3)
       nio4r (~> 2.0)
     rack (2.2.2)
+    rack-proxy (0.6.5)
+      rack
     rack-test (1.1.0)
       rack (>= 1.0, < 3)
     rails (5.2.4.2)
@@ -214,6 +215,7 @@ GEM
       sprockets (> 3.0)
       sprockets-rails
       tilt
+    semantic_range (2.3.0)
     slim (4.0.1)
       temple (>= 0.7.6, < 0.9)
       tilt (>= 2.0.6, < 2.1)
@@ -241,6 +243,11 @@ GEM
       coercible (~> 1.0)
       descendants_tracker (~> 0.0, >= 0.0.3)
       equalizer (~> 0.0, >= 0.0.9)
+    webpacker (5.1.1)
+      activesupport (>= 5.2)
+      rack-proxy (>= 0.6.1)
+      railties (>= 5.2)
+      semantic_range (>= 2.3.0)
     websocket-driver (0.7.1)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.4)
@@ -261,7 +268,6 @@ DEPENDENCIES
   bootstrap-sass
   bootstrap-wysihtml5-rails
   bootstrap_form
-  bower-rails (~> 0.10.0)
   font-awesome-rails
   httparty
   jbuilder
@@ -282,6 +288,7 @@ DEPENDENCIES
   slim-rails
   uglifier
   virtus
+  webpacker
   whenever
   wicked_pdf
   will_paginate
