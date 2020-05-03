@@ -282,7 +282,6 @@ DEPENDENCIES
   rspec-rails
   sass-rails
   slim-rails
-  sprockets (= 3.7.2)
   uglifier
   unicorn
   virtus
