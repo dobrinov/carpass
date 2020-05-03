@@ -38,7 +38,9 @@ end
 
 group :development do
   gem 'listen'
-  #gem 'capistrano-rails', '~> 1.1'
-  #gem 'capistrano-rbenv', '~> 2.0'
-  #gem 'capistrano-bundler', '~> 1.1.4'
+  gem "capistrano", require: false
+  gem "capistrano-rails", require: false
+  gem 'capistrano-rbenv'
+  gem 'capistrano-bundler'
+  gem 'capistrano3-puma'
 end
