@@ -206,8 +206,6 @@ GEM
     rb-fsevent (0.9.7)
     rb-inotify (0.9.7)
       ffi (>= 0.5.0)
-    rdoc (4.2.2)
-      json (~> 1.4)
     redirectr (0.1.0)
     rspec-core (3.5.1)
       rspec-support (~> 3.5.0)
@@ -233,9 +231,6 @@ GEM
       sprockets (>= 2.8, < 4.0)
       sprockets-rails (>= 2.0, < 4.0)
       tilt (>= 1.1, < 3)
-    sdoc (0.4.1)
-      json (~> 1.7, >= 1.7.7)
-      rdoc (~> 4.0)
     slim (3.0.6)
       temple (~> 0.7.3)
       tilt (>= 1.3.3, < 2.1)
@@ -288,8 +283,8 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  bcrypt (~> 3.1.7)
-  bootstrap-sass (~> 3.3.6)
+  bcrypt
+  bootstrap-sass
   bootstrap-wysihtml5-rails
   bootstrap_form
   bower-rails (~> 0.10.0)
@@ -299,7 +294,7 @@ DEPENDENCIES
   compass-rails
   font-awesome-rails
   httparty
-  jbuilder (~> 2.0)
+  jbuilder
   jquery-rails
   meta-tags
   newrelic_rpm
@@ -310,18 +305,17 @@ DEPENDENCIES
   pry-rails
   quiet_assets
   rails (= 4.2.6)
-  redirectr (~> 0.1.0)
+  redirectr
   rspec-rails (~> 3.5)
-  sass-rails (~> 5.0)
-  sdoc (~> 0.4.0)
+  sass-rails
   slim-rails
   thin
-  uglifier (>= 1.3.0)
+  uglifier
   unicorn
   virtus
   whenever
   wicked_pdf
-  will_paginate (~> 3.1.0)
+  will_paginate
   will_paginate-bootstrap
   wkhtmltopdf-binary
 
