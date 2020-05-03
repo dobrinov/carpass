@@ -6,7 +6,7 @@ class PurchaseHistoriesController < HistoriesController
 
   def history_params
     if params[:purchase_history].present?
-      params[:purchase_history].permit(:happened_at, :mileage)
+      params[:purchase_history].permit(:happened_at, :mileage).to_h
     else
       {}
     end

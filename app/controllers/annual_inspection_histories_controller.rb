@@ -20,7 +20,7 @@ class AnnualInspectionHistoriesController < HistoriesController
 
   def history_params
     if params[:annual_inspection_history].present?
-      params[:annual_inspection_history].permit(:happened_at, :mileage, :valid_until, :cost, :details)
+      params[:annual_inspection_history].permit(:happened_at, :mileage, :valid_until, :cost, :details).to_h
     else
       {}
     end

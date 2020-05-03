@@ -40,7 +40,7 @@ class PasswordResetsController < ApplicationController
 
   def user_params
     if params[:user].present?
-      params[:user].permit(:password, :password_confirmation)
+      params[:user].permit(:password, :password_confirmation).to_h
     else
       {}
     end
