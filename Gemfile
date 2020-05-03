@@ -1,8 +1,8 @@
 source 'https://rubygems.org'
 
-ruby '2.3.0'
+ruby '2.5.0'
 
-gem 'rails', '4.2.6'
+gem 'rails', '5.0.2'
 gem 'pg'
 gem 'unicorn'
 
@@ -34,13 +34,12 @@ gem 'will_paginate-bootstrap'
 gem 'wkhtmltopdf-binary'
 
 group :development, :test do
-  gem 'rspec-rails', '~> 3.5'
+  gem 'rspec-rails'
 end
 
 group :development do
   gem 'thin'
-  gem 'capistrano-rails', '~> 1.1'
-  gem 'capistrano-rbenv', '~> 2.0'
-  gem 'capistrano-bundler', '~> 1.1.4'
-  gem 'quiet_assets'
+  #gem 'capistrano-rails', '~> 1.1'
+  #gem 'capistrano-rbenv', '~> 2.0'
+  #gem 'capistrano-bundler', '~> 1.1.4'
 end

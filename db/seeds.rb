@@ -6,3 +6,8 @@ def create_user(email)
 end
 
 homer = create_user 'homer@example.com'
+
+bmw = Brand.create! name: 'BMW'
+
+car = Car.crerate! user: homer, brand: 'BMW', model: '325i'
+
