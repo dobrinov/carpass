@@ -1,6 +1,6 @@
 class FacebookSessionsController < ApplicationController
   def create
-    user = FacebookUser.from_omniauth(env["omniauth.auth"])
+    user = FacebookUser.from_omniauth(request.env["omniauth.auth"])
 
     if user_created_last_minute?(user)
       flash[:facebook_tracking] = 'signup'

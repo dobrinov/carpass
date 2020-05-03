@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 ruby '2.5.0'
 
-gem 'rails', '5.1.0'
+gem 'rails', '5.2.0'
 gem 'pg'
 gem 'unicorn'
 
@@ -33,12 +33,15 @@ gem 'will_paginate'
 gem 'will_paginate-bootstrap'
 gem 'wkhtmltopdf-binary'
 
+# Temporary
+gem 'sprockets', '3.7.2'
+
 group :development, :test do
   gem 'rspec-rails'
 end
 
 group :development do
-  gem 'thin'
+  gem 'listen'
   #gem 'capistrano-rails', '~> 1.1'
   #gem 'capistrano-rbenv', '~> 2.0'
   #gem 'capistrano-bundler', '~> 1.1.4'

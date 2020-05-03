@@ -12,7 +12,6 @@ test:
     key: 'fake'
     secret: 'fake'
 
-
 production:
   <<: *defaults
   facebook:
