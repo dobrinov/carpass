@@ -1,4 +1,4 @@
-lock '3.4.1'
+lock '3.13.0'
 
 set :application, 'carpass'
 set :repo_url, 'git@github.com:dobrinov/carpass.git'
