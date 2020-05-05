@@ -1,3 +1,3 @@
-class Brand < ActiveRecord::Base
+class Brand < ApplicationRecord
   has_many :cars, dependent: :destroy
 end

@@ -27,7 +27,7 @@ module Admin
 
     def car_params
       if params[:car].present?
-        params[:car].permit(:brand_id, :model)
+        params[:car].permit(:brand_id, :model).to_h
       else
         {}
       end

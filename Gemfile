@@ -1,47 +1,46 @@
 source 'https://rubygems.org'
 
-ruby '2.3.0'
+ruby '2.6.6'
 
-gem 'rails', '4.2.6'
-gem 'pg'
-gem 'unicorn'
+gem 'rails', '5.2.4.2'
 
-gem 'virtus'
-gem 'sass-rails', '~> 5.0'
-gem 'uglifier', '>= 1.3.0'
-gem 'jquery-rails'
-gem 'redirectr', '~> 0.1.0'
-gem 'jbuilder', '~> 2.0'
-gem 'sdoc', '~> 0.4.0', group: :doc
-gem 'bcrypt', '~> 3.1.7'
-gem 'httparty'
-gem 'slim-rails'
-gem 'compass-rails'
-gem "font-awesome-rails"
-gem 'bootstrap-sass', '~> 3.3.6'
+gem 'bcrypt'
 gem 'bootstrap_form'
+gem 'bootstrap-sass'
 gem 'bootstrap-wysihtml5-rails'
-gem 'omniauth-facebook'
-gem 'pry-rails'
-gem 'newrelic_rpm'
-gem "bower-rails", "~> 0.10.0"
-gem 'premailer-rails'
+gem 'font-awesome-rails'
+gem 'httparty'
+gem 'jbuilder'
+gem 'jquery-rails'
 gem 'meta-tags'
+gem 'newrelic_rpm'
 gem 'nokogiri'
+gem 'omniauth-facebook'
+gem 'pg'
+gem 'premailer-rails'
+gem 'pry-rails'
+gem 'puma'
+gem 'redirectr'
+gem 'sass-rails'
+gem 'slim-rails'
+gem 'uglifier'
+gem 'virtus'
+gem 'webpacker'
 gem 'whenever', :require => false
 gem 'wicked_pdf'
-gem 'will_paginate', '~> 3.1.0'
 gem 'will_paginate-bootstrap'
+gem 'will_paginate'
 gem 'wkhtmltopdf-binary'
 
 group :development, :test do
-  gem 'rspec-rails', '~> 3.5'
+  gem 'rspec-rails'
 end
 
 group :development do
-  gem 'thin'
-  gem 'capistrano-rails', '~> 1.1'
-  gem 'capistrano-rbenv', '~> 2.0'
-  gem 'capistrano-bundler', '~> 1.1.4'
-  gem 'quiet_assets'
+  gem 'listen'
+  gem "capistrano", require: false
+  gem "capistrano-rails", require: false
+  gem 'capistrano-rbenv'
+  gem 'capistrano-bundler'
+  gem 'capistrano3-puma'
 end

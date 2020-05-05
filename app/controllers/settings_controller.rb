@@ -24,7 +24,7 @@ class SettingsController < ApplicationController
         :receives_inactivity_emails,
         :receives_history_expiration_facebook_notifications,
         :receives_inactivity_facebook_notifications
-      )
+      ).to_h
     else
       {}
     end

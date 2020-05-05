@@ -1,1 +1,1 @@
-server 'carpass.bg', user: 'deploy', roles: %w{web app db}
+server 'carpass.bg', user: 'cpass', roles: %w{web app db}

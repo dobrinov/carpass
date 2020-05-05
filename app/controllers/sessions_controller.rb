@@ -31,12 +31,12 @@ class SessionsController < ApplicationController
   private
 
   def omniauth_session?
-    env["omniauth.auth"].present?
+    request.env["omniauth.auth"].present?
   end
 
   def set_referrer
-    if env["omniauth.params"].present? && env["omniauth.params"]["referrer"].present?
-      params[:referrer] = env["omniauth.params"]["referrer"]
+    if request.env["omniauth.params"].present? && request.env["omniauth.params"]["referrer"].present?
+      params[:referrer] = request.env["omniauth.params"]["referrer"]
     end
   end
 end

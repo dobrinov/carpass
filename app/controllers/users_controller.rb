@@ -49,7 +49,7 @@ class UsersController < ApplicationController
 
   def user_params
     if params[:user].present?
-      params[:user].permit(:email, :password, :password_confirmation)
+      params[:user].permit(:email, :password, :password_confirmation).to_h
     else
       {}
     end
