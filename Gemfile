@@ -9,6 +9,8 @@ gem 'bootstrap_form'
 gem 'bootstrap-sass'
 gem 'bootstrap-wysihtml5-rails'
 gem 'font-awesome-rails'
+gem 'graphql'
+gem 'graphiql-rails'
 gem 'httparty'
 gem 'jbuilder'
 gem 'jquery-rails'
@@ -44,3 +46,5 @@ group :development do
   gem 'capistrano-bundler'
   gem 'capistrano3-puma'
 end
+
+gem 'graphiql-rails', group: :development
