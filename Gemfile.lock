@@ -238,6 +238,8 @@ GEM
       sprockets-rails
       tilt
     semantic_range (2.3.0)
+    sentry-raven (3.0.0)
+      faraday (>= 1.0)
     slim (4.0.1)
       temple (>= 0.7.6, < 0.9)
       tilt (>= 2.0.6, < 2.1)
@@ -315,6 +317,7 @@ DEPENDENCIES
   redirectr
   rspec-rails
   sass-rails
+  sentry-raven
   slim-rails
   uglifier
   virtus

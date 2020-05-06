@@ -22,6 +22,7 @@ gem 'pry-rails'
 gem 'puma'
 gem 'redirectr'
 gem 'sass-rails'
+gem "sentry-raven"
 gem 'slim-rails'
 gem 'uglifier'
 gem 'virtus'
