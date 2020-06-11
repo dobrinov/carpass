@@ -1,3 +1,10 @@
+GIT
+  remote: https://github.com/kraft001/wkhtmltopdf_binary_gem
+  revision: b949932ce4af3940b4faa528456d196f2b1631b7
+  branch: ubuntu_20_04
+  specs:
+    wkhtmltopdf-binary (0.12.6)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -285,7 +292,6 @@ GEM
     will_paginate (3.3.0)
     will_paginate-bootstrap (1.0.2)
       will_paginate (>= 3.0.3)
-    wkhtmltopdf-binary (0.12.5.4)
 
 PLATFORMS
   ruby
@@ -326,7 +332,7 @@ DEPENDENCIES
   wicked_pdf
   will_paginate
   will_paginate-bootstrap
-  wkhtmltopdf-binary
+  wkhtmltopdf-binary!
 
 RUBY VERSION
    ruby 2.6.6p146

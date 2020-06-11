@@ -31,7 +31,7 @@ gem 'whenever', :require => false
 gem 'wicked_pdf'
 gem 'will_paginate-bootstrap'
 gem 'will_paginate'
-gem 'wkhtmltopdf-binary'
+gem 'wkhtmltopdf-binary', git: 'https://github.com/kraft001/wkhtmltopdf_binary_gem', branch: 'ubuntu_20_04'
 
 group :development, :test do
   gem 'rspec-rails'
