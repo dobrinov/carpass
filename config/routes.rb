@@ -58,6 +58,7 @@ Rails.application.routes.draw do
 
   get '/contacts',     to: 'static_pages#contacts'
   get '/terms_of_use', to: 'static_pages#terms_of_use'
+  get '/privacy_policy', to: 'static_pages#privacy_policy'
 
   resources :locations, only: [:index, :show]
 
